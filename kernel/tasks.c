@@ -20,7 +20,7 @@ void wake_all(struct waitqueue *queue)
 {
     if (!queue->signalled) {
         queue->signalled = 1;
-
+        
         struct thread *thread = queue->proc_list;
         while (thread) {
             make_runnable(thread);
@@ -31,7 +31,7 @@ void wake_all(struct waitqueue *queue)
 }
 
 void make_runnable(struct thread *thread)
-{
+{    
     log_header();
     printf("Waking pid %d\n", thread->pid);
     thread->wake_time = current_time();
@@ -50,13 +50,13 @@ void timeslice_expired()
 }
 
 void schedule_now(u64 flags)
-{
+{    
     u64 sched_time = current_time();
 
     if (flags && current_thread && current_thread != &idle_thread) {
         make_runnable(current_thread);
     }
-
+    
     schedule_needed = 0;
 
     struct sched_task  *next_task   = dequeue_next_task();
@@ -128,20 +128,20 @@ void possibly_schedule()
 }
 
 _noreturn void start_multitasking()
-{
+{   
     memset(&idle_thread, 0x0, sizeof(struct thread));
     char *n = "idle";
     memcpy(idle_thread.name, n, sizeof(n) + 1);
     /* idle thread has no sched handle */
     current_thread   = &idle_thread;
-
+    
     schedule_needed = 1;
 
     while (1) {
         if (schedule_needed) {
             schedule_now(0x0);
         }
-
+        
         /* atomic sleep sequence,
            well, an nmi might be able to ruin our day */
         asm volatile("sti ; hlt ; cli");

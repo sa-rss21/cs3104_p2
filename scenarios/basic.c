@@ -40,6 +40,7 @@ int parse_number(const char *buf, u64 *ret, int base)
         val = val * base + digit_val;
     }
 
+
     *ret = val;
     return read;
 }
@@ -69,7 +70,7 @@ void exit()
 
 /* spawn a new processes running the given binary with the given argument
     if prog is NULL the current binary is used.
-
+    
     the pid of the new process is returned and can be wait()-ed on.
     */
 u64 spawn(char *prog, char *arg)

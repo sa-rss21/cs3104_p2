@@ -1,0 +1,100 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+Waking pid 1
+init=== schedule pid 1 (init init)
+[000010326] PID 01 (init init) syscall write(...)
+I am init
+[000010329] PID 01 (init init) syscall spawn("init", "long_running")
+[000010332] PID 01 (init init) Waking pid 2
+[000010334] PID 01 (init init) Waking pid 1
+init$$ timeslice summary for pid 1 (init init) : queued at 10318, ran at 10318, ended at 10334
+=== schedule pid 2 (init long_running)
+[000014038] PID 02 (init long_running) syscall sleep(100000)
+[000014040] PID 02 (init long_running) sleeping until 114040
+init$$ timeslice summary for pid 2 (init long_running) : queued at 10334, ran at 10334, ended at 14042
+=== schedule pid 1 (init init)
+[000014046] PID 01 (init init) syscall spawn("init", "short_running")
+[000014049] PID 01 (init init) Waking pid 3
+[000014050] PID 01 (init init) Waking pid 1
+init$$ timeslice summary for pid 1 (init init) : queued at 13342, ran at 14042, ended at 14050
+=== schedule pid 3 (init short_running)
+[000014058] PID 03 (init short_running) syscall sleep(300000)
+[000014060] PID 03 (init short_running) sleeping until 314060
+init$$ timeslice summary for pid 3 (init short_running) : queued at 14050, ran at 14050, ended at 14062
+=== schedule pid 1 (init init)
+[000014066] PID 01 (init init) syscall exit()
+[000014068] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 14052, ran at 14062, ended at 14070
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               1  rcx: 0x              30  rdx: 0xfffffffffc1c0000
+rsi: 0x               1  rdi: 0x         7fc6148  rbp: 0x         7fa8c28  rsp: 0x         7fa8c10
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7fc6010  r13: 0x         7fc6090  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe051d0  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007fa8ff8  3d0(%rbp)  3e8(%rsp)     adadadadadadadad
+0x0000000007fa8ff0  3c8(%rbp)  3e0(%rsp)     adadadadadadadad
+0x0000000007fa8fe8  3c0(%rbp)  3d8(%rsp)     adadadadadadadad
+0x0000000007fa8fe0  3b8(%rbp)  3d0(%rsp)     adadadadadadadad
+0x0000000007fa8fd8  3b0(%rbp)  3c8(%rsp)     adadadadadadadad
+0x0000000007fa8fd0  3a8(%rbp)  3c0(%rsp)     adadadadadadadad
+0x0000000007fa8fc8  3a0(%rbp)  3b8(%rsp)     adadadadadadadad
+0x0000000007fa8fc0  398(%rbp)  3b0(%rsp)     adadadadadadadad
+0x0000000007fa8fb8  390(%rbp)  3a8(%rsp)     adadadadadadadad
+0x0000000007fa8fb0  388(%rbp)  3a0(%rsp)     adadadadadadadad
+0x0000000007fa8fa8  380(%rbp)  398(%rsp)     adadadadadadadad
+0x0000000007fa8fa0  378(%rbp)  390(%rsp)     adadadadadadadad
+0x0000000007fa8f98  370(%rbp)  388(%rsp)     adadadadadadadad
+0x0000000007fa8f90  368(%rbp)  380(%rsp)     adadadadadadadad
+0x0000000007fa8f88  360(%rbp)  378(%rsp)     adadadadadadadad
+0x0000000007fa8f80  358(%rbp)  370(%rsp)     adadadadadadadad
+0x0000000007fa8f78  350(%rbp)  368(%rsp)     adadadadadadadad
+0x0000000007fa8f70  348(%rbp)  360(%rsp)     adadadadadadadad
+0x0000000007fa8f68  340(%rbp)  358(%rsp)     adadadadadadadad
+0x0000000007fa8f60  338(%rbp)  350(%rsp)     adadadadadadadad
+0x0000000007fa8f58  330(%rbp)  348(%rsp)     adadadadadadadad
+0x0000000007fa8f50  328(%rbp)  340(%rsp)     adadadadadadadad
+0x0000000007fa8f48  320(%rbp)  338(%rsp)     adadadadadadadad
+0x0000000007fa8f40  318(%rbp)  330(%rsp)     adadadadadadadad
+0x0000000007fa8f38  310(%rbp)  328(%rsp)     adadadadadadadad
+0x0000000007fa8f30  308(%rbp)  320(%rsp)     adadadadadadadad
+0x0000000007fa8f28  300(%rbp)  318(%rsp)     adadadadadadadad
+0x0000000007fa8f20  2f8(%rbp)  310(%rsp)     adadadadadadadad
+0x0000000007fa8f18  2f0(%rbp)  308(%rsp)     adadadadadadadad
+0x0000000007fa8f10  2e8(%rbp)  300(%rsp)     adadadadadadadad
+0x0000000007fa8f08  2e0(%rbp)  2f8(%rsp)     adadadadadadadad
+0x0000000007fa8f00  2d8(%rbp)  2f0(%rsp)     adadadadadadadad
+0x0000000007fa8ef8  2d0(%rbp)  2e8(%rsp)     adadadadadadadad
+0x0000000007fa8ef0  2c8(%rbp)  2e0(%rsp)     adadadadadadadad
+0x0000000007fa8ee8  2c0(%rbp)  2d8(%rsp)     adadadadadadadad
+0x0000000007fa8ee0  2b8(%rbp)  2d0(%rsp)     adadadadadadadad
+0x0000000007fa8ed8  2b0(%rbp)  2c8(%rsp)     adadadadadadadad
+0x0000000007fa8ed0  2a8(%rbp)  2c0(%rsp)     adadadadadadadad
+0x0000000007fa8ec8  2a0(%rbp)  2b8(%rsp)     adadadadadadadad
+0x0000000007fa8ec0  298(%rbp)  2b0(%rsp)     adadadadadadadad
+0x0000000007fa8eb8  290(%rbp)  2a8(%rsp)     adadadadadadadad
+0x0000000007fa8eb0  288(%rbp)  2a0(%rsp)     adadadadadadadad
+0x0000000007fa8ea8  280(%rbp)  298(%rsp)     adadadadadadadad
+0x0000000007fa8ea0  278(%rbp)  290(%rsp)     adadadadadadadad
+0x0000000007fa8e98  270(%rbp)  288(%rsp)     adadadadadadadad
+0x0000000007fa8e90  268(%rbp)  280(%rsp)     adadadadadadadad
+0x0000000007fa8e88  260(%rbp)  278(%rsp)     adadadadadadadad
+0x0000000007fa8e80  258(%rbp)  270(%rsp)     adadadadadadadad
+0x0000000007fa8e78  250(%rbp)  268(%rsp)     adadadadadadadad
+0x0000000007fa8e70  248(%rbp)  260(%rsp)     adadadadadadadad
+0x0000000007fa8e68  240(%rbp)  258(%rsp)     adadadadadadadad
+0x0000000007fa8e60  238(%rbp)  250(%rsp)     adadadadadadadad
+0x0000000007fa8e58  230(%rbp)  248(%rsp)     adadadadadadadad
+0x00

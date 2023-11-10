@@ -54,7 +54,7 @@ static void calibrate_timer()
     u64 pit_start  = 0xFFFF;
     u64 tsc_start  = rdtsc();
     u64 apic_start = 0xFFFFFFFF;
-
+    
     while (rdtsc() < tsc_start + 30000000UL) {}
 
     outb(PIT_CTRL, 0); /* latch */
@@ -77,7 +77,7 @@ static void calibrate_timer()
     tsc_ticks_per_us  = 1000    * elapsed_tsc  / elapsed_ns;
 
     //printf("apic per ms %d tsc per us %d\n", apic_ticks_per_ms, tsc_ticks_per_us);
-
+    
     /* stop LAPIC */
     write_apic32(APIC_TIMER_SET, 0x0);
 }
@@ -86,13 +86,13 @@ void schedule_apic_timer_interrupt(u64 next_time)
 {
     if (next_time == 0) {
         /* disable timer */
-        write_apic32(APIC_TIMER_SET, 0x0);
+        write_apic32(APIC_TIMER_SET, 0x0);        
         return;
     }
 
     u64 cur   = current_time();
     u64 ticks = (next_time - cur) * apic_ticks_per_ms / 1000;
-
+    
     if (next_time > cur) {
         if (ticks <= 0xFFFFFFFFUL) {
             //printf("ticks = %d\n", ticks);
@@ -125,4 +125,5 @@ u64 current_time()
 {
     return rdtsc() / tsc_ticks_per_us;
 }
+
 

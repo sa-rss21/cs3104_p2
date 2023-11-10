@@ -8,7 +8,7 @@ static struct thread *sleeping_threads = NULL;
 static void timers_schedule_timer_interrupt()
 {
     u64 time = 0;
-
+    
     /* a wakeup from a sleep() or the end of the timeslice, whichever sooner */
     if (sleeping_threads) {
         time = sleeping_threads->sleep_data.wake_time;
@@ -31,7 +31,7 @@ void run_timers()
         struct thread *thread = sleeping_threads;
         if (!thread)
             break;
-
+        
         /* allow a 1 us slack */
         if (thread->sleep_data.wake_time > current_time() + 1) {
             break;

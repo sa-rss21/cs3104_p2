@@ -29,7 +29,7 @@ _inline u64 read_msr(u64 msr)
     asm volatile("rdmsr" : "=a"(eax), "=d"(edx) : "c"(msr));
     return ((u64)edx << 32) | eax;
 }
-
+ 
 _inline void write_msr(u64 msr, u64 val)
 {
     u32 eax = (val >>  0) & 0xFFFFFFFF;
@@ -42,7 +42,7 @@ _inline void write_msr(u64 msr, u64 val)
 _inline void outb(u16 port, u8 data)
 {
     asm volatile("out %%al, %%dx" :: "d"(port), "a"(data));
-}
+}    
 
 _inline int inb(u16 port)
 {
@@ -54,7 +54,7 @@ _inline int inb(u16 port)
 _inline void outw(u16 port, u16 data)
 {
     asm volatile("out %%ax, %%dx" :: "d"(port), "a"(data));
-}
+}    
 
 _inline u16 inw(u16 port)
 {
@@ -66,7 +66,7 @@ _inline u16 inw(u16 port)
 _inline void outl(u16 port, u32 data)
 {
     asm volatile("outl %%eax, %%edx" :: "d"(port), "a"(data));
-}
+}    
 
 _inline u32 inl(u16 port)
 {
@@ -120,7 +120,7 @@ _inline void push_stack_64(u64** stack, u64 value)
     "popq %r13 ;"                              \
     "popq %r12 ;"                              \
     "popq %rbp ;"                              \
-    "popq %rbx ;"
+    "popq %rbx ;"    
 
 #define NUM_SYSV_SAVE_REGS 6
 
@@ -146,10 +146,10 @@ struct interrupt_frame
 {
     /* pushed by the below macros that wrap an interrupt handler written in C */
     u64 rbp, rdi, rsi, rax, rbx, rcx, rdx, r8, r9, r10, r11, r12, r13, r14, r15;
-
+    
     /* pushed by hardware or irq handler */
     u64 errcode;
-
+    
     /* below pushed by hardware */
     u64 rip, cs;
     u64 eflags;
@@ -198,7 +198,7 @@ struct interrupt_frame
 
 /*
  * An interrupt handler can't be a regular C function because
- * 1) the C function will overwrite the registers,
+ * 1) the C function will overwrite the registers, 
  * 2) the C function will try to return with the "retq" instruction
  *    whereas an interrupt must be returned with "iretq" along with
  *    an appropriately stack frame (rip, cs, eflags, rsp, ss)
@@ -207,14 +207,14 @@ struct interrupt_frame
  * asm_irq_handler(my_irq_handler)(struct interrupt_frame *state) {
  *     printf("do whatever");
  * }
- *
+ * 
  * and turns it into
  *
  * void _asmcall c_my_irq_handler(struct interrupt_frame *state) {
  *    printf("do whatever");
  * }
  *
- * and an asm function "my_irq_handler" that
+ * and an asm function "my_irq_handler" that 
  * 1) pushes the registers
  * 2) calls the C function
  * and when (and if) the C function returns:
@@ -270,4 +270,5 @@ struct interrupt_frame
             :);                                                         \
     }                                                                   \
     void _asmcall c_ ## handler_func
+
 

@@ -60,9 +60,9 @@ for line in open(sys.argv[1], 'rb'):
 print('Mean wait time:',
       sum(wait_time_samples) / len(wait_time_samples) / 1000,
       'ms')
+        
 
-
-# complete the plot
+# complete the plot        
 # Legend
 import matplotlib.patches as mpatches
 patches = []
@@ -77,3 +77,4 @@ plt.barh(y=plt_y, width=plt_w, left=plt_x, color=plt_c)
 plt.yticks([])
 plt.tight_layout()
 plt.show()
+

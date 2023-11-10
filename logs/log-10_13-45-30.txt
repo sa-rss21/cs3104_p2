@@ -1,0 +1,217 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 1
+Priority: 1
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[010626587] PID 01 (init init) syscall write(...)
+I am init
+[010628713] PID 01 (init init) time slice expired, scheduling soon
+[010630276] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 1
+Priority: 1
+
+End of Scheduler State
+[010635034] PID 01 (init init) syscall spawn("init", "long_running")
+[010636749] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 2
+Priority: 1
+
+End of Scheduler State
+[010641446] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 2
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 10617961, ran at 10622479, ended at 10641445
+=== schedule pid 2 (init long_running)
+[010652055] PID 02 (init long_running) syscall sleep(100000)
+[010653631] PID 02 (init long_running) sleeping until 10753580
+$$ timeslice summary for pid 2 (init long_running) : queued at 10637762, ran at 10641445, ended at 10655053
+=== schedule pid 1 (init init)
+[010657980] PID 01 (init init) syscall spawn("init", "short_running")
+[010659543] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 3
+Priority: 1
+
+End of Scheduler State
+[010664048] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 3
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 10642481, ran at 10655053, ended at 10664047
+=== schedule pid 3 (init short_running)
+[010674331] PID 03 (init short_running) syscall sleep(300000)
+[012560619] PID 03 (init short_running) sleeping until 12860616
+$$ timeslice summary for pid 3 (init short_running) : queued at 10660625, ran at 10664047, ended at 12677865
+=== schedule pid 1 (init init)
+*** timer woke pid 2
+[012681674] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 2
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+End of Scheduler State
+[012688579] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 2
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PID: 1
+Priority: 1
+
+Task Name: init
+PI

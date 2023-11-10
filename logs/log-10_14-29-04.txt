@@ -1,0 +1,18 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+syscall exit()
+thread stopped
+$$ timeslice summary for pid -1152640768632888637 (Sÿ Sÿ) : queued at -1152640768632881325, ran at -1152640768632881325, ended at 2421386
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               0  rcx: 0x              30  rdx: 0xff

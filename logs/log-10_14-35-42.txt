@@ -1,0 +1,73 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+syscall exit()
+thread stopped
+$$ timeslice summary for pid -1152640768632888637 (Sÿ Sÿ) : queued at -1152640768632881325, ran at -1152640768632881325, ended at 3665325
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               0  rcx: 0x              30  rdx: 0xfffffffffc070000
+rsi: 0x               1  rdi: 0x             148  rbp: 0xfffffffffffffc18  rsp: 0xfffffffffffffc00
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x               0  r13: 0x               0  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0562c  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0xfffffffffffffff8  3e0(%rbp)  3f8(%rsp)     1eb6
+0xfffffffffffffff0  3d8(%rbp)  3f0(%rsp)     0
+0xffffffffffffffe8  3d0(%rbp)  3e8(%rsp)     0
+0xffffffffffffffe0  3c8(%rbp)  3e0(%rsp)     ffffffffffe04eb9
+0xffffffffffffffd8  3c0(%rbp)  3d8(%rsp)     fffffffffffffff8
+0xffffffffffffffd0  3b8(%rbp)  3d0(%rsp)     7fc6000
+0xffffffffffffffc8  3b0(%rbp)  3c8(%rsp)     8
+0xffffffffffffffc0  3a8(%rbp)  3c0(%rsp)     ffffffffffe06ebc
+0xffffffffffffffb8  3a0(%rbp)  3b8(%rsp)     ffffffffffe06ebc
+0xffffffffffffffb0  398(%rbp)  3b0(%rsp)     ffffffffffe046f7
+0xffffffffffffffa8  390(%rbp)  3a8(%rsp)     ffffffffffffffd8
+0xffffffffffffffa0  388(%rbp)  3a0(%rsp)     7fc6148
+0xffffffffffffff98  380(%rbp)  398(%rsp)     1
+0xffffffffffffff90  378(%rbp)  390(%rsp)     7fc6010
+0xffffffffffffff88  370(%rbp)  388(%rsp)     ffffffffffe062e6
+0xffffffffffffff80  368(%rbp)  380(%rsp)     ffffffffffe055d4
+0xffffffffffffff78  360(%rbp)  378(%rsp)     ffffffffffffffa8
+0xffffffffffffff70  358(%rbp)  370(%rsp)     6
+0xffffffffffffff68  350(%rbp)  368(%rsp)     1
+0xffffffffffffff60  348(%rbp)  360(%rsp)     0
+0xffffffffffffff58  340(%rbp)  358(%rsp)     0
+0xffffffffffffff50  338(%rbp)  350(%rsp)     1
+0xffffffffffffff48  330(%rbp)  348(%rsp)     7
+0xffffffffffffff40  328(%rbp)  340(%rsp)     7fc6000
+0xffffffffffffff38  320(%rbp)  338(%rsp)     ffffffffffe0457d
+0xffffffffffffff30  318(%rbp)  330(%rsp)     7fc6000
+0xffffffffffffff28  310(%rbp)  328(%rsp)     ffffffffffffff68
+0xffffffffffffff20  308(%rbp)  320(%rsp)     ffffffffffe06f72
+0xffffffffffffff18  300(%rbp)  318(%rsp)     ffffffffffe06f79
+0xffffffffffffff10  2f8(%rbp)  310(%rsp)     198
+0xffffffffffffff08  2f0(%rbp)  308(%rsp)     7fc6000
+0xffffffffffffff00  2e8(%rbp)  300(%rsp)     7fc6000
+0xfffffffffffffef8  2e0(%rbp)  2f8(%rsp)     0
+0xfffffffffffffef0  2d8(%rbp)  2f0(%rsp)     198
+0xfffffffffffffee8  2d0(%rbp)  2e8(%rsp)     ffffffffffe07ca4
+0xfffffffffffffee0  2c8(%rbp)  2e0(%rsp)     ffffffffffe04f59
+0xfffffffffffffed8  2c0(%rbp)  2d8(%rsp)     ffffffffffffff18
+0xfffffffffffffed0  2b8(%rbp)  2d0(%rsp)     1000
+0xfffffffffffffec8  2b0(%rbp)  2c8(%rsp)     7fbc000
+0xfffffffffffffec0  2a8(%rbp)  2c0(%rsp)     7fbc000
+0xfffffffffffffeb8  2a0(%rbp)  2b8(%rsp)     ab00000000
+0xfffffffffffffeb0  298(%rbp)  2b0(%rsp)     1000
+0xfffffffffffffea8  290(%rbp)  2a8(%rsp)     0
+0xfffffffffffffea0  288(%rbp)  2a0(%rsp)     ffffffffffe03b5f
+0xfffffffffffffe98  280(%rbp)  298(%rsp)     ffffffffffffffd8
+0xfffffffffffffe90  278(%rbp)  290(%rsp)     0
+0xfffffffffffffe88  270(%rbp)  288(%rsp)     0
+0xfffffffffffffe80  268(%rbp)  280(%rsp)     ffffffffffe07ca3
+0

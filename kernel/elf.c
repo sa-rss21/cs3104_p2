@@ -6,12 +6,12 @@
 #define PT_LOAD 1
 #define ELF_FLAG_READ  4
 #define ELF_FLAG_WRITE 2
-#define ELF_FLAG_EXEC  1
+#define ELF_FLAG_EXEC  1 
 struct elf_segment
 {
     u32 p_type;
     u32 p_flags;
-
+    
     u64 p_offset;
     u64 p_vaddr;
     u64 p_paddr;
@@ -34,7 +34,7 @@ static struct elf_segment *get_elf_segment(u8 *ptr, int index)
     if (index >= ph_entries)
         return 0;
 
-    struct elf_segment *ph = (struct elf_segment*) (ptr + (phoff + ph_size * index));
+    struct elf_segment *ph = (struct elf_segment*) (ptr + (phoff + ph_size * index));    
     return ph;
 }
 
@@ -64,14 +64,14 @@ static void load_elf(u8 *elf_file, struct interrupt_frame *entry_registers)
             }
         }
     }
-
+    
     /* map in a stack */
     u64 stack_page    = get_free_page(0xAD);
     u64 stack_vaddr   = (u64) kern_vaddr(stack_page) + PAGE_SIZE - 512;
 
     /* entry point */
     u64 entry_point = get_elf_entrypoint(elf_file);
-    entry_registers->rsp    = stack_vaddr;
+    entry_registers->rsp    = stack_vaddr; 
     entry_registers->rip    = (u64) base + (entry_point - offset);
 
     current_thread->memory_space = base;
@@ -88,7 +88,7 @@ static void _proc_thread(void *arg)
         printf("\n### ERROR: Could not load elf file: %s ###\n", path);
         crash();
     }
-
+    
     struct interrupt_frame entry_regs;
     init_userspace_frame(&entry_regs);
     load_elf(elf_file.data, &entry_regs);

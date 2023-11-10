@@ -1,6 +1,6 @@
 #include "common.h"
 
-/*
+/* 
  * syscall number is taken from rax
  * arg1, arg2, arg3 = rbx, rcx, rdx
  *
@@ -17,21 +17,21 @@ u64 systemcall(u64 number, u64 arg1, u64 arg2, u64 arg3)
         fb_setcol(0xFFFFFF);
         printf("%s", (const char*) arg1);
         fb_setcol(GRAY_COL);
-
+        
         return 0x3;
-
+        
     } else if (number == 2) {
-        /* exit */
+        /* exit */ 
         log_header();
         printf("syscall exit()\n");
 
         exit_thread();
-
+        
     } else if (number == 3) {
         /* spawn */
         if (arg1 == 0)
             arg1 = (u64) current_thread->name;
-
+            
         log_header();
         printf("syscall spawn(\"%s\", \"%s\")\n", (char*) arg1, (char*) arg2);
         return start_new_process((char*) arg1, (char*) arg2);

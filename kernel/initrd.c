@@ -22,7 +22,7 @@ static struct file_data tar_getfile(struct tar_header *in)
 {
     u64 file_size;
     parse_number(in->size, &file_size, 8);
-
+    
     return (struct file_data) {
                             .data = (u8*)((u64) in + 512),
                             .size = file_size
@@ -46,9 +46,9 @@ struct file_data get_initrd_file(const char *filename)
     /* Iterate through the TAR headers */
     struct tar_header *header = (struct tar_header*) initrd;
     struct tar_header *header_limit = (struct tar_header*) (initrd + bootloader_conf->initrd_size);
-
+    
     while (header->filename[0] != '\0' && header < header_limit) {
-
+        
         if (strcmp(header->filename, filename) == 0) {
             return tar_getfile(header);
         }

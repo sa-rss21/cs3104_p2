@@ -5,7 +5,7 @@
 
 int interrupt_counter = 0;
 asm_syscall_handler(asm_interrupt_syscall)(struct interrupt_frame *state)
-{
+{ 
     if (state->eflags & FLAG_INTERRUPTS_ON) {
         /* from userspace */
         state->rax = systemcall(state->rax, state->rbx, state->rcx, state->rdx);
@@ -24,7 +24,7 @@ void shutdown()
         fb_setcol(0x00FF00);
         printf("\n#### All Processes Stopped ####\n");
         outw(0x604, 0x2000); /* thid only works on QEMU */
-        halt_and_catch_fire();
+        halt_and_catch_fire();    
 }
 
 /********  LOADING  ***********/
@@ -36,7 +36,7 @@ void _start()
     /* disable other cores */
     if (apic_id != bootloader_conf->bspid)
         halt_and_catch_fire();
-
+    
     init_console();
     init_memory();
     init_interrupts();
@@ -52,3 +52,4 @@ void _start()
     start_new_process("init", "init");
     start_multitasking();
 }
+

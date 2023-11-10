@@ -5,14 +5,14 @@ struct thread *current_thread = NULL;
 static u64 pid_counter = 1;
 static struct thread *lst = NULL;
 
-void * _asmcall c_context_switch(struct thread *next_thread, void *old_stack)
+void * _asmcall c_context_switch(struct thread *next_thread, void *old_stack) 
 {
     if (current_thread) {
         current_thread->stack_ptr = old_stack;
     }
-
+    
     current_thread = next_thread;
-
+    
     return current_thread->stack_ptr;
 }
 
@@ -22,7 +22,7 @@ _naked void context_switch(struct thread *next_thread)
     /* Since the function is "naked", the top of the stack is a return address
      * to resume the original thread.
      *
-     * When we switch to a thread, we load its stack and execute a retq to pop
+     * When we switch to a thread, we load its stack and execute a retq to pop 
      * this return address.
      */
     asm volatile(SYSV_SAVE_REGS
@@ -57,7 +57,7 @@ u64 thread_init(struct thread *thread, threadfn func, void *arg)
 
     /* return addr */
     push_stack_64(&stack, (u64) thread_start);
-
+    
     for (int i = 0; i < NUM_SYSV_SAVE_REGS; i++)
         push_stack_64(&stack, 0x0);
 
@@ -113,7 +113,7 @@ void exit_thread()
 
     if (lst == current_thread)
         lst = current_thread->nxt;
-
+    
     if (current_thread->memory_space) {
         free(current_thread);
     }
@@ -121,7 +121,7 @@ void exit_thread()
     if (lst == NULL) {
         shutdown();
     }
-
+    
     current_thread = NULL;
 
     schedule_now(0x0);

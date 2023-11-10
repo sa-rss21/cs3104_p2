@@ -30,7 +30,7 @@ typedef signed   long int   int64_t;
 /* A raw function that doesn't touch the stack or registers,
    you have to do everything yourself in asm blocks inside the function*/
 #define _naked    __attribute__((naked))
-/* More than anything, this is a good bit of documentation */
+/* More than anything, this is a good bit of documentation */ 
 #define _noreturn __attribute__((noreturn))
 /* Mostly to avoid linking headaches when the compiler ignores
    the inline directive.  */
@@ -80,7 +80,7 @@ struct thread {
 
     /* return value of create_task() */
     struct sched_task sched_handle;
-
+    
     /* all the tasks that are waiting on us */
     struct waitqueue death_waiters;
 
@@ -89,7 +89,7 @@ struct thread {
     struct interrupt_frame *frame;
 
     /* loaded elf file */
-    void *memory_space;
+    void *memory_space; 
 
     /* used differently depending on what list this thread is on */
     union {
@@ -215,7 +215,7 @@ void run_timers();
 
 /* sleep the current task */
 void sleep(u64 micros);
-
+    
 void set_timeslice_len(u64 tslen);
 
 /* ========== Thread Funcions, see threading.c ========== */

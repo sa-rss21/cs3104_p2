@@ -1,0 +1,103 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+Priority: 1
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[005021462] PID 01 (init init) syscall write(...)
+I am init
+[005022333] PID 01 (init init) syscall spawn("init", "long_running")
+[005023045] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+Priority: 1
+
+End of Scheduler State
+[005024977] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+Priority: 1
+
+Task Name: init
+PID: 0
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 5017822, ran at 5019740, ended at 5024959
+=== schedule pid 2 (init long_running)
+[005029526] PID 02 (init long_running) syscall sleep(100000)
+[006731227] PID 02 (init long_running) sleeping until 6831186
+$$ timeslice summary for pid 2 (init long_running) : queued at 5023476, ran at 5024959, ended at 6731916
+=== schedule pid 1 (init init)
+[006733285] PID 01 (init init) syscall spawn("init", "short_running")
+[006734026] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 0
+Priority: 1
+
+End of Scheduler State
+[006735957] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+Priority: 1
+
+Task Name: init
+PID: 0
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 5025465, ran at 6731916, ended at 6735956
+=== schedule pid 3 (init short_running)
+[006740506] PID 03 (init short_running) syscall sleep(300000)
+[006741048] PID 03 (init short_running) sleeping until 7041048
+$$ timeslice summary for pid 3 (init short_running) : queued at 6734478, ran at 6735956, ended at 6741612
+=== schedule pid 1 (init init)
+[006742942] PID 01 (init init) syscall exit()
+[006743436] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 6736373, ran at 6741612, ended at 6743965
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               1  rcx: 0x              30  rdx: 0xfffffffffc120000
+rsi: 0x               1  rdi: 0x         7fc6148  rbp: 0x         7fa8c28  rsp: 0x         7fa8c10
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7fc6010  r13: 0x         7fc6090  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe055f8  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007fa8ff8  3d0(%rbp)  3e8(%rsp)     adadadadadadadad
+0x0000000007fa8ff0  3c8(%rbp)  3e0(%rsp)     adadadadadadadad
+0x0000000007fa8fe8  3c0(%rbp)  3d8(%rsp)     adadadadadadadad
+0x0000000007fa8fe0  3b8(%rbp)  3d0(%rsp)     adadadadadadadad
+0x0000000007fa8fd8  3b0(%rbp)  3c8(%rsp)     adadadadadadadad
+0x0000000007fa8fd0  3a8(%rbp)  3c0(%rsp)     adadadadadadadad
+0x0000000007fa8fc8  3a0(%rbp)  3b8(%rsp)     adadadadadadadad
+0x0000000007fa8fc0  398(%rbp)  3b0(%rsp)     adadadadadadadad
+0x0000000007fa8fb8  390(%rbp)  3a8(%rsp)     adadadadadadadad
+0x0000000007fa8fb0  388(%rbp)  3a0(%rsp)     adadadadadadadad
+0x0000000007fa8fa8  380(%rbp)  398(%rsp)     adadadadadadadad
+0x0000000007fa8fa0  378(%rbp)  390(%rsp)     adadadadadadadad
+0x0000000007fa8f98  370(%rbp)  388(%rsp)     adadadadadadadad
+0x0000000007fa8f90  368(%rbp)  380(%rsp)     adadadadadadadad
+0x0000000007fa8f88  360(%rbp)  378(%rsp)     adadadadadadadad
+0x0000000007fa8f80  358(%rbp)  370(%rsp)     adadadadadadadad
+0x0000000007fa8f78  350(%rbp)  368(%rsp)     adadadadadadadad
+0x0000000007fa8f70  348(%rbp)  360(%rsp)     adadadadadadadad
+0x0000000007fa8f68  340(%rbp)  358(%rs

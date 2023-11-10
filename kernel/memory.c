@@ -33,7 +33,7 @@ void init_memory()
 {
     MMapEnt *mmap_entry = &bootloader_conf->mmap;
     u8 *limit           = (u8*)bootloader_conf + bootloader_conf->size;
-
+    
     while ((u8*) mmap_entry < limit) {
         if (MMapEnt_IsFree(mmap_entry)) {
             /* free range */
@@ -56,7 +56,7 @@ void init_memory()
 void *malloc(u64 req_size)
 {
     if (req_size == 0)
-        return NULL;
+        return NULL;    
     assert(req_size <= PAGE_SIZE, "structure too big for malloc use get_free_page");
 
     return kern_vaddr(get_free_page(0x00));

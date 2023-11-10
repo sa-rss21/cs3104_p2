@@ -21,7 +21,7 @@ void memcpy(void *dest, void *src, u64 size)
 {
     u8 *p1 = dest;
     u8 *p2 = src;
-
+    
     for (u64 i = 0; i < size; i++) {
         p1[i] = p2[i];
     }

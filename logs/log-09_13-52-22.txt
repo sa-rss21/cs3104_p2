@@ -1,0 +1,41 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.1 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003226955] PID 01 (init init) syscall write(...)
+I am init
+[003227763] PID 01 (init init) syscall spawn("init", "long_running")
+[003228443] PID 01 (init init) Waking pid 2
+[003228929] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3225084, ran at 3225181, ended at 3228913
+=== schedule pid 2 (init long_running)
+[003230968] PID 02 (init long_running) syscall sleep(100000)
+[003231512] PID 02 (init long_running) sleeping until 3331494
+$$ timeslice summary for pid 2 (init long_running) : queued at 3228905, ran at 3228913, ended at 3232112
+=== schedule pid 1 (init init)
+[003233365] PID 01 (init init) syscall spawn("init", "short_running")
+[003234082] PID 01 (init init) Waking pid 3
+[003234480] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3229334, ran at 3232112, ended at 3234480
+=== schedule pid 3 (init short_running)
+[003236442] PID 03 (init short_running) syscall sleep(300000)
+[003236987] PID 03 (init short_running) sleeping until 3536986
+$$ timeslice summary for pid 3 (init short_running) : queued at 3234478, ran at 3234480, ended at 3237515
+=== schedule pid 1 (init init)
+[004097801] PID 01 (init init) time slice expired, scheduling soon
+*** timer woke pid 2
+[004149188] PID 01 (init init) Waking pid 2
+*** timer woke pid 3
+[004149928] PID 01 (init init) Waking pid 3
+[004150405] PID 01 (init init) Waking pid 1

@@ -18,12 +18,12 @@ static int init_serial() {
     outb(SERIAL_PORT + 4, 0x0B);    /* IRQs enabled, RTS/DSR set */
     outb(SERIAL_PORT + 4, 0x1E);    /* Set in loopback mode, test the serial chip */
     outb(SERIAL_PORT + 0, 0xAE);    /* Test serial chip (send byte 0xAE and check if serial returns same byte) */
-
+ 
     /* Check if serial is faulty (i.e: not same byte as sent) */
    if(inb(SERIAL_PORT + 0) != 0xAE) {
       return 1;
    }
-
+ 
    /* If serial is not faulty set it in normal operation mode
     * (not-loopback with IRQs enabled and OUT#1 and OUT#2 bits enabled) */
    outb(SERIAL_PORT + 4, 0x0F);
@@ -33,7 +33,7 @@ static int init_serial() {
 static int is_transmit_empty() {
    return inb(SERIAL_PORT + 5) & 0x20;
 }
-
+ 
 static void write_serial(char a) {
    while (is_transmit_empty() == 0);
    outb(SERIAL_PORT,a);
@@ -62,12 +62,12 @@ extern struct font_file _binary_font_psf_start;
 struct {
     u8 *buf;
     int x, y;
-
+    
     int raw_width, raw_height, scanline;
 
     int char_width, char_height;
     int width, height;
-
+    
     struct font_file *font;
     u32 col;
 } framebuf;
@@ -84,11 +84,11 @@ static void fb_newline()
 
     /* clear the row below */
     int clear_row = (framebuf.y + 1) % framebuf.height;
-
+    
     for (int row = 0; row < framebuf.char_height; row++) {
         u64 off    = (clear_row * framebuf.char_height + row) * framebuf.scanline;
         u32 *data  = (u32*)(framebuf.buf + off);
-
+        
         for (int p = 0; p < framebuf.raw_width; p++) {
             *data++ = 0x000000;
         }
@@ -106,10 +106,10 @@ static void init_fb()
 {
     framebuf.buf  = BLDR_framebuffer;
     framebuf.font = &_binary_font_psf_start;
-
+    
     framebuf.char_width    = framebuf.font->width + 1;
     framebuf.char_height   = framebuf.font->height;
-
+    
     framebuf.raw_width  = bootloader_conf->fb_width;
     framebuf.raw_height = bootloader_conf->fb_height;
     framebuf.scanline   = bootloader_conf->fb_scanline;
@@ -121,7 +121,7 @@ static void init_fb()
 }
 
 static void fb_putchar(char c)
-{
+{            
     if (c == '\n') {
         fb_newline();
         return;
@@ -139,7 +139,7 @@ static void fb_putchar(char c)
     else
         glyph_index = 0; /* default glyph */
     u8 *glyph_row = ((u8*) font + font->headersize) + glyph_index * font->bytesperglyph;
-
+    
     /* draw each row */
     for(int row = 0; row < font->height; row++) {
         /*
@@ -151,9 +151,9 @@ static void fb_putchar(char c)
             int bit  = 7 - (col % 8);
             int pix  = glyph_row[byte] & (1 << bit);
 
-
+            
             u32 *pixel = (u32*)(framebuf.buf + fboffset + col * 4);
-
+            
             if (pix)
                 *pixel = framebuf.col; /* on */
             else
@@ -163,7 +163,7 @@ static void fb_putchar(char c)
         fboffset  += framebuf.scanline;
         glyph_row += bytes_per_row;
     }
-
+        
     fb_advance();
 }
 
@@ -194,7 +194,7 @@ int parse_number(const char *buf, u64 *ret, int base)
 {
     u64 val = 0;
     int read = 0;
-
+    
     for (; buf[read] != 0; read++) {
         char c = buf[read];
         int digit_val = 100;
@@ -238,7 +238,7 @@ static void fmt_number(char **buf, u64 d, int base,
                        int is_signed, int hex_upper)
 {
     int i = 0;
-
+    
         if (is_signed && (d >> 63)) {
             (*buf)[i++] = '-';
             pad--;
@@ -270,7 +270,7 @@ static void fmt_number(char **buf, u64 d, int base,
         i += count;
         if (d == 0)
             (*buf)[i - 1] = '0';
-
+        
         for (int j = 0; d > 0; j++) {
             char c = d % base;
             if (c <= 9)
@@ -306,7 +306,7 @@ int printf(const char* format, ...)
     va_list va;
     va_start(va, format);
 
-
+    
     for (;*format; format++) {
         if (*format != '%') {
             *buf++ = *format;
@@ -362,7 +362,7 @@ int printf(const char* format, ...)
                 if (*format++ == 0)
                     goto abrupt_format_end;
             }
-
+            
         flags_done:
             /* [WIDTH] */
             if (*format == '*') {
@@ -379,7 +379,7 @@ int printf(const char* format, ...)
             /* [.PRECISION] */
             if (*format == '.') {
                 format++;
-
+                
                 if (*format == '*') {
                     precision = (int) va_arg(va, int);
                 } else {
@@ -398,14 +398,14 @@ int printf(const char* format, ...)
                     else
                         goto length_done;
                     break;
-
+                
                 case 'l':
                     if (length < 4)
                         length++;
                     else
                         goto length_done;
                     break;
-
+                
                 case 'z': /* size_t */
                 case 'j': /* intmax_t */
                 case 't': /* ptrdiff_t */
@@ -420,7 +420,7 @@ int printf(const char* format, ...)
                 if (*format++ == 0)
                     goto abrupt_format_end;
             }
-
+            
         length_done:
             /* first try to handle non-int cases */
             switch(*format) {
@@ -438,7 +438,7 @@ int printf(const char* format, ...)
                 int* ret = (int*)va_arg(va, int*);
                 *ret = (buf - ibuf);
                 continue;
-
+                
             default:
                 break;
             }
@@ -463,7 +463,7 @@ int printf(const char* format, ...)
                     goto invalid_format;
                 }
                 break;
-
+                
             case 'u':
             case 'x':
             case 'X':
@@ -492,19 +492,19 @@ int printf(const char* format, ...)
                 goto invalid_format;
 
             }
-
-
+            
+            
             /* [type] */
             switch (*format) {
             case 'd':
             case 'i':
                 fmt_number(&buf, value, 10, pad, pad_char, left_pad, pos_char, 1, 0);
                 break;
-
+                
             case 'u':
                 fmt_number(&buf, value, 10, pad, pad_char, left_pad, pos_char, 0, 0);
                 break;
-
+                
             case 'x':
                 if (alt_form) {
                     *buf++ = '0';
@@ -521,7 +521,7 @@ int printf(const char* format, ...)
                 }
                 fmt_number(&buf, value, 16, pad, pad_char, left_pad, pos_char, 0, 1);
                 break;
-
+                
             case 'o':
                 if (alt_form) {
                     *buf++ = '0';
@@ -558,7 +558,7 @@ int printf(const char* format, ...)
     int length = buf - ibuf;
     *buf++ = 0;
     puts(ibuf);
-
+    
     va_end(va);
 
     return length;
@@ -587,7 +587,7 @@ void printbuf(char *name, void *ptr, u64 size)
             printf("%#010lx: ", i);
         }
         printf("%02hhx", dat[i]);
-
+        
         if ((i + 1) % 16 == 0)
             printf("\n");
         else if ((i + 1) % 8 == 0)
@@ -614,13 +614,13 @@ static void print_off(void *_base, void *_ptr, char *name)
 static void print_stack(u64 *x, u64* mark)
 {
     int num = (round_up((u64) x, 4096) - (u64)x) / 8;
-
+    
     printf(" ===== [ STACK ] ===== \n");
     for (int i = num - 1; i > 0; i --) {
         printf("%p ", &x[i]);
         print_off(mark, &x[i], "rbp");
         print_off(&x[0], &x[i], "rsp");
-
+        
         if (&x[i] == mark) {
             printf("--- %lx\n", x[i]);
         } else {
@@ -633,13 +633,13 @@ static void print_stack(u64 *x, u64* mark)
     print_off(&x[0], &x[0], "rsp");
     printf("*** %lx\n", x[0]);
 
-
+    
     for (int i = -1; i >= -10; i--) {
         printf("%p ", &x[i]);
         print_off(mark, &x[i], "rbp");
         print_off(&x[0], &x[i], "rsp");
         printf("    %lx\n", x[i]);
-    }
+    }    
 }
 
 
@@ -655,7 +655,7 @@ void print_interrupt_frame(char *msg, struct interrupt_frame *regs)
     printf("rdi: %#18lx  ", regs->rdi);
     printf("rbp: %#18lx  ", regs->rbp);
     printf("rsp: %#18lx\n", regs->rsp);
-
+    
     printf(" r8: %#18lx  ", regs->r8);
     printf(" r9: %#18lx  ", regs->r9);
     printf("r10: %#18lx  ", regs->r10);
@@ -677,4 +677,5 @@ void print_interrupt_frame(char *msg, struct interrupt_frame *regs)
     print_stack((void*)regs->rsp, (void*) regs->rbp);
     //print_stack((void*)READ_REG(rsp), (void*)READ_REG(rbp));
 }
+
 
