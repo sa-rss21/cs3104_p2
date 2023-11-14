@@ -1,0 +1,38 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003665903] PID 01 (init init) syscall write(...)
+I am init
+[003669790] PID 01 (init init) syscall spawn("init", "long_running")
+[003672321] PID 01 (init init) Waking pid 2
+[003673721] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 3656202, ran at 3656626, ended at 3673682
+=== schedule pid 2 (init long_running)
+[003682342] PID 02 (init long_running) syscall sleep(100000)
+[003683557] PID 02 (init long_running) sleeping until 3783528
+Scheduler State:
+End of Scheduler State
+$$ timeslice summary for pid 2 (init long_running) : queued at 3673660, ran at 3673682, ended at 3684817
+=== schedule pid 1 (init init)
+*** timer woke pid 2
+[005370154] PID 01 (init init) Waking pid 2
+[005372404] PID 01 (init init) Waking pid 1

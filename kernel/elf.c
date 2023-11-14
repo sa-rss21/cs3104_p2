@@ -66,7 +66,7 @@ static void load_elf(u8 *elf_file, struct interrupt_frame *entry_registers)
     }
     
     /* map in a stack */
-    u64 stack_page    = get_free_page(0xAD);
+    u64 stack_page    = current_thread->kernel_stack_page;
     u64 stack_vaddr   = (u64) kern_vaddr(stack_page) + PAGE_SIZE - 512;
 
     /* entry point */
@@ -96,15 +96,16 @@ static void _proc_thread(void *arg)
     return_from_interrupt(&entry_regs);
 }
 
-u64 start_new_process(char *binary, char *arg)
+u64 start_new_process(char *binary, char *arg, u64 prio)
 {
     struct thread *child = malloc(sizeof(*child));
     thread_init(child, _proc_thread, child);
+    child->prio = prio;
 
     memcpy(child->name, binary, strlen(binary) + 1);
     memcpy(child->arg,  arg,    strlen(arg   ) + 1);
 
     task_started(&child->sched_handle, child->pid, child->name);
-    make_runnable(child);
+    make_runnable(child, 1);
     return child->pid;
 }

@@ -1,0 +1,69 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[004083165] PID 01 (init init) syscall write(...)
+I am init
+[004084583] PID 01 (init init) syscall spawn("init", "batch")
+[004085648] PID 01 (init init) Waking pid 2
+[004086416] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[004089437] PID 01 (init init) syscall spawn("init", "interactive")
+[004090457] PID 01 (init init) Waking pid 3
+[004091167] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[010215368] PID 01 (init init) syscall spawn("init", "short_sleep")
+[010257319] PID 01 (init init) Waking pid 4
+[010258903] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 4079244, ran at 4079423, ended at 10258902
+=== schedule pid 4 (init short_sleep)
+[010280703] PID 04 (init short_sleep) syscall sleep(1)
+[010282312] PID 04 (init short_sleep) sleeping until 10282254
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10258895, ran at 10258902, ended at 10284120
+=== schedule pid 1 (init init)
+*** timer woke pid 4
+[013279745] PID 01 (init init) Waking pid 4
+[013281461] PID 01 (init init) Waking pid 1

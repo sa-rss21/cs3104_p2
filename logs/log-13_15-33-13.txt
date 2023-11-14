@@ -1,0 +1,173 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[004232960] PID 01 (init init) syscall write(...)
+I am init
+[004234482] PID 01 (init init) syscall spawn("init", "batch")
+[004235602] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[004478879] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[010454948] PID 01 (init init) syscall spawn("init", "interactive")
+[010457688] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[010465725] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[010473952] PID 01 (init init) syscall spawn("init", "short_sleep")
+[010475514] PID 01 (init init) Waking pid 4
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[010480824] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 4226908, ran at 4230269, ended at 10480824
+=== schedule pid 4 (init short_sleep)
+[013589450] PID 04 (init short_sleep) syscall sleep(1)
+[013591529] PID 04 (init short_sleep) sleeping until 13591457
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10476358, ran at 10480824, ended at 13593775
+=== schedule pid 1 (init init)
+*** timer woke pid 4
+[013598864] PID 01 (init init) Waking pid 4
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[013607694] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init

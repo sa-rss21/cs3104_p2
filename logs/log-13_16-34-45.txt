@@ -1,0 +1,35 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003548295] PID 01 (init init) syscall write(...)
+I am init
+[005756052] PID 01 (init init) syscall spawn("init", "batch")
+[005806419] PID 01 (init init) Waking pid 2
+[005808233] PID 01 (init init) Waking pid 1
+[005809973] PID 01 (init init) syscall spawn("init", "interactive")
+[005812359] PID 01 (init init) Waking pid 3
+[005813965] PID 01 (init init) Waking pid 1
+[005815534] PID 01 (init init) syscall spawn("init", "short_sleep")
+[005817919] PID 01 (init init) Waking pid 4
+[005819292] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3544156, ran at 3544388, ended at 5819291
+=== schedule pid 4 (init short_sleep)
+[005823873] PID 04 (init short_sleep) syscall sleep(1)
+[005825136] PID 04 (init short_sleep) sleeping until 5825091
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 5819289, ran at 5819291, ended at 5826537
+=== schedule pid 1 (init init)
+*** timer woke pid 4
+[005829756] PID 01 (init init) Waking pid 4
+[005830452] PID 01 (init init) Waking pid 1

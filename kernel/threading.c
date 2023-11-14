@@ -5,17 +5,53 @@ struct thread *current_thread = NULL;
 static u64 pid_counter = 1;
 static struct thread *lst = NULL;
 
-void * _asmcall c_context_switch(struct thread *next_thread, void *old_stack) 
+void dump_process_state()
+{
+    struct thread *task = lst;
+    printf("<procs>\n");
+    while (task) {
+        printf("   PID %2d (%s %s) on_runqueue: %d\n",
+        task->pid, task->name, task->arg, task->on_runqueue);
+        task = task->nxt;
+    }
+    printf("</procs>\n");
+}
+
+void * _asmcall c_context_switch_1(struct thread *next_thread, void *old_stack) 
 {
     if (current_thread) {
         current_thread->stack_ptr = old_stack;
     }
     
-    current_thread = next_thread;
-    
-    return current_thread->stack_ptr;
+    return next_thread->stack_ptr;
 }
 
+void c_context_switch_2(struct thread *next_thread)
+{
+    struct thread *old_thread = current_thread;
+
+    if (old_thread && old_thread->exiting) {
+
+        printf("Freeing %ld %s\n", old_thread->pid, old_thread->arg);
+
+        old_thread->magic = DEAD_THREAD_MAGIC;
+
+        free_page(old_thread->kernel_stack_page);
+
+        if (old_thread->memory_space)
+            free_page(paddr(old_thread->memory_space));
+
+        if (old_thread->memory_space)
+            free(old_thread);
+
+    	if (lst == NULL) {
+        	shutdown();
+    	}
+
+    }
+
+    current_thread = next_thread;
+}
 
 _naked void context_switch(struct thread *next_thread)
 {
@@ -26,9 +62,15 @@ _naked void context_switch(struct thread *next_thread)
      * this return address.
      */
     asm volatile(SYSV_SAVE_REGS
+
                  "mov %rsp, %rsi             ;"
-                 "callq c_context_switch     ;"
+                 "pushq %rdi                 ;"
+                 "callq c_context_switch_1   ;"
+
+                 "popq %rdi                  ;"
                  "mov %rax, %rsp             ;"
+                 "callq c_context_switch_2   ;"
+
                  SYSV_RESTORE_REGS
                  "retq                       ;");
 }
@@ -71,6 +113,7 @@ u64 thread_init(struct thread *thread, threadfn func, void *arg)
     lst = thread;
 
     thread->magic = THREAD_MAGIC;
+    thread->kernel_stack_page = page;
 
     return thread->pid;
 }
@@ -88,22 +131,11 @@ struct thread *find_thread(u64 pid)
 }
 
 void exit_thread()
-{
+{   
     log_header();
     printf("thread stopped\n");
-    wake_all(&current_thread->death_waiters);
-                printf("$$ timeslice summary for pid %ld (%s %s) : queued at %ld, ran at %ld, ended at %ld\n",
-                    current_thread->pid, current_thread->name, current_thread->arg,
-                    current_thread->last_wake_time, current_thread->last_start_time, current_time());
-
-
     task_ended(&current_thread->sched_handle);
-
-    current_thread->magic = DEAD_THREAD_MAGIC;
-
-    if (current_thread->memory_space) {
-        free_page(paddr(current_thread->memory_space));
-    }
+    wake_all(&current_thread->death_waiters);
 
     if (current_thread->nxt)
         current_thread->nxt->prev = current_thread->prev;
@@ -113,16 +145,7 @@ void exit_thread()
 
     if (lst == current_thread)
         lst = current_thread->nxt;
-    
-    if (current_thread->memory_space) {
-        free(current_thread);
-    }
 
-    if (lst == NULL) {
-        shutdown();
-    }
-    
-    current_thread = NULL;
-
+    current_thread->exiting = 1;
     schedule_now(0x0);
 }

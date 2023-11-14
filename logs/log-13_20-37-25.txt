@@ -1,0 +1,52 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003943037] PID 01 (init init) syscall write(...)
+I am init
+[003944383] PID 01 (init init) syscall spawn("init", "long_running")
+[003945479] PID 01 (init init) Waking pid 2
+[003946259] PID 01 (init init) Waking pid 1
+[003946964] PID 01 (init init) syscall spawn("init", "short_running")
+[003948039] PID 01 (init init) Waking pid 3
+[003948749] PID 01 (init init) Waking pid 1
+[003949477] PID 01 (init init) syscall exit()
+[003950236] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 3939636, ran at 3939897, ended at 3951112
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[003953229] PID 03 (init short_running) syscall sleep(300000)
+[003953855] PID 03 (init short_running) sleeping until 4253835
+$$ timeslice summary for pid 3 (init short_running) : queued at 3948747, ran at 3951112, ended at 3954511
+=== schedule pid 2 (init long_running)
+*** timer woke pid 3
+[007721652] PID 02 (init long_running) Waking pid 3
+[007723508] PID 02 (init long_running) Waking pid 2
+$$ timeslice summary for pid 2 (init long_running) : queued at 3946217, ran at 3954511, ended at 7723506
+=== schedule pid 3 (init short_running)
+[007847321] PID 03 (init short_running) syscall exit()
+[007855385] PID 03 (init short_running) thread stopped
+$$ timeslice summary for pid 3 (init short_running) : queued at 7723308, ran at 7723506, ended at 7857232
+=== schedule pid 2 (init long_running)
+Freeing 3 short_running
+[007862756] PID 02 (init long_running) syscall sleep(100000)
+[007864555] PID 02 (init long_running) sleeping until 7964553
+$$ timeslice summary for pid 2 (init long_running) : queued at 7725278, ran at 7857232, ended at 7866370
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[008022227] PID 00 (idle ) Waking pid 2
+=== schedule pid 2 (init long_running)
+[008420372] PID 02 (init long_running) syscall exit()
+[008420895] PID 02 (init long_running) thread stopped
+

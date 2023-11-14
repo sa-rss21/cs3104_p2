@@ -1,0 +1,73 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[004971994] PID 01 (init init) syscall write(...)
+I am init
+[004976707] PID 01 (init init) syscall spawn("init", "long_running")
+[004980436] PID 01 (init init) Waking pid 2
+[006400566] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 4783879, ran at 4784212, ended at 6400442
+=== schedule pid 2 (init long_running)
+[017939290] PID 02 (init long_running) syscall sleep(100000)
+[018037955] PID 02 (init long_running) sleeping until 18137835
+Scheduler State:
+End of Scheduler State
+$$ timeslice summary for pid 2 (init long_running) : queued at 6400331, ran at 6400442, ended at 18041324
+=== schedule pid 1 (init init)
+[018050418] PID 01 (init init) syscall spawn("init", "short_running")
+[018053365] PID 01 (init init) Waking pid 3
+[018054894] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[018060931] PID 01 (init init) syscall exit()
+[018062530] PID 01 (init init) thread stopped
+Ending task init
+Scheduler State:
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 9045176, ran at 18041324, ended at 18065567
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[018071757] PID 03 (init short_running) syscall sleep(300000)
+[018072925] PID 03 (init short_running) sleeping until 18372925
+Scheduler State:
+End of Scheduler State
+$$ timeslice summary for pid 3 (init short_running) : queued at 18054884, ran at 18065567, ended at 18074280
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[019256287] PID 00 (idle ) Waking pid 2
+*** timer woke pid 3
+[019260131] PID 00 (idle ) Waking pid 3
+ ===== [ General Protection Fault ] ===== 
+rax: 0x394e471582986994  rbx: 0x               0  rcx: 0x             5d2  rdx: 0x         7f8a000
+rsi: 0x               1  rdi: 0x         7f8a150  rbp: 0xfffffffffffffe78  rsp: 0xfffffffffffffe60
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0xffffffffffe099d8  r13: 0xffffffffffe09a58  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe05337  ERR: 0x               0  CR2: 0x394e4715829869ac
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0xfffffffffffffff8  180(%rbp)  198(%rsp)     1eb6
+0xfffffffffffffff0  178(%rbp)  190(%rsp)     0
+0xffffffffffffffe8  170(%rbp)  188(%rsp)     0
+0xffffffffffffffe0  168(%rbp)  180(%rsp)     ffffffffffe04ee

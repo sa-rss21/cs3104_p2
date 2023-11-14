@@ -46,10 +46,10 @@ void _start()
     init_scheduler();
 
     fb_setcol(PINK_COL);
-    printf("========== Oink OS v1.1 ==========\n");
+    printf("========== Oink OS v1.3 ==========\n");
     fb_setcol(GRAY_COL);
 
-    start_new_process("init", "init");
+    start_new_process("init", "init", 0);
     start_multitasking();
 }
 

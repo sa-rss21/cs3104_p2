@@ -17,8 +17,8 @@ void print_state()
     while (current != NULL)
     {
         printf("Task Name: %s\n", current->name);
-        printf("PID: %llu\n", current->pid);
-   
+        printf("Priority: %llu\n", current->priority);
+
         printf("\n");
 
         current = current->next;
@@ -29,7 +29,7 @@ void print_state()
 void init_scheduler()
 {
     /* initalise them here */
-    head = NULL; 
+    head = NULL;
 }
 
 /* prepare data for a new task
@@ -37,12 +37,11 @@ void init_scheduler()
 void task_started(struct sched_task *task, u64 pid, char *name)
 {
     task->name = name;
-    
-    
+
+
     task->next = NULL; // Initialize the next pointer
 
-    //calculate priority based on memory requirement using the PID
-    
+    task->priority = get_task_prio(task);
 }
 
 /* clean up data associated with a task.
@@ -71,25 +70,28 @@ void task_ended(struct sched_task *task)
 /* A new task has become runnable,
    add it to the runqueue and return either
     DO_PREEMPT   - OS should call dequeue_next_task as soon as possible,
-                   as there might be a new preferred task. 
+                   as there might be a new preferred task.
     DONT_PREEMPT - The currently running task can continue */
 int enqueue_task(struct sched_task *task)
 {
-    // Add the task to the end of the linked list
-    if (head == NULL)
+    //print_state();
+    // If the linked list is empty or the new task has the highest priority, make it the new head.
+    if (head == NULL || task->priority < head->priority)
     {
+        task->next = head;
         head = task;
     }
     else
     {
         struct sched_task *current = head;
-        while (current->next != NULL)
+        while (current->next != NULL && current->next->priority <= task->priority)
         {
             current = current->next;
         }
+        task->next = current->next;
         current->next = task;
     }
-    print_state();
+
     return DO_PREEMPT;
 }
 
@@ -98,49 +100,22 @@ int enqueue_task(struct sched_task *task)
    will first enqueue before calling this function */
 struct sched_task *dequeue_next_task()
 {
-    // Find and return the task with the highest priority
-    struct sched_task *current = head;
-    struct sched_task *next_task = NULL;
-    int highest_priority = 100;
 
-    while (current != NULL)
+    struct sched_task *next_task = head;
+
+    if (head != NULL)
     {
-        if (current->priority < highest_priority)
-        {
-            highest_priority = current->priority;
-            next_task = current;
-        }
-        current = current->next;
+        head = head->next;
+        next_task->next = NULL;  // Disconnect the task from the linked list
     }
 
-    if (next_task != NULL)
-    {
-        // Remove the selected task from the linked list
-        if (head == next_task)
-        {
-            head = head->next;
-        }
-        else
-        {
-            struct sched_task *prev = head;
-            while (prev->next != NULL && prev->next != next_task)
-            {
-                prev = prev->next;
-            }
-            if (prev->next != NULL)
-            {
-                prev->next = prev->next->next;
-            }
-        }
-    }
-    return next_task;    
+    return next_task;
+
 }
 
 /* Called after deueue_next_task(),
    return how long this task should run for in microseconds */
 long get_timeslice_length(struct sched_task *task)
 {
-    return 5 * 1000UL; /* 5 ms */
+    return 0;
 }
-
-

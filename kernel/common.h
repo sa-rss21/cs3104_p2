@@ -67,10 +67,12 @@ struct waitqueue {
 struct thread {
     u64 magic;
     u64 pid;
+    u64 prio;
     char name[128]; // executable name
     char arg[128];  // argument
     struct thread *nxt, *prev;
     int on_runqueue;
+    int exiting;
 
     u64 wake_time;
     u64 last_start_time, last_wake_time;
@@ -90,6 +92,7 @@ struct thread {
 
     /* loaded elf file */
     void *memory_space; 
+    u64 kernel_stack_page;
 
     /* used differently depending on what list this thread is on */
     union {
@@ -241,7 +244,7 @@ void context_switch(struct thread *next_thread) _naked;
 void timeslice_expired();
 
 /* add task the scheduler queue */
-void make_runnable(struct thread *thread);
+void make_runnable(struct thread *thread, int was_sleeping);
 
 /* add current thread to waitqueue then reschedule */
 void wait_on(struct waitqueue *queue);
@@ -262,7 +265,7 @@ void start_multitasking() _noreturn;
 
 struct file_data get_initrd_file(const char *filename);
 
-u64 start_new_process(char *binary, char *arg);
+u64 start_new_process(char *binary, char *arg, u64 prio);
 
 /* ========== Utility Functions ========== */
 
@@ -316,4 +319,19 @@ _inline void crash()
 {
     printf("\nCrashed. Use Ctrl-C or \"Ctrl-A X\" at the terminal to stop.");
     halt_and_catch_fire();
+}
+
+
+/* NEW FUNCTIONS */
+
+/* output the list of all processes the OS thinks are running */
+void dump_process_state();
+
+/* call during enqueue_task to determine if the task was sleeping before becoming runnable */
+int process_was_sleeping();
+
+/* get the priority of the given task */
+_inline u64 get_task_prio(struct sched_task *task)
+{
+    return container_of(struct thread, sched_handle, task)->prio;
 }

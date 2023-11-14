@@ -21,6 +21,7 @@ u64 get_free_page(int fill)
     return ret;
 }
 
+const u64 block_size = PAGE_SIZE * 10;
 void free_page(u64 paddr)
 {
     first_word(paddr) = page_stack;
@@ -28,7 +29,6 @@ void free_page(u64 paddr)
 }
 
 /* in lieu of a proper memory allocator make every allocation 10pages */
-const u64 block_size = PAGE_SIZE * 10;
 void init_memory()
 {
     MMapEnt *mmap_entry = &bootloader_conf->mmap;

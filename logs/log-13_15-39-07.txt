@@ -1,0 +1,93 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003075897] PID 01 (init init) syscall write(...)
+I am init
+[003078365] PID 01 (init init) syscall spawn("init", "long_running")
+[003079917] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[004231084] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 3066132, ran at 3071381, ended at 4230973
+=== schedule pid 2 (init long_running)
+[012666599] PID 02 (init long_running) syscall sleep(100000)
+[012714521] PID 02 (init long_running) sleeping until 12814441
+$$ timeslice summary for pid 2 (init long_running) : queued at 3080717, ran at 4230973, ended at 12716736
+=== schedule pid 1 (init init)
+[012721025] PID 01 (init init) syscall spawn("init", "short_running")
+[012723418] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[012729063] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[012734315] PID 01 (init init) syscall exit()
+[012735404] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 6016518, ran at 12716736, ended at 12736726
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[012740483] PID 03 (init short_running) syscall sleep(300000)
+[012741256] PID 03 (init short_running) sleeping until 13041256
+$$ timeslice summary for pid 3 (init short_running) : queued at 12725005, ran at 12736726, ended at 12742179
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[018179480] PID 00 (idle ) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+
+ ===== [ Page Fault ] ===== 
+rax: 0x      1400000004  rbx: 0x               0  rcx: 0xfffffffffffffd18  rdx: 0x              10
+rsi: 0xfffffffffffffd18  rdi: 0x      1400000004  rbp: 0xfffffffffffffce8  rsp: 0xfffffffffffffcd0
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0xffffffffffe099b8  r13: 0xffffffffffe09a38  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0544b  ERR: 0x               0  CR2: 0x      1400000004
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0xfffffffffffffff8  310(%rbp)  328(%rsp)     1eb6
+0xfffffffffffffff0  308(%rbp)  320(%rsp)     0
+0xffffffffffffffe8  300(%rbp)  318(%rsp)     0
+0xffffffffffffffe0  2f8(%rbp)  310(%rsp)     ffffffffffe04ee1
+0xffffffffffffffd8  2f0(%rbp)  308(%rsp)     fffffffffffffff8
+0xffffffffffffffd0  2e8(%rbp)  300(%rsp)     ffffffffffe07012
+0xffffffffffffffc8  2e0(%rbp)  2f8(%rsp)     8
+0xffffffffffffffc0  2d8(%rbp)  2f0(%rsp)     ffffffffffe05ef2
+0xffffffffffffffb8  2d0(%rbp)  2e8(%rsp)     10
+0xffffffffffff

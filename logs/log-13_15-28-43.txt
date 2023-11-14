@@ -1,0 +1,163 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003816652] PID 01 (init init) syscall write(...)
+I am init
+[003817540] PID 01 (init init) syscall spawn("init", "long_running")
+[003818273] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[003819978] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[003822367] PID 01 (init init) syscall spawn("init", "short_running")
+[003823043] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+[003825481] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 3813378, ran at 3815057, ended at 3825481
+=== schedule pid 3 (init short_running)
+[006456177] PID 03 (init short_running) syscall sleep(300000)
+[006456771] PID 03 (init short_running) sleeping until 6756753
+$$ timeslice summary for pid 3 (init short_running) : queued at 3823461, ran at 3825481, ended at 6457441
+=== schedule pid 1 (init init)
+[006458641] PID 01 (init init) syscall exit()
+[006459154] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 3825887, ran at 6457441, ended at 6459694
+=== schedule pid 2 (init long_running)
+Freeing 1 init
+[006461563] PID 02 (init long_running) syscall sleep(100000)
+[006462107] PID 02 (init long_running) sleeping until 6562107
+$$ timeslice summary for pid 2 (init long_running) : queued at 3818742, ran at 6459694, ended at 6462671
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[006784847] PID 00 (idle ) Waking pid 2
+Scheduler State:
+Task Name: init
+PID: 0
+
+End of Scheduler State
+*** timer woke pid 3
+[006786921] PID 00 (idle ) Waking pid 3
+Scheduler State:
+Task Name: init
+PID: 0
+
+Task Name: init
+PID: 0
+
+ ===== [ Page Fault ] ===== 
+rax: 0x      1400000004  rbx: 0x               0  rcx: 0xfffffffffffffd18  rdx: 0x              10
+rsi: 0xfffffffffffffd18  rdi: 0x      1400000004  rbp: 0xfffffffffffffce8  rsp: 0xfffffffffffffcd0
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0xffffffffffe099b8  r13: 0xffffffffffe09a38  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0544b  ERR: 0x               0  CR2: 0x      1400000004
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0xfffffffffffffff8  310(%rbp)  328(%rsp)     1eb6
+0xfffffffffffffff0  308(%rbp)  320(%rsp)     0
+0xffffffffffffffe8  300(%rbp)  318(%rsp)     0
+0xffffffffffffffe0  2f8(%rbp)  310(%rsp)     ffffffffffe04ee1
+0xffffffffffffffd8  2f0(%rbp)  308(%rsp)     fffffffffffffff8
+0xffffffffffffffd0  2e8(%rbp)  300(%rsp)     ffffffffffe07012
+0xffffffffffffffc8  2e0(%rbp)  2f8(%rsp)     8
+0xffffffffffffffc0  2d8(%rbp)  2f0(%rsp)     ffffffffffe05ef2
+0xffffffffffffffb8  2d0(%rbp)  2e8(%rsp)     10
+0xffffffffffffffb0  2c8(%rbp)  2e0(%rsp)     ffffffffffffffc8
+0xffffffffffffffa8  2c0(%rbp)  2d8(%rsp)     200246
+0xffffffffffffffa0  2b8(%rbp)  2d0(%rsp)     8
+0xffffffffffffff98  2b0(%rbp)  2c8(%rsp)     ffffffffffe05ef4
+0xffffffffffffff90  2a8(%rbp)  2c0(%rsp)     dead
+0xffffffffffffff88  2a0(%rbp)  2b8(%rsp)     0
+0xffffffffffffff80  298(%rbp)  2b0(%rsp)     0
+0xffffffffffffff78  290(%rbp)  2a8(%rsp)     0
+0xffffffffffffff70  288(%rbp)  2a0(%rsp)     0
+0xffffffffffffff68  280(%rbp)  298(%rsp)     0
+0xffffffffffffff60  278(%rbp)  290(%rsp)     0
+0xffffffffffffff58  270(%rbp)  288(%rsp)     1
+0xffffffffffffff50  268(%rbp)  280(%rsp)     20
+0xffffffffffffff48  260(%rbp)  278(%rsp)     7f9eba0
+0xffffffffffffff40  258(%rbp)  270(%rsp)     30
+0xffffffffffffff38  250(%rbp)  268(%rsp)     0
+0xffffffffffffff30  248(%rbp)  260(%rsp)     ffffffffffe099a0
+0xffffffffffffff28  240(%rbp)  258(%rsp)     7f9eba0
+0xffffffffffffff20  238(%rbp)  250(%rsp)     ffffffffffe099a0
+0xffffffffffffff18  230(%rbp)  248(%rsp)     ffffffffffffffd8
+0xffffffffffffff10  228(%rbp)  240(%rsp)     ffffffffffe02178
+0xffffffffffffff08  220(%rbp)  238(%rsp)     ffffffffffffffd8
+0xffffffffffffff00  218(%rbp)  230(%rsp)     ffffffffffffff18
+0xfffffffffffffef8  210(%rbp)  228(%rsp)     7fc6000
+0xfffffffffffffef0  208(%rbp)  220(%rsp)     ffffffffffe0219d
+0xfffffffffffffee8  200(%rbp)  218(%rsp)     ffffffffffffff08
+0xfffffffffffffee0  1f8(%rbp)  210(%rsp)     ffffffffffffff18
+0xfffffffffffffed8  1f0(%rbp)  208(%rsp)     7fc6018
+0xfffffffffffffed0  1e8(%rbp)  200(%rsp)     7f94000
+0xfffffffffffffec8  1e0(%rbp)  1f8(%rsp)     0
+0xfffffffffffffec0  1d8(%rbp)  1f0(%rsp)     ffffffffffe0657d
+0xfffffffffffffeb8  1d0(%rbp)  1e8(%rsp)     fffffffffffffee8
+0xfffffffffffffeb0  1c8(%rbp)  1e0(%rsp)     0
+0xfffffffffffffea8  1c0(%rbp)  1d8(%rsp)     0
+0xfffffffffffffea0  1b8(%rbp)  1d0(%rsp)     671991
+0xfffffffffffffe98  1b0(%rbp)  1c8(%rsp)     2
+0xfffffffffffffe90  1a8(%rbp)  1c0(%rsp)     7f94000
+0xfffffffffffffe88  1a0(%rbp)  1b8(%rsp)     1ffe079a0
+0xfffffffffffffe80  198(%rbp)  1b0(%rsp)     ffffffffffe05a66
+0xfffffffffffffe78  190(%rbp)  1a8(%rsp)     fffffffffffffeb8
+0xfffffffffffffe70  188(%rbp)  1a0(%rsp)     7fa8150
+0xfffffffffffffe68  180(%rbp)  198(%rsp)     0
+0xfffffffffffffe60  178(%rbp)  190(%rsp)     7f94150
+0xfffffffffffffe58  170(%rbp)  188(%rsp)     ffffffffffffff68
+0xfffffffffffffe50  168(%rbp)  180(%rsp)     ffffffffffe05337
+0xfffffffffffffe48  160(%rbp)  178(%rsp)     fffffffffffffe78
+0xfffffffffffffe40  158(%rbp)  170(%rsp)     7fc6150
+0xfffffffffffffe38  150(%rbp)  168(%rsp)     ffffffffffffff78
+0xfffffffffffffe30  148(%rbp)  160(%rsp)     ffffffffffe05195
+0xfffffffffffffe28  140(%rbp)  158(%rsp)     fffffffffffffe48
+0xfffffffffffffe20  138(%rbp)  150(%rsp)     87b
+0xfffffffffffffe18  130(%rbp)  148(%rsp)     5c9
+0xfffffffffffffe10  128(%rbp)  140(%rsp)     3
+0xfffffffffffffe08  120(%rbp)  138(%rsp)     ffffff0a00000001
+0xfffffffffffffe00  118(%rbp)

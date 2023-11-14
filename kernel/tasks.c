@@ -23,23 +23,33 @@ void wake_all(struct waitqueue *queue)
         
         struct thread *thread = queue->proc_list;
         while (thread) {
-            make_runnable(thread);
+            make_runnable(thread, 1);
             thread = thread->waitqueue_data.next;
         }
         queue->proc_list = NULL;
     }
 }
 
-void make_runnable(struct thread *thread)
-{    
-    log_header();
-    printf("Waking pid %d\n", thread->pid);
-    thread->wake_time = current_time();
-    thread->on_runqueue = 1;
-    runnable_tasks++;
-    if (enqueue_task(&thread->sched_handle) == DO_PREEMPT || current_thread == &idle_thread) {
-        schedule_needed = 1;
+static int proc_was_sleeping;
+
+void make_runnable(struct thread *thread, int was_sleeping)
+{   
+    if (!thread->on_runqueue) {
+        log_header();
+        printf("Waking pid %d\n", thread->pid);
+        thread->wake_time = current_time();
+        thread->on_runqueue = 1;
+        runnable_tasks++;
+        proc_was_sleeping = was_sleeping;
+        if (enqueue_task(&thread->sched_handle) == DO_PREEMPT || current_thread == &idle_thread) {
+            schedule_needed = 1;
+        }
     }
+}
+
+int process_was_sleeping()
+{
+    return proc_was_sleeping;
 }
 
 void timeslice_expired()
@@ -54,7 +64,7 @@ void schedule_now(u64 flags)
     u64 sched_time = current_time();
 
     if (flags && current_thread && current_thread != &idle_thread) {
-        make_runnable(current_thread);
+        make_runnable(current_thread, 0);
     }
     
     schedule_needed = 0;

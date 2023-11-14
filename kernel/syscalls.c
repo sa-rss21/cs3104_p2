@@ -34,7 +34,7 @@ u64 systemcall(u64 number, u64 arg1, u64 arg2, u64 arg3)
             
         log_header();
         printf("syscall spawn(\"%s\", \"%s\")\n", (char*) arg1, (char*) arg2);
-        return start_new_process((char*) arg1, (char*) arg2);
+        return start_new_process((char*) arg1, (char*) arg2, arg3);
 
     } else if (number == 4) {
         /* sleep */

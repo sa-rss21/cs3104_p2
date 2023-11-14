@@ -1,0 +1,77 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003791230] PID 01 (init init) syscall write(...)
+I am init
+[003794256] PID 01 (init init) syscall spawn("init", "long_running")
+[003795984] PID 01 (init init) Waking pid 2
+[003797181] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3784579, ran at 3784988, ended at 3797141
+=== schedule pid 2 (init long_running)
+[003802025] PID 02 (init long_running) syscall sleep(100000)
+[003803392] PID 02 (init long_running) sleeping until 3903346
+$$ timeslice summary for pid 2 (init long_running) : queued at 3797119, ran at 3797141, ended at 3804749
+=== schedule pid 1 (init init)
+[003806549] PID 01 (init init) syscall spawn("init", "short_running")
+[003807627] PID 01 (init init) Waking pid 3
+[003808269] PID 01 (init init) Waking pid 1
+[003809067] PID 01 (init init) syscall exit()
+[003809913] PID 01 (init init) thread stopped
+Ending task init
+$$ timeslice summary for pid 1 (init init) : queued at 3798183, ran at 3804749, ended at 3811198
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[004117350] PID 03 (init short_running) syscall sleep(300000)
+[004125799] PID 03 (init short_running) sleeping until 4425797
+$$ timeslice summary for pid 3 (init short_running) : queued at 3808267, ran at 3811198, ended at 4128069
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[004133491] PID 00 (idle ) Waking pid 2
+ ===== [ General Protection Fault ] ===== 
+rax: 0x394e471582986994  rbx: 0xffffffffffffff18  rcx: 0x             885  rdx: 0xffffffffffe099c0
+rsi: 0x               1  rdi: 0x               1  rbp: 0xfffffffffffffe98  rsp: 0xfffffffffffffe78
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x               0  r13: 0x               0  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0537b  ERR: 0x               0  CR2: 0x394e4715829869a4
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0xfffffffffffffff8  160(%rbp)  180(%rsp)     1eb6
+0xfffffffffffffff0  158(%rbp)  178(%rsp)     0
+0xffffffffffffffe8  150(%rbp)  170(%rsp)     0
+0xffffffffffffffe0  148(%rbp)  168(%rsp)     ffffffffffe04ee1
+0xffffffffffffffd8  140(%rbp)  160(%rsp)     fffffffffffffff8
+0xffffffffffffffd0  138(%rbp)  158(%rsp)     ffffffffffe07032
+0xffffffffffffffc8  130(%rbp)  150(%rsp)     8
+0xffffffffffffffc0  128(%rbp)  148(%rsp)     ffffffffffe05f07
+0xffffffffffffffb8  120(%rbp)  140(%rsp)     10
+0xffffffffffffffb0  118(%rbp)  138(%rsp)     ffffffffffffffc8
+0xffffffffffffffa8  110(%rbp)  130(%rsp)     200246
+0xffffffffffffffa0  108(%rbp)  128(%rsp)     8
+0xffffffffffffff98  100(%rbp)  120(%rsp)     ffffffffffe05f09
+0xffffffffffffff90  f8(%rbp)  118(%rsp)     dead
+0xffffffffffffff88  f0(%rbp)  110(%rsp)     0
+0xffffffffffffff80  e8(%rbp)  108(%rsp)     0
+0xffffffffffffff78  e0(%rbp)  100(%rsp)     0
+0xffffffffffffff70  d8(%rbp)  f8(%rsp)     0
+0xffffffffffffff68  d0(%rbp)  f0(%rsp)     0
+0xffffffffffffff60  c8(%rbp)  e8(%rsp)     0
+0xffffffffffffff58  c0(%rbp)  e0(%rsp)     1
+0xffffffffffffff50  b8(%rbp)  d8(%rsp)     20
+0xffffffffffffff48  b0(%rbp)  d0(%rsp)     7f80ba0
+0xffffffffffffff40  a8(%rbp)  c8(%rsp)     30
+0xffffffffffffff38  a0(%rbp)  c0(%rsp)     0
+0xffffffffffffff30  98(%rbp)  b8(%rsp)     ffffffffffe099c0
+0xffffffffffffff28  90(%rbp)  b0(%rsp)     7f80ba0
+0xffffffffffffff20  88(%rbp)  a8(%rsp)     ff

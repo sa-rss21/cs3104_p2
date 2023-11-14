@@ -38,7 +38,7 @@ void run_timers()
         }
 
         printf("*** timer woke pid %ld\n", thread->pid);
-        make_runnable(thread);
+        make_runnable(thread, 1);
         sleeping_threads = thread->sleep_data.next;
     }
 

@@ -1,0 +1,49 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[004378216] PID 01 (init init) syscall write(...)
+I am init
+[004379528] PID 01 (init init) syscall spawn("init", "long_running")
+[004380578] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 0
+
+End of Scheduler State
+[004383298] PID 01 (init init) syscall spawn("init", "short_running")
+[004384354] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+[004724486] PID 01 (init init) syscall exit()
+[004726220] PID 01 (init init) thread stopped
+Ending task init
+$$ timeslice summary for pid 1 (init init) : queued at 4372790, ran at 4374336, ended at 4728522
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[004732766] PID 03 (init short_running) syscall sleep(300000)
+[004734225] PID 03 (init short_running) sleeping until 5034176
+
+### ERROR: dequeue_next_task returned a task that isn't on the runqueue ###
+
+
+Crashed. Use Ctrl-C or "Ctrl-A X" at the terminal to stop.

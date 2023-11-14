@@ -70,7 +70,7 @@ void exit()
 
 /* spawn a new processes running the given binary with the given argument
     if prog is NULL the current binary is used.
-    
+
     the pid of the new process is returned and can be wait()-ed on.
     */
 u64 spawn(char *prog, char *arg)
@@ -90,6 +90,11 @@ u64 wait(u64 pid)
     return systemcall(5, pid, 0, 0);
 }
 
+u64 spawn_with_prio(char *prog, char *arg, u64 prio)
+{
+    return systemcall(3, (u64)prog, (u64)arg, prio);
+}
+
 /* === */
 
 #define MSEC 1000UL
@@ -101,10 +106,10 @@ void _start(char *argument)
         write("I am init\n");
 
         /* binary = NULL means same binary */
-        spawn(NULL, "batch");
-        spawn(NULL, "interactive");
-        spawn(NULL, "short_sleep");
-        spawn(NULL, "burst");
+        spawn_with_prio(NULL, "batch", 4);       
+        spawn_with_prio(NULL, "interactive", 1); 
+        spawn_with_prio(NULL, "short_sleep", 3); 
+        spawn_with_prio(NULL, "burst", 2);      
     }
     if (strcmp(argument, "batch") == 0)
     {
@@ -135,3 +140,4 @@ void _start(char *argument)
 
     exit();
 }
+

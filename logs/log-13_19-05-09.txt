@@ -1,0 +1,114 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003970618] PID 01 (init init) syscall write(...)
+I am init
+[003973855] PID 01 (init init) syscall spawn("init", "long_running")
+[003976350] PID 01 (init init) Waking pid 2
+Scheduler State:
+End of Scheduler State
+[003980118] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+[003985201] PID 01 (init init) syscall spawn("init", "short_running")
+[003986795] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+[003990538] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 3853644, ran at 3855205, ended at 3990537
+=== schedule pid 3 (init short_running)
+[003997517] PID 03 (init short_running) syscall sleep(300000)
+[003998400] PID 03 (init short_running) sleeping until 4298370
+$$ timeslice summary for pid 3 (init short_running) : queued at 3987777, ran at 3990537, ended at 3999347
+=== schedule pid 1 (init init)
+*** timer woke pid 3
+[005031015] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+[005037145] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 1 (init init) : queued at 3991519, ran at 3999347, ended at 5037143
+=== schedule pid 3 (init short_running)
+[005540446] PID 03 (init short_running) syscall exit()
+[005548787] PID 03 (init short_running) thread stopped
+Ending task init
+$$ timeslice summary for pid 3 (init short_running) : queued at 5032571, ran at 5037143, ended at 5551960
+=== schedule pid 1 (init init)
+Freeing 3 short_running
+[005557441] PID 01 (init init) syscall exit()
+[005558950] PID 01 (init init) thread stopped
+Ending task init
+$$ timeslice summary for pid 1 (init init) : queued at 5038745, ran at 5551960, ended at 5561652
+=== schedule pid 2 (init long_running)
+Freeing 1 init
+[005566152] PID 02 (init long_running) syscall sleep(100000)
+[005567323] PID 02 (init long_running) sleeping until 5667323
+$$ timeslice summary for pid 2 (init long_running) : queued at 3977945, ran at 5561652, ended at 5568624
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[006079674] PID 00 (idle ) Waking pid 2
+Scheduler State:
+End of Scheduler State
+=== schedule pid 2 (init long_running)
+[006635327] PID 02 (init long_running) syscall exit()
+[006635880] PID 02 (init long_running) thread stopped
+Ending task init
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               2  rcx: 0x              30  rdx: 0xfffffffffc230000
+rsi: 0x               1  rdi: 0x               a  rbp: 0x         7f9ec38  rsp: 0x         7f9ec18
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7fa8018  r13: 0x         7fa8098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe052b9  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f9eff8  3c0(%rbp)  3e0(%rsp)     ffffffffffe060c0
+0x0000000007f9eff0  3b8(%rbp)  3d8(%rsp)     0
+0x0000000007f9efe8  3b0(%rbp)  3d0(%rsp)     ffffffffffe04581
+0x0000000007f9efe0  3a8(%rbp)  3c8(%rsp)     7fa8000
+0x0000000007f9efd8  3a0(%rbp)  3c0(%rsp)     ffffffffffe060ac
+0x0000000007f9efd0  398(%rbp)  3b8(%rsp)     7f9eff0
+0x0000000007f9efc8  390(%rbp)  3b0(%rsp)     7fa8000
+0x0000000007f9efc0  388(%rbp)  3a8(%rsp)     7fa8018
+0x0000000007f9efb8  380(%rbp)  3a0(%rsp)     2698
+0x0000000007f9efb0  378(%rbp)  398(%rsp)     10ce00
+0x0000000007f9efa8  370(%rbp)  390(%rsp)     7fbcc38
+0x0000000007f9efa0  368(%rbp)  388(%rsp)     10
+0x00

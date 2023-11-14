@@ -1,0 +1,35 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[005276748] PID 01 (init init) syscall write(...)
+I am init
+[005335324] PID 01 (init init) syscall spawn("init", "long_running")
+[005337821] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 0
+
+End of Scheduler State
+[005344031] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+End of Scheduler State

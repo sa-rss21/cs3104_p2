@@ -1,0 +1,732 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003208594] PID 01 (init init) syscall write(...)
+I am init
+[003210508] PID 01 (init init) syscall spawn("init", "batch")
+[003211497] PID 01 (init init) Waking pid 2
+[003212248] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3204598, ran at 3204833, ended at 3212223
+=== schedule pid 2 (init batch)
+[003591281] PID 02 (init batch) syscall exit()
+[003591779] PID 02 (init batch) thread stopped
+$$ timeslice summary for pid 2 (init batch) : queued at 3212210, ran at 3212223, ended at 3592340
+=== schedule pid 1 (init init)
+Freeing 2 batch
+[003593723] PID 01 (init init) syscall spawn("init", "interactive")
+[003594336] PID 01 (init init) Waking pid 3
+[003594746] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3212871, ran at 3592340, ended at 3594746
+=== schedule pid 3 (init interactive)
+[003596588] PID 03 (init interactive) syscall sleep(100000)
+[003597118] PID 03 (init interactive) sleeping until 3697099
+$$ timeslice summary for pid 3 (init interactive) : queued at 3594743, ran at 3594746, ended at 3597713
+=== schedule pid 1 (init init)
+[003598904] PID 01 (init init) syscall spawn("init", "short_sleep")
+[003599545] PID 01 (init init) Waking pid 4
+[003599982] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3595166, ran at 3597713, ended at 3599982
+=== schedule pid 4 (init short_sleep)
+[003601827] PID 04 (init short_sleep) syscall sleep(1)
+[003602282] PID 04 (init short_sleep) sleeping until 3602283
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 3599981, ran at 3599982, ended at 3602878
+=== schedule pid 1 (init init)
+*** timer woke pid 4
+[003604381] PID 01 (init init) Waking pid 4
+[003604849] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3600371, ran at 3602878, ended at 3604849
+=== schedule pid 4 (init short_sleep)
+[003606369] PID 04 (init short_sleep) syscall sleep(1)
+[003606907] PID 04 (init short_sleep) sleeping until 3606907
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 3604784, ran at 3604849, ended at 3607387
+=== schedule pid 1 (init init)
+*** timer woke pid 4
+[003926476] PID 01 (init init) Waking pid 4
+*** timer woke pid 3
+[003928973] PID 01 (init init) Waking pid 3
+[003930515] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 3605260, ran at 3607387, ended at 3930514
+=== schedule pid 4 (init short_sleep)
+[004043133] PID 04 (init short_sleep) syscall sleep(1)
+[004132932] PID 04 (init short_sleep) sleeping until 4132932
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 3927989, ran at 3930514, ended at 4210004
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[004215179] PID 03 (init interactive) Waking pid 4
+[004265862] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 3930430, ran at 4210004, ended at 4265861
+=== schedule pid 1 (init init)
+[004321329] PID 01 (init init) syscall spawn("init", "burst")
+[004323507] PID 01 (init init) Waking pid 5
+[004325043] PID 01 (init init) Waking pid 1
+$$ timeslice summary for pid 1 (init init) : queued at 4039017, ran at 4265861, ended at 4325042
+=== schedule pid 4 (init short_sleep)
+[004426400] PID 04 (init short_sleep) syscall sleep(1)
+[004428111] PID 04 (init short_sleep) sleeping until 4428111
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4216965, ran at 4325042, ended at 4430091
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[004434597] PID 03 (init interactive) Waking pid 4
+[004435952] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 4317180, ran at 4430091, ended at 4435952
+=== schedule pid 5 (init burst)
+[004541438] PID 05 (init burst) syscall sleep(500000)
+[004543528] PID 05 (init burst) sleeping until 5043510
+$$ timeslice summary for pid 5 (init burst) : queued at 4325037, ran at 4435952, ended at 4545243
+=== schedule pid 1 (init init)
+[004549297] PID 01 (init init) syscall exit()
+[004550796] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 4326544, ran at 4545243, ended at 4552485
+=== schedule pid 4 (init short_sleep)
+Freeing 1 init
+[004556722] PID 04 (init short_sleep) syscall sleep(1)
+[004557879] PID 04 (init short_sleep) sleeping until 4557879
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4435943, ran at 4552485, ended at 4559134
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[004562691] PID 03 (init interactive) Waking pid 4
+[004563902] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 4437286, ran at 4559134, ended at 4563902
+=== schedule pid 4 (init short_sleep)
+[004567040] PID 04 (init short_sleep) syscall sleep(1)
+[004567786] PID 04 (init short_sleep) sleeping until 4567787
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4563893, ran at 4563902, ended at 4568583
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[004570913] PID 03 (init interactive) Waking pid 4
+[004775861] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 4565129, ran at 4568583, ended at 4775860
+=== schedule pid 4 (init short_sleep)
+[004781856] PID 04 (init short_sleep) syscall sleep(1)
+[004783536] PID 04 (init short_sleep) sleeping until 4783536
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4775841, ran at 4775860, ended at 4785344
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[004893283] PID 03 (init interactive) Waking pid 4
+[004980378] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 4777620, ran at 4785344, ended at 4980376
+=== schedule pid 4 (init short_sleep)
+[004986165] PID 04 (init short_sleep) syscall sleep(1)
+[004987839] PID 04 (init short_sleep) sleeping until 4987839
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4980351, ran at 4980376, ended at 5050796
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[005149461] PID 03 (init interactive) Waking pid 4
+*** timer woke pid 5
+[005152164] PID 03 (init interactive) Waking pid 5
+[005153772] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 4982124, ran at 5050796, ended at 5153771
+=== schedule pid 4 (init short_sleep)
+[005284735] PID 04 (init short_sleep) syscall sleep(1)
+[005286442] PID 04 (init short_sleep) sleeping until 5286443
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 5151174, ran at 5153771, ended at 5288423
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[005293460] PID 05 (init burst) Waking pid 4
+[005428574] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 5153763, ran at 5288423, ended at 5428573
+=== schedule pid 3 (init interactive)
+[005434446] PID 03 (init interactive) syscall write(...)
+HI
+[005551176] PID 03 (init interactive) syscall sleep(100000)
+[005552999] PID 03 (init interactive) sleeping until 5652997
+$$ timeslice summary for pid 3 (init interactive) : queued at 5155374, ran at 5428573, ended at 5554814
+=== schedule pid 4 (init short_sleep)
+[005558909] PID 04 (init short_sleep) syscall sleep(1)
+[005560852] PID 04 (init short_sleep) sleeping until 5560852
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 5428561, ran at 5554814, ended at 5633526
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[005737688] PID 05 (init burst) Waking pid 4
+*** timer woke pid 3
+[005740356] PID 05 (init burst) Waking pid 3
+[005824083] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 5430083, ran at 5633526, ended at 5824082
+=== schedule pid 4 (init short_sleep)
+[005904834] PID 04 (init short_sleep) syscall sleep(1)
+[005906526] PID 04 (init short_sleep) sleeping until 5906527
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 5739177, ran at 5824082, ended at 5908333
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[005913093] PID 03 (init interactive) Waking pid 4
+[005914561] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 5824071, ran at 5908333, ended at 5914561
+=== schedule pid 5 (init burst)
+[006113475] PID 05 (init burst) syscall sleep(500000)
+[006115289] PID 05 (init burst) sleeping until 6615288
+$$ timeslice summary for pid 5 (init burst) : queued at 5825812, ran at 5914561, ended at 6117026
+=== schedule pid 4 (init short_sleep)
+[006121130] PID 04 (init short_sleep) syscall sleep(1)
+[006123115] PID 04 (init short_sleep) sleeping until 6123115
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 5914553, ran at 6117026, ended at 6124916
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[006129292] PID 03 (init interactive) Waking pid 4
+[006130392] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 6039799, ran at 6124916, ended at 6130392
+=== schedule pid 4 (init short_sleep)
+[006134450] PID 04 (init short_sleep) syscall sleep(1)
+[006135614] PID 04 (init short_sleep) sleeping until 6135615
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6130384, ran at 6130392, ended at 6136975
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[006139566] PID 03 (init interactive) Waking pid 4
+[006140276] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 6131544, ran at 6136975, ended at 6140276
+=== schedule pid 4 (init short_sleep)
+[006142983] PID 04 (init short_sleep) syscall sleep(1)
+[006143800] PID 04 (init short_sleep) sleeping until 6143800
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6140270, ran at 6140276, ended at 6363157
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[006374402] PID 03 (init interactive) Waking pid 4
+[006434069] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 6141038, ran at 6363157, ended at 6434068
+=== schedule pid 4 (init short_sleep)
+[006462337] PID 04 (init short_sleep) syscall sleep(1)
+[006464063] PID 04 (init short_sleep) sleeping until 6464064
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6376042, ran at 6434068, ended at 6545591
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[006550791] PID 03 (init interactive) Waking pid 4
+[006624189] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 6458036, ran at 6545591, ended at 6624188
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 5
+[006664993] PID 04 (init short_sleep) Waking pid 5
+[006666604] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6552586, ran at 6624188, ended at 6666603
+=== schedule pid 3 (init interactive)
+[006671861] PID 03 (init interactive) syscall write(...)
+HI
+[006673568] PID 03 (init interactive) syscall sleep(100000)
+[006674849] PID 03 (init interactive) sleeping until 6774849
+$$ timeslice summary for pid 3 (init interactive) : queued at 6659621, ran at 6666603, ended at 6676111
+=== schedule pid 5 (init burst)
+[006813122] PID 05 (init burst) syscall sleep(500000)
+[006814987] PID 05 (init burst) sleeping until 7314986
+$$ timeslice summary for pid 5 (init burst) : queued at 6666594, ran at 6676111, ended at 6817023
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[006822138] PID 04 (init short_sleep) Waking pid 3
+[006823754] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6668202, ran at 6817023, ended at 6823753
+=== schedule pid 3 (init interactive)
+[006827940] PID 03 (init interactive) syscall write(...)
+HI
+[006829717] PID 03 (init interactive) syscall sleep(100000)
+[006831000] PID 03 (init interactive) sleeping until 6930998
+$$ timeslice summary for pid 3 (init interactive) : queued at 6823739, ran at 6823753, ended at 6832360
+=== schedule pid 4 (init short_sleep)
+[006834930] PID 04 (init short_sleep) syscall sleep(1)
+[006835669] PID 04 (init short_sleep) sleeping until 6835670
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6825137, ran at 6832360, ended at 6836466
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[006838932] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[006840176] PID 04 (init short_sleep) syscall sleep(1)
+[006840914] PID 04 (init short_sleep) sleeping until 6840914
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6839542, ran at 6839549, ended at 6841708
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[007082864] PID 00 (idle ) Waking pid 4
+*** timer woke pid 3
+[007085294] PID 00 (idle ) Waking pid 3
+=== schedule pid 4 (init short_sleep)
+[007088091] PID 04 (init short_sleep) syscall sleep(1)
+[007089765] PID 04 (init short_sleep) sleeping until 7089766
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7084309, ran at 7086681, ended at 7091573
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[007229027] PID 03 (init interactive) Waking pid 4
+[007230718] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 7086664, ran at 7091573, ended at 7230717
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 5
+[007369132] PID 04 (init short_sleep) Waking pid 5
+[007427486] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7230701, ran at 7230717, ended at 7427485
+=== schedule pid 3 (init interactive)
+[007430086] PID 03 (init interactive) syscall write(...)
+HI
+[007431121] PID 03 (init interactive) syscall sleep(100000)
+[007431930] PID 03 (init interactive) sleeping until 7531929
+$$ timeslice summary for pid 3 (init interactive) : queued at 7232382, ran at 7427485, ended at 7432769
+=== schedule pid 5 (init burst)
+[007531587] PID 05 (init burst) syscall sleep(500000)
+[007532534] PID 05 (init burst) sleeping until 8032533
+$$ timeslice summary for pid 5 (init burst) : queued at 7427477, ran at 7432769, ended at 7533413
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[007536799] PID 04 (init short_sleep) Waking pid 3
+[007537892] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7428203, ran at 7533413, ended at 7537892
+=== schedule pid 3 (init interactive)
+[007542034] PID 03 (init interactive) syscall write(...)
+HI
+[007543655] PID 03 (init interactive) syscall sleep(100000)
+[007544973] PID 03 (init interactive) sleeping until 7644972
+$$ timeslice summary for pid 3 (init interactive) : queued at 7537883, ran at 7537892, ended at 7546095
+=== schedule pid 4 (init short_sleep)
+[007548694] PID 04 (init short_sleep) syscall sleep(1)
+[007549713] PID 04 (init short_sleep) sleeping until 7549714
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7539195, ran at 7546095, ended at 7550886
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[007553848] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[007555328] PID 04 (init short_sleep) syscall sleep(1)
+[007556116] PID 04 (init short_sleep) sleeping until 7556116
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7554660, ran at 7554665, ended at 7556869
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[007559044] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[007560201] PID 04 (init short_sleep) syscall sleep(1)
+[007560906] PID 04 (init short_sleep) sleeping until 7560907
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7559601, ran at 7559604, ended at 7561780
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[007813000] PID 00 (idle ) Waking pid 4
+*** timer woke pid 3
+[007816114] PID 00 (idle ) Waking pid 3
+=== schedule pid 4 (init short_sleep)
+[007820017] PID 04 (init short_sleep) syscall sleep(1)
+[007822142] PID 04 (init short_sleep) sleeping until 7822142
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7814870, ran at 7817993, ended at 7823850
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[008001312] PID 03 (init interactive) Waking pid 4
+[008003542] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 7817975, ran at 7823850, ended at 8003541
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 5
+[008152103] PID 04 (init short_sleep) Waking pid 5
+[008154487] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8003522, ran at 8003541, ended at 8154485
+=== schedule pid 3 (init interactive)
+[008162101] PID 03 (init interactive) syscall write(...)
+HI
+[008164892] PID 03 (init interactive) syscall sleep(100000)
+[008167291] PID 03 (init interactive) sleeping until 8267290
+$$ timeslice summary for pid 3 (init interactive) : queued at 8005677, ran at 8154485, ended at 8169533
+=== schedule pid 5 (init burst)
+[008262227] PID 05 (init burst) syscall sleep(500000)
+[008264734] PID 05 (init burst) sleeping until 8764733
+$$ timeslice summary for pid 5 (init burst) : queued at 8154468, ran at 8169533, ended at 8267113
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[008274045] PID 04 (init short_sleep) Waking pid 3
+[008275640] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8156698, ran at 8267113, ended at 8275639
+=== schedule pid 3 (init interactive)
+[008281464] PID 03 (init interactive) syscall write(...)
+HI
+[008283542] PID 03 (init interactive) syscall sleep(100000)
+[008284739] PID 03 (init interactive) sleeping until 8384739
+$$ timeslice summary for pid 3 (init interactive) : queued at 8275628, ran at 8275639, ended at 8286020
+=== schedule pid 4 (init short_sleep)
+[008288907] PID 04 (init short_sleep) syscall sleep(1)
+[008290021] PID 04 (init short_sleep) sleeping until 8290022
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8277337, ran at 8286020, ended at 8291227
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[008471650] PID 00 (idle ) Waking pid 4
+*** timer woke pid 3
+[008474934] PID 00 (idle ) Waking pid 3
+=== schedule pid 4 (init short_sleep)
+[008478293] PID 04 (init short_sleep) syscall sleep(1)
+[008546159] PID 04 (init short_sleep) sleeping until 8546160
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8473657, ran at 8476865, ended at 8548736
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[008555936] PID 03 (init interactive) Waking pid 4
+[008558287] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 8476842, ran at 8548736, ended at 8558287
+=== schedule pid 4 (init short_sleep)
+[008564116] PID 04 (init short_sleep) syscall sleep(1)
+[008565569] PID 04 (init short_sleep) sleeping until 8565569
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8558271, ran at 8558287, ended at 8567150
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[008571406] PID 03 (init interactive) Waking pid 4
+[008572367] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 8560407, ran at 8567150, ended at 8572367
+=== schedule pid 4 (init short_sleep)
+[008725553] PID 04 (init short_sleep) syscall sleep(1)
+[008727907] PID 04 (init short_sleep) sleeping until 8727908
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8572360, ran at 8572367, ended at 8730436
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[008827923] PID 03 (init interactive) Waking pid 4
+*** timer woke pid 5
+[008831441] PID 03 (init interactive) Waking pid 5
+[008833646] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 8573375, ran at 8730436, ended at 8833645
+=== schedule pid 4 (init short_sleep)
+[008840435] PID 04 (init short_sleep) syscall sleep(1)
+[008841887] PID 04 (init short_sleep) sleeping until 8841888
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 8830209, ran at 8833645, ended at 8972891
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[008979816] PID 05 (init burst) Waking pid 4
+[009066969] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 8833634, ran at 8972891, ended at 9066968
+=== schedule pid 3 (init interactive)
+[009074690] PID 03 (init interactive) syscall write(...)
+HI
+[009077105] PID 03 (init interactive) syscall sleep(100000)
+[009079024] PID 03 (init interactive) sleeping until 9179022
+$$ timeslice summary for pid 3 (init interactive) : queued at 8835843, ran at 9066968, ended at 9150763
+=== schedule pid 4 (init short_sleep)
+[009172579] PID 04 (init short_sleep) syscall sleep(1)
+[009175182] PID 04 (init short_sleep) sleeping until 9175181
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9066952, ran at 9150763, ended at 9177535
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[009261569] PID 05 (init burst) Waking pid 4
+*** timer woke pid 3
+[009264980] PID 05 (init burst) Waking pid 3
+[009267030] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 9069022, ran at 9177535, ended at 9267029
+=== schedule pid 4 (init short_sleep)
+[009273508] PID 04 (init short_sleep) syscall sleep(1)
+[009373367] PID 04 (init short_sleep) sleeping until 9373367
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9263596, ran at 9267029, ended at 9406139
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[009575945] PID 03 (init interactive) Waking pid 4
+[009600461] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 9267019, ran at 9406139, ended at 9600460
+=== schedule pid 5 (init burst)
+[009747172] PID 05 (init burst) syscall sleep(500000)
+[009747907] PID 05 (init burst) sleeping until 10247906
+$$ timeslice summary for pid 5 (init burst) : queued at 9269214, ran at 9600460, ended at 9748604
+=== schedule pid 4 (init short_sleep)
+[009750220] PID 04 (init short_sleep) syscall sleep(1)
+[009750946] PID 04 (init short_sleep) sleeping until 9750947
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9600443, ran at 9748604, ended at 9751690
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[009753916] PID 03 (init interactive) Waking pid 4
+[009754527] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 9602832, ran at 9751690, ended at 9754527
+=== schedule pid 4 (init short_sleep)
+[009761056] PID 04 (init short_sleep) syscall sleep(1)
+[009761810] PID 04 (init short_sleep) sleeping until 9761811
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9754521, ran at 9754527, ended at 9762584
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[009764787] PID 03 (init interactive) Waking pid 4
+[009765434] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 9755194, ran at 9762584, ended at 9765433
+=== schedule pid 4 (init short_sleep)
+[009939609] PID 04 (init short_sleep) syscall sleep(1)
+[009942090] PID 04 (init short_sleep) sleeping until 9942088
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9765428, ran at 9765433, ended at 9944631
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[010058596] PID 03 (init interactive) Waking pid 4
+[010060829] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 9933454, ran at 9944631, ended at 10060828
+=== schedule pid 4 (init short_sleep)
+[010131113] PID 04 (init short_sleep) syscall sleep(1)
+[010153516] PID 04 (init short_sleep) sleeping until 10153516
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10060808, ran at 10060828, ended at 10156129
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[010227624] PID 03 (init interactive) Waking pid 4
+[010230037] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 10062766, ran at 10156129, ended at 10230036
+=== schedule pid 4 (init short_sleep)
+[010238115] PID 04 (init short_sleep) syscall sleep(1)
+[010240080] PID 04 (init short_sleep) sleeping until 10240081
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10230018, ran at 10230036, ended at 10347986
+=== schedule pid 3 (init interactive)
+*** timer woke pid 4
+[010355470] PID 03 (init interactive) Waking pid 4
+*** timer woke pid 5
+[010453783] PID 03 (init interactive) Waking pid 5
+[010456091] PID 03 (init interactive) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive) : queued at 10232469, ran at 10347986, ended at 10456090
+=== schedule pid 4 (init short_sleep)
+[010551164] PID 04 (init short_sleep) syscall sleep(1)
+[010553521] PID 04 (init short_sleep) sleeping until 10553521
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10452471, ran at 10456090, ended at 10562784
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[010713310] PID 05 (init burst) Waking pid 4
+[010715379] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 10456078, ran at 10562784, ended at 10715378
+=== schedule pid 3 (init interactive)
+[010820868] PID 03 (init interactive) syscall write(...)
+HI
+[010824238] PID 03 (init interactive) syscall sleep(100000)
+[010826839] PID 03 (init interactive) sleeping until 10926837
+$$ timeslice summary for pid 3 (init interactive) : queued at 10458290, ran at 10715378, ended at 10922855
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[010930109] PID 04 (init short_sleep) Waking pid 3
+[010932337] PID 04 (init short_sleep) Waking pid 4
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10715365, ran at 10922855, ended at 10932336
+=== schedule pid 5 (init burst)
+[011115478] PID 05 (init burst) syscall sleep(500000)
+[011117960] PID 05 (init burst) sleeping until 11617959
+$$ timeslice summary for pid 5 (init burst) : queued at 10717405, ran at 10932336, ended at 11120368
+=== schedule pid 3 (init interactive)
+[011126204] PID 03 (init interactive) syscall write(...)
+HI
+[011129508] PID 03 (init interactive) syscall exit()
+[011131155] PID 03 (init interactive) thread stopped
+$$ timeslice summary for pid 3 (init interactive) : queued at 10932324, ran at 11120368, ended at 11132734
+=== schedule pid 4 (init short_sleep)
+Freeing 3 interactive
+[011137652] PID 04 (init short_sleep) syscall sleep(1)
+[011139245] PID 04 (init short_sleep) sleeping until 11139246
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10934598, ran at 11132734, ended at 11140464
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[011143697] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[011145379] PID 04 (init short_sleep) syscall sleep(1)
+[011298335] PID 04 (init short_sleep) sleeping until 11298336
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 11144518, ran at 11144526, ended at 11358893
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[011366096] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[011449756] PID 04 (init short_sleep) syscall sleep(1)
+[011533553] PID 04 (init short_sleep) sleeping until 11533554
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 11447819, ran at 11447839, ended at 11536176
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[011543213] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[011547063] PID 04 (init short_sleep) syscall sleep(1)
+[011680551] PID 04 (init short_sleep) sleeping until 11680551
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 11545127, ran at 11545141, ended at 11682458
+=== schedule pid 0 (idle )
+*** timer woke pid 5
+[011809785] PID 00 (idle ) Waking pid 5
+*** timer woke pid 4
+[011812350] PID 00 (idle ) Waking pid 4
+=== schedule pid 5 (init burst)
+[012081851] PID 05 (init burst) syscall sleep(500000)
+[012082344] PID 05 (init burst) sleeping until 12582343
+$$ timeslice summary for pid 5 (init burst) : queued at 11811331, ran at 12001038, ended at 12082814
+=== schedule pid 4 (init short_sleep)
+[012083982] PID 04 (init short_sleep) syscall sleep(1)
+[012084524] PID 04 (init short_sleep) sleeping until 12084525
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 11813823, ran at 12082814, ended at 12085015
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[012086513] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[012087331] PID 04 (init short_sleep) syscall sleep(1)
+[012087791] PID 04 (init short_sleep) sleeping until 12087792
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 12086901, ran at 12086905, ended at 12088372
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[012089787] PID 00 (idle ) Waking pid 4
+=== schedule pid 4 (init short_sleep)
+[012090574] PID 04 (init short_sleep) syscall sleep(1)
+[012091022] PID 04 (init short_sleep) sleeping until 12091023
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 12090154, ran at 12090157, ended at 12091519
+=== schedule pid 0 (idle )
+*** timer woke pid 4
+[012886938] PID 00 (idle ) Waking pid 4
+*** timer woke pid 5
+[012889380] PID 00 (idle ) Waking pid 5
+=== schedule pid 4 (init short_sleep)
+[013029332] PID 04 (init short_sleep) syscall sleep(1)
+[013031055] PID 04 (init short_sleep) sleeping until 13031055
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 12888354, ran at 13027949, ended at 13095885
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[013101099] PID 05 (init burst) Waking pid 4
+[013102588] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 13027935, ran at 13095885, ended at 13102587
+=== schedule pid 4 (init short_sleep)
+[013108163] PID 04 (init short_sleep) syscall sleep(1)
+[013110191] PID 04 (init short_sleep) sleeping until 13110191
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 13102580, ran at 13102587, ended at 13464978
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[013470360] PID 05 (init burst) Waking pid 4
+[013471843] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 13104065, ran at 13464978, ended at 13471842
+=== schedule pid 4 (init short_sleep)
+[013673991] PID 04 (init short_sleep) syscall sleep(1)
+[013675684] PID 04 (init short_sleep) sleeping until 13675685
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 13471833, ran at 13471842, ended at 13677700
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[013892130] PID 05 (init burst) Waking pid 4
+[013893770] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 13473438, ran at 13677700, ended at 13893768
+=== schedule pid 4 (init short_sleep)
+[013899474] PID 04 (init short_sleep) syscall sleep(1)
+[013901296] PID 04 (init short_sleep) sleeping until 13901294
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 13893759, ran at 13893768, ended at 13903000
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[014156182] PID 05 (init burst) Waking pid 4
+[014157681] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 13895249, ran at 13903000, ended at 14157680
+=== schedule pid 4 (init short_sleep)
+[014163393] PID 04 (init short_sleep) syscall sleep(1)
+[014511468] PID 04 (init short_sleep) sleeping until 14511468
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 14157671, ran at 14157680, ended at 14513334
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[014518446] PID 05 (init burst) Waking pid 4
+[014739712] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 14159358, ran at 14513334, ended at 14739700
+=== schedule pid 4 (init short_sleep)
+[014768530] PID 04 (init short_sleep) syscall sleep(1)
+[015152327] PID 04 (init short_sleep) sleeping until 15152327
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 14700816, ran at 14739700, ended at 15154191
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[015159451] PID 05 (init burst) Waking pid 4
+[015160942] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 14764390, ran at 15154191, ended at 15160942
+=== schedule pid 4 (init short_sleep)
+[015323694] PID 04 (init short_sleep) syscall sleep(1)
+[015325385] PID 04 (init short_sleep) sleeping until 15325385
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 15160935, ran at 15160942, ended at 15327216
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[015331841] PID 05 (init burst) Waking pid 4
+[015451711] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 15162485, ran at 15327216, ended at 15451710
+=== schedule pid 4 (init short_sleep)
+[015511684] PID 04 (init short_sleep) syscall sleep(1)
+[015513368] PID 04 (init short_sleep) sleeping until 15513369
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 15333001, ran at 15451710, ended at 15515185
+=== schedule pid 5 (init burst)
+*** timer woke pid 4
+[015520115] PID 05 (init burst) Waking pid 4
+[015521476] PID 05 (init burst) Waking pid 5
+$$ timeslice summary for pid 5 (init burst) : queued at 15507694, ran at 15515185, ended at 15521475
+=== schedule pid 4 (init short_sleep)
+[015526174] PID 04 (init short_sleep) syscall exit()
+[015527144] PID 04 (init short_sleep) thread stopped
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 15521470, ran at 15521475, ended at 15528300
+=== schedule pid 5 (init burst)
+Freeing 4 short_sleep
+[015728742] PID 05 (init burst) syscall sleep(500000)
+[015736848] PID 05 (init burst) sleeping until 16236847
+$$ timeslice summary for pid 5 (init burst) : queued at 15522817, ran at 15528300, ended at 15738583
+=== schedule pid 0 (idle )
+*** timer woke pid 5
+[016244514] PID 00 (idle ) Waking pid 5
+=== schedule pid 5 (init burst)
+[016330750] PID 05 (init burst) syscall sleep(500000)
+[016332550] PID 05 (init burst) sleeping until 16832549
+$$ timeslice summary for pid 5 (init burst) : queued at 16245971, ran at 16245981, ended at 16334282
+=== schedule pid 0 (idle )
+*** timer woke pid 5
+[016863629] PID 00 (idle ) Waking pid 5
+=== schedule pid 5 (init burst)
+[016866567] PID 05 (init burst) syscall exit()
+[016868166] PID 05 (init burst) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               5  rcx: 0x              30  rdx: 0xfffffffffc0c0000
+rsi: 0x               1  rdi: 0x         7f6c150  rbp: 0x         7f62c28  rsp: 0x         7f62c10
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7f6c018  r13: 0x         7f6c098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f62ff8  3d0(%rbp)  3e8(%rsp)     ffffffffffe060b9
+0x0000000007f62ff0  3c8(%rbp)  3e0(%rsp)     0
+0x0000000007f62fe8  3c0(%rbp)  3d8(%rsp)     ffffffffffe04581
+0x0000000007f62fe0  3b8(%rbp)  3d0(%rsp)     7f6c000
+0x0000000007f62fd8  3b0(%rbp)  3c8(%rsp)     ffffffffffe060a5
+0x0000000007f62fd0  3a8(%rbp)  3c0(%rsp)     7f62ff0
+0x0000000007f62fc8  3a0(%rbp)  3b8(%rsp)     7f6c000
+0x0000000007f62fc0  398(%rbp)  3b0(%rsp)     7f6c018
+0x0000000007f62fb8  390(%rbp)  3a8(%rsp)     2658
+0x0000000007f62fb0  388(%rbp)  3a0(%rsp)     10cc00
+0x0000000007f62fa8  380(%rbp)  398(%rsp)     7f94c98
+0x0000000007f62fa0  378(%rbp)  390(%rsp)     10
+0x0000000007f62f98  370(%rbp)  388(%rsp)     7f62e00
+0x0000000007f62f90  368(%rbp)  380(%rsp)     200246
+0x0000000007f62f88  360(%rbp)  378(%rsp)     8
+0x0000000007f62f80  358(%rbp)  370(%rsp)     7f59229
+0x0000000007f62f78  350(%rbp)  368(%rsp)     0
+0x0000000007f62f70  348(%rbp)  360(%rsp)     0
+0x0000000007f62f68  340(%rbp)  358(%rsp)     0
+0x0000000007f62f60  338(%rbp)  350(%rsp)     0
+0x0000000007f62f58  330(%rbp)  348(%rsp)     0
+0x0000000007f62f50  328(%rbp)  340(%rsp)     0
+0x0000000007f62f48  320(%rbp)  338(%rsp)     0
+0x0000000007f62f40  318(%rbp)  330(%rsp)     0
+0x0000000007f62f38  310(%rbp)  328(%rsp)     0
+0x0000000007f62f30  308(%rbp)  320(%rsp)     0
+0x0000000007f62f28  300(%rbp)  318(%rsp)     0
+0x0000000007f62f20  2f8(%rbp)  310(%rsp)     0
+0x0000000007f62f18  2f0(%rbp)  308(%rsp)     0
+0x0000000007f62f10  2e8(%rbp)  300(%rsp)     0
+0x0000000007f62f08  2e0(%rbp)  2f8(%rsp)     7f6c098
+0x0000000007f62f00  2d8(%rbp)  2f0(%rsp)     0
+0x0000000007f62ef8  2d0(%rbp)  2e8(%rsp)     7f6c000
+0x0000000007f62ef0  2c8(%rbp)  2e0(%rsp)     abababababababab
+0x0000000007f62ee8  2c0(%rbp)  2d8(%rsp)     ffffffffffe04649
+0x0000000007f62ee0  2b8(%rbp)  2d0(%rsp)     7f62fd0
+0x0000000007f62ed8  2b0(%rbp)  2c8(%rsp)     7f62f00
+0x0000000007f62ed0  2a8(%rbp)  2c0(%rsp)     500000008
+0x0000000007f62ec8  2a0(%rbp)  2b8(%rsp)     ffffffffffe04ba1
+0x0000000007f62ec0  298(%rbp)  2b0(%rsp)     7f62ee0
+0x0000000007f62eb8  290(%rbp)  2a8(%rsp)     0
+0x0000000007f62eb0  288(%rbp)  2a0(%rsp)     7f5a000
+0x0000000007f62ea8  280(%rbp)  298(%rsp)     7f62000
+0x0000000007f62ea0  278(%rbp)  290(%rsp)     7f62e00
+0x0000000007f62e98  270(%rbp)  288(%rsp)     401229
+0x0000000007f62e90  268(%rbp)  280(%rsp)     7f58000
+0x0000000007f62e88  260(%rbp)  278(%rsp)     7f62000
+0x0000000007f62e80  258(%rbp)  270(%rsp)     0
+0x0000000007f62e78  250(%rbp)  268(%rsp)     10cc00
+0x0000000007f62e70  248(%rbp)  260(%rsp)     7f62f00
+0x0000000007f62e68  240(%rbp)  258(%rsp)     ffffffffffe0453c
+0x0000000007f62e60  238(%rbp)  250(%rsp)     7f62ee0
+0x0000000007f62e58  230(%rbp)  248(%rsp)     10cc00
+0x0000000007f62e50  228(%rbp)  240(%rsp)     10cd20
+0x0000000007f62e48  220(%rbp)  238(%rsp)     10cc00
+0x0000000007f62e40  218(%rbp)  230(%rsp)     500000000
+0x0000000007f62e38  210(%rbp)  228(%rsp)     7f5a000
+0x0000000007f62e30  208(%rbp)  220(%rsp)     10ec00
+0x0000000007f62e28  200(%rbp)  218(%rsp)     1000
+0x0000000007f62e20  1f8(%rbp)  210(%rsp)     7f62e60
+0x0000000007f62e18  1f0(%rbp)  208(%rsp)     1000
+0x0000000007f62e10  1e8(%rbp)  200(%rsp)     7f58000
+0x0000000007f62e08  1e0(%rbp)  1f8(%rsp)     7f58000
+0x0000000007f62e00  1d8(%rbp)  1f0(%rsp)     ababab5aabababab
+0x0000000007f62df8  1d0(%rbp)  1e8(%rsp)     0
+0x0000000007f62df0  1c8(%rbp)  1e0(%rsp)     abababababababab
+0x0000000007f62de8  1c0(%rbp)  1d8(%rsp)     abababababababab
+0x0000000007f62de0  1b8(%rbp)  1d0(%rsp)     abababababababab
+0x0000000007f62dd8  1b0(%rbp)  1c8(%rsp)     aabababab
+0x0000000007f62dd0  1a8(%rbp)  1c0(%rsp)     800000
+0x0000000007f62dc8  1a0(%rbp)  1b8(%rsp)     abababababababab
+0x0000000007f62dc0  198(%rbp)  1b0(%rsp)     7f6c098
+0x0000000007f62db8  190(%rbp)  1a8(%rsp)     abababababababab
+0x0000000007f62db0  188(%rbp)  1a0(%rsp)     7f593cb
+0x0000000007f62da8  180(%rbp)  198(%rsp)     7f62df8
+0x0000000007f62da0  178(%rbp)  190(%rsp)     7f591a7
+0x0000000007f62d98  170(%rbp)  188(%rsp)     7f62da8
+0x0000000007f62d90  168(%rbp)  1
