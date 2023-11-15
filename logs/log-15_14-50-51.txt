@@ -1,0 +1,60 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[000207818] PID 01 (init init) syscall write(...)
+I am init
+[000207959] PID 01 (init init) syscall spawn("init", "interactive_task_1")
+[000208048] PID 01 (init init) Waking pid 2
+[000208100] PID 01 (init init) Waking pid 1
+[000208146] PID 01 (init init) syscall spawn("init", "interactive_task_2")
+[000208222] PID 01 (init init) Waking pid 3
+[000208273] PID 01 (init init) Waking pid 1
+[000214337] PID 01 (init init) syscall spawn("init", "interactive_task_3")
+[000214455] PID 01 (init init) Waking pid 4
+[000215652] PID 01 (init init) Waking pid 1
+[000221039] PID 01 (init init) syscall spawn("init", "interactive_task_4")
+[000221160] PID 01 (init init) Waking pid 5
+[000221228] PID 01 (init init) Waking pid 1
+[000221301] PID 01 (init init) syscall spawn("init", "interactive_task_5")
+[000221414] PID 01 (init init) Waking pid 6
+[000221476] PID 01 (init init) Waking pid 1
+[000225357] PID 01 (init init) syscall spawn("init", "batch_task")
+[000225464] PID 01 (init init) Waking pid 7
+[000225533] PID 01 (init init) Waking pid 1
+[000225625] PID 01 (init init) syscall exit()
+[000225703] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 207519, ran at 207537, ended at 225801
+=== schedule pid 2 (init interactive_task_1)
+Freeing 1 init
+[000230234] PID 02 (init interactive_task_1) syscall sleep(100000)
+[000230333] PID 02 (init interactive_task_1) sleeping until 330330
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 208097, ran at 225801, ended at 233614
+=== schedule pid 3 (init interactive_task_2)
+[000233974] PID 03 (init interactive_task_2) syscall sleep(100000)
+[000234073] PID 03 (init interactive_task_2) sleeping until 334073
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 208271, ran at 233614, ended at 234166
+=== schedule pid 4 (init interactive_task_3)
+[000234366] PID 04 (init interactive_task_3) syscall sleep(100000)
+[000234424] PID 04 (init interactive_task_3) sleeping until 334424
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 215646, ran at 234166, ended at 234486
+=== schedule pid 5 (init interactive_task_4)
+[000240171] PID 05 (init interactive_task_4) syscall sleep(100000)
+[000240271] PID 05 (init interactive_task_4) sleeping until 340271
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 221227, ran at 234486, ended at 240362
+=== schedule pid 6 (init interactive_task_5)
+[000240624] PID 06 (init interactive_task_5) syscall sleep(100000)
+[000240720] PID 06 (init interactive_task_5) sleeping until 340720
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 221475, ran at 240362, ended at 240809
+=== schedule pid 7 (init batch_task)

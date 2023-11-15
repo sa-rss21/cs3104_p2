@@ -74,7 +74,6 @@ void task_ended(struct sched_task *task)
     DONT_PREEMPT - The currently running task can continue */
 int enqueue_task(struct sched_task *task)
 {
-    //print_state();
     // If the linked list is empty or the new task has the highest priority, make it the new head.
     if (head == NULL || task->priority < head->priority)
     {
@@ -91,7 +90,7 @@ int enqueue_task(struct sched_task *task)
         task->next = current->next;
         current->next = task;
     }
-
+    //print_state();
     return DO_PREEMPT;
 }
 
@@ -100,7 +99,7 @@ int enqueue_task(struct sched_task *task)
    will first enqueue before calling this function */
 struct sched_task *dequeue_next_task()
 {
-
+    
     struct sched_task *next_task = head;
 
     if (head != NULL)

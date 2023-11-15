@@ -1,0 +1,174 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[022891650] PID 01 (init init) syscall write(...)
+I am init
+[023326714] PID 01 (init init) syscall spawn("init", "high_priority_1")
+[023329277] PID 01 (init init) Waking pid 2
+[023331036] PID 01 (init init) Waking pid 1
+[023332597] PID 01 (init init) syscall spawn("init", "high_priority_2")
+[023335048] PID 01 (init init) Waking pid 3
+[023336317] PID 01 (init init) Waking pid 1
+[023337279] PID 01 (init init) syscall spawn("init", "low_priority_1")
+[023338830] PID 01 (init init) Waking pid 4
+[023339816] PID 01 (init init) Waking pid 1
+[023340772] PID 01 (init init) syscall spawn("init", "low_priority_2")
+[023342360] PID 01 (init init) Waking pid 5
+[023343297] PID 01 (init init) Waking pid 1
+[023344415] PID 01 (init init) syscall exit()
+[023345564] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 22887602, ran at 22887841, ended at 23346677
+=== schedule pid 2 (init high_priority_1)
+Freeing 1 init
+[028855610] PID 02 (init high_priority_1) syscall exit()
+[028856753] PID 02 (init high_priority_1) thread stopped
+$$ timeslice summary for pid 2 (init high_priority_1) : queued at 23330942, ran at 23346677, ended at 28857274
+=== schedule pid 3 (init high_priority_2)
+Freeing 2 high_priority_1
+[032852338] PID 03 (init high_priority_2) syscall exit()
+[032852913] PID 03 (init high_priority_2) thread stopped
+$$ timeslice summary for pid 3 (init high_priority_2) : queued at 23336259, ran at 28857274, ended at 32853389
+=== schedule pid 4 (init low_priority_1)
+Freeing 3 high_priority_2
+[036764068] PID 04 (init low_priority_1) syscall exit()
+[036764662] PID 04 (init low_priority_1) thread stopped
+$$ timeslice summary for pid 4 (init low_priority_1) : queued at 23339769, ran at 32853389, ended at 36765136
+=== schedule pid 5 (init low_priority_2)
+Freeing 4 low_priority_1
+[040675021] PID 05 (init low_priority_2) syscall exit()
+[040675570] PID 05 (init low_priority_2) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               5  rcx: 0x              30  rdx: 0xfffffffffc290000
+rsi: 0x               1  rdi: 0x         7f6c150  rbp: 0x         7f62c38  rsp: 0x         7f62c20
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7f6c018  r13: 0x         7f6c098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f62ff8  3c0(%rbp)  3d8(%rsp)     ffffffffffe060b9
+0x0000000007f62ff0  3b8(%rbp)  3d0(%rsp)     0
+0x0000000007f62fe8  3b0(%rbp)  3c8(%rsp)     ffffffffffe04581
+0x0000000007f62fe0  3a8(%rbp)  3c0(%rsp)     7f6c000
+0x0000000007f62fd8  3a0(%rbp)  3b8(%rsp)     ffffffffffe060a5
+0x0000000007f62fd0  398(%rbp)  3b0(%rsp)     7f62ff0
+0x0000000007f62fc8  390(%rbp)  3a8(%rsp)     7f6c000
+0x0000000007f62fc0  388(%rbp)  3a0(%rsp)     7f6c018
+0x0000000007f62fb8  380(%rbp)  398(%rsp)     26b8
+0x0000000007f62fb0  378(%rbp)  390(%rsp)     10cc00
+0x0000000007f62fa8  370(%rbp)  388(%rsp)     7f76c38
+0x0000000007f62fa0  368(%rbp)  380(%rsp)     10
+0x0000000007f62f98  360(%rbp)  378(%rsp)     7f62e00
+0x0000000007f62f90  358(%rbp)  370(%rsp)     200246
+0x0000000007f62f88  350(%rbp)  368(%rsp)     8
+0x0000000007f62f80  348(%rbp)  360(%rsp)     7f81258
+0x0000000007f62f78  340(%rbp)  358(%rsp)     0
+0x0000000007f62f70  338(%rbp)  350(%rsp)     0
+0x0000000007f62f68  330(%rbp)  348(%rsp)     0
+0x0000000007f62f60  328(%rbp)  340(%rsp)     0
+0x0000000007f62f58  320(%rbp)  338(%rsp)     0
+0x0000000007f62f50  318(%rbp)  330(%rsp)     0
+0x0000000007f62f48  310(%rbp)  328(%rsp)     0
+0x0000000007f62f40  308(%rbp)  320(%rsp)     0
+0x0000000007f62f38  300(%rbp)  318(%rsp)     0
+0x0000000007f62f30  2f8(%rbp)  310(%rsp)     0
+0x0000000007f62f28  2f0(%rbp)  308(%rsp)     0
+0x0000000007f62f20  2e8(%rbp)  300(%rsp)     0
+0x0000000007f62f18  2e0(%rbp)  2f8(%rsp)     0
+0x0000000007f62f10  2d8(%rbp)  2f0(%rsp)     0
+0x0000000007f62f08  2d0(%rbp)  2e8(%rsp)     7f6c098
+0x0000000007f62f00  2c8(%rbp)  2e0(%rsp)     0
+0x0000000007f62ef8  2c0(%rbp)  2d8(%rsp)     7f6c000
+0x0000000007f62ef0  2b8(%rbp)  2d0(%rsp)     1
+0x0000000007f62ee8  2b0(%rbp)  2c8(%rsp)     ffffffffffe04649
+0x0000000007f62ee0  2a8(%rbp)  2c0(%rsp)     7f62fd0
+0x0000000007f62ed8  2a0(%rbp)  2b8(%rsp)     7f62f00
+0x0000000007f62ed0  298(%rbp)  2b0(%rsp)     500000008
+0x0000000007f62ec8  290(%rbp)  2a8(%rsp)     ffffffffffe04ba1
+0x0000000007f62ec0  288(%rbp)  2a0(%rsp)     7f62ee0
+0x0000000007f62eb8  280(%rbp)  298(%rsp)     0
+0x0000000007f62eb0  278(%rbp)  290(%rsp)     7f82000
+0x0000000007f62ea8  270(%rbp)  288(%rsp)     7f62000
+0x0000000007f62ea0  268(%rbp)  280(%rsp)     7f62e00
+0x0000000007f62e98  260(%rbp)  278(%rsp)     401258
+0x0000000007f62e90  258(%rbp)  270(%rsp)     7f80000
+0x0000000007f62e88  250(%rbp)  268(%rsp)     7f62000
+0x0000000007f62e80  248(%rbp)  260(%rsp)     0
+0x0000000007f62e78  240(%rbp)  258(%rsp)     10cc00
+0x0000000007f62e70  238(%rbp)  250(%rsp)     7f62f00
+0x0000000007f62e68  230(%rbp)  248(%rsp)     ffffffffffe0453c
+0x0000000007f62e60  228(%rbp)  240(%rsp)     7f62ee0
+0x0000000007f62e58  220(%rbp)  238(%rsp)     10cc00
+0x0000000007f62e50  218(%rbp)  230(%rsp)     10cd20
+0x0000000007f62e48  210(%rbp)  228(%rsp)     10cc00
+0x0000000007f62e40  208(%rbp)  220(%rsp)     500000000
+0x0000000007f62e38  200(%rbp)  218(%rsp)     7f82000
+0x0000000007f62e30  1f8(%rbp)  210(%rsp)     10ec00
+0x0000000007f62e28  1f0(%rbp)  208(%rsp)     1000
+0x0000000007f62e20  1e8(%rbp)  200(%rsp)     7f62e60
+0x0000000007f62e18  1e0(%rbp)  1f8(%rsp)     1000
+0x0000000007f62e10  1d8(%rbp)  1f0(%rsp)     7f80000
+0x0000000007f62e08  1d0(%rbp)  1e8(%rsp)     7f80000
+0x0000000007f62e00  1c8(%rbp)  1e0(%rsp)     ffffff5affe029bf
+0x0000000007f62df8  1c0(%rbp)  1d8(%rsp)     0
+0x0000000007f62df0  1b8(%rbp)  1d0(%rsp)     3f80a3c00000031
+0x0000000007f62de8  1b0(%rbp)  1c8(%rsp)     ffffffffffe073bc
+0x0000000007f62de0  1a8(%rbp)  1c0(%rsp)     6400000008
+0x0000000007f62dd8  1a0(%rbp)  1b8(%rsp)     800000
+0x0000000007f62dd0  198(%rbp)  1b0(%rsp)     7f6c098
+0x0000000007f62dc8  190(%rbp)  1a8(%rsp)     3fd000000000000
+0x0000000007f62dc0  188(%rbp)  1a0(%rsp)     7f813bb
+0x0000000007f62db8  180(%rbp)  198(%rsp)     7f62df8
+0x0000000007f62db0  178(%rbp)  190(%rsp)     7f811a7
+0x0000000007f62da8  170(%rbp)  188(%rsp)     7f62db8
+0x0000000007f62da0  168(%rbp)  180(%rsp)     0
+0x0000000007f62d98  160(%rbp)  178(%rsp)     10
+0x0000000007f62d90  158(%rbp)  170(%rsp)     7f62da0
+0x0000000007f62d88  150(%rbp)  168(%rsp)     200202
+0x0000000007f62d80  148(%rbp)  160(%rsp)     8
+0x0000000007f62d78  140(%rbp)  158(%rsp)     7f81153
+0x0000000007f62d70  138(%rbp)  150(%rsp)     dead
+0x0000000007f62d68  130(%rbp)  148(%rsp)     0
+0x0000000007f62d60  128(%rbp)  140(%rsp)     0
+0x0000000007f62d58  120(%rbp)  138(%rsp)     0
+0x0000000007f62d50  118(%rbp)  130(%rsp)     0
+0x0000000007f62d48  110(%rbp)  128(%rsp)     0
+0x0000000007f62d40  108(%rbp)  120(%rsp)     0
+0x0000000007f62d38  100(%rbp)  118(%rsp)     0
+0x0000000007f62d30  f8(%rbp)  110(%rsp)     0
+0x0000000007f62d28  f0(%rbp)  108(%rsp)     0
+0x0000000007f62d20  e8(%rbp)  100(%rsp)     0
+0x0000000007f62d18  e0(%rbp)  f8(%rsp)     0
+0x0000000007f62d10  d8(%rbp)  f0(%rsp)     2
+0x0000000007f62d08  d0(%rbp)  e8(%rsp)     0
+0x0000000007f62d00  c8(%rbp)  e0(%rsp)     2
+0x0000000007f62cf8  c0(%rbp)  d8(%rsp)     7f62da8
+0x0000000007f62cf0  b8(%rbp)  d0(%rsp)     ffffffffffe04d47
+0x0000000007f62ce8  b0(%rbp)  c8(%rsp)     7f62da8
+0x0000000007f62ce0  a8(%rbp)  c0(%rsp)     7f62cf8
+0x0000000007f62cd8  a0(%rbp)  b8(%rsp)     abababababababab
+0x0000000007f62cd0  98(%rbp)  b0(%rsp)     ffffffffffe04d9a
+0x0000000007f62cc8  90(%rbp)  a8(%rsp)     7f62ce8
+0x0000000007f62cc0  88(%rbp)  a0(%rsp)     0
+0x0000000007f62cb8  80(%rbp)  98(%rsp)     0
+0x0000000007f62cb0  78(%rbp)  90(%rsp)     7f62cf8
+0x0000000007f62ca8  70(%rbp)  88(%rsp)     abababababababab
+0x0000000007f62ca0  68(%rbp)  80(%rsp)     abababababababab
+0x0000000007f62c98  60(%rbp)  78(%rsp)     abababababababab
+0x0000000007f62c90  58(%rbp)  70(%rsp)     2
+0x0000000007f62c88  50(%rbp)  68(%rsp)     0
+0x0000000007f62c80  48(%rbp)  60(%rsp)     0
+0x0000000007f62c78  40(%rbp)  58(%rsp)     0
+0x0000000007f62c70  38(%rbp)  50(%rsp)     ffffffffffe0565c
+0x

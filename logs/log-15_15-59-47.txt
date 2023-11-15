@@ -1,0 +1,566 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003576710] PID 01 (init init) syscall write(...)
+I am init
+[003578043] PID 01 (init init) syscall spawn("init", "batch")
+[003579029] PID 01 (init init) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[003841970] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[004228046] PID 01 (init init) syscall spawn("init", "interactive")
+[004230621] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[004239070] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[004246918] PID 01 (init init) syscall spawn("init", "short_sleep")
+[004248509] PID 01 (init init) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[004254398] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[005074074] PID 01 (init init) syscall spawn("init", "burst")
+[005076235] PID 01 (init init) Waking pid 5
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[005300049] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 0
+
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[005724738] PID 01 (init init) syscall exit()
+[005726582] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 3569876, ran at 3573573, ended at 5728600
+=== schedule pid 3 (init interactive)
+Freeing 1 init
+[005908762] PID 03 (init interactive) syscall sleep(100000)
+[005910801] PID 03 (init interactive) sleeping until 6010731
+$$ timeslice summary for pid 3 (init interactive) : queued at 4232135, ran at 5728600, ended at 5991419
+=== schedule pid 5 (init burst)
+[006074250] PID 05 (init burst) syscall sleep(500000)
+[006074888] PID 05 (init burst) sleeping until 6574887
+$$ timeslice summary for pid 5 (init burst) : queued at 5077691, ran at 5991419, ended at 6075530
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[006077226] PID 04 (init short_sleep) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[006079605] PID 04 (init short_sleep) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 4249701, ran at 6075530, ended at 6079604
+=== schedule pid 3 (init interactive)
+[006083774] PID 03 (init interactive) syscall write(...)
+HI
+[006084424] PID 03 (init interactive) syscall sleep(100000)
+[006084893] PID 03 (init interactive) sleeping until 6184893
+$$ timeslice summary for pid 3 (init interactive) : queued at 6077696, ran at 6079604, ended at 6085447
+=== schedule pid 4 (init short_sleep)
+[006086747] PID 04 (init short_sleep) syscall sleep(1)
+[006087194] PID 04 (init short_sleep) sleeping until 6087195
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6080124, ran at 6085447, ended at 6087678
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[006089263] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[006090862] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 3579692, ran at 6087678, ended at 6090861
+=== schedule pid 4 (init short_sleep)
+[006094334] PID 04 (init short_sleep) syscall sleep(1)
+[006094808] PID 04 (init short_sleep) sleeping until 6094809
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6089697, ran at 6090861, ended at 6095303
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[006096665] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[006098236] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 6091301, ran at 6095303, ended at 6098236
+=== schedule pid 4 (init short_sleep)
+[006101508] PID 04 (init short_sleep) syscall sleep(1)
+[006101984] PID 04 (init short_sleep) sleeping until 6101985
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6097053, ran at 6098236, ended at 6102496
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[006103902] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+*** timer woke pid 3
+[006747316] PID 02 (init batch) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+*** timer woke pid 5
+[006756545] PID 02 (init batch) Waking pid 5
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[006966186] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 6098675, ran at 6102496, ended at 6966184
+=== schedule pid 3 (init interactive)
+[007265838] PID 03 (init interactive) syscall write(...)
+HI
+[007288171] PID 03 (init interactive) syscall sleep(100000)
+[007289947] PID 03 (init interactive) sleeping until 7389946
+$$ timeslice summary for pid 3 (init interactive) : queued at 6748850, ran at 6966184, ended at 7291744
+=== schedule pid 5 (init burst)
+[007383835] PID 05 (init burst) syscall sleep(500000)
+[007384615] PID 05 (init burst) sleeping until 7884614
+$$ timeslice summary for pid 5 (init burst) : queued at 6758013, ran at 7291744, ended at 7385238
+=== schedule pid 4 (init short_sleep)
+[007387209] PID 04 (init short_sleep) syscall sleep(1)
+[007388022] PID 04 (init short_sleep) sleeping until 7388023
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 6647445, ran at 7385238, ended at 7388895
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[007391514] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+*** timer woke pid 3
+[007394768] PID 02 (init batch) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[007397593] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 6967842, ran at 7388895, ended at 7397593
+=== schedule pid 3 (init interactive)
+[007402180] PID 03 (init interactive) syscall write(...)
+HI
+[007402986] PID 03 (init interactive) syscall sleep(100000)
+[007403532] PID 03 (init interactive) sleeping until 7503531
+$$ timeslice summary for pid 3 (init interactive) : queued at 7395494, ran at 7397593, ended at 7404146
+=== schedule pid 4 (init short_sleep)
+[007405418] PID 04 (init short_sleep) syscall sleep(1)
+[007405887] PID 04 (init short_sleep) sleeping until 7405888
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7392295, ran at 7404146, ended at 7406358
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[007407818] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[007409332] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 7398139, ran at 7406358, ended at 7409332
+=== schedule pid 4 (init short_sleep)
+[007412723] PID 04 (init short_sleep) syscall sleep(1)
+[007413161] PID 04 (init short_sleep) sleeping until 7413161
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7408222, ran at 7409332, ended at 7413631
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[007845451] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+*** timer woke pid 3
+[008111265] PID 02 (init batch) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+*** timer woke pid 5
+[008309017] PID 02 (init batch) Waking pid 5
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[008633534] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 7409808, ran at 7413631, ended at 8633530
+=== schedule pid 3 (init interactive)
+[008807333] PID 03 (init interactive) syscall write(...)
+HI
+[008809442] PID 03 (init interactive) syscall sleep(100000)
+[008811343] PID 03 (init interactive) sleeping until 8911343
+$$ timeslice summary for pid 3 (init interactive) : queued at 8112739, ran at 8633530, ended at 9028162
+=== schedule pid 5 (init burst)
+*** timer woke pid 3
+[009033454] PID 05 (init burst) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[009387294] PID 05 (init burst) Waking pid 5
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 5 (init burst) : queued at 8310648, ran at 9028162, ended at 9387292
+=== schedule pid 3 (init interactive)
+[009721950] PID 03 (init interactive) syscall write(...)
+HI
+[009809725] PID 03 (init interactive) syscall sleep(100000)
+[009811512] PID 03 (init interactive) sleeping until 9911511
+$$ timeslice summary for pid 3 (init interactive) : queued at 9273100, ran at 9387292, ended at 9887061
+=== schedule pid 5 (init burst)
+[009986773] PID 05 (init burst) syscall sleep(500000)
+[009987566] PID 05 (init burst) sleeping until 10487565
+$$ timeslice summary for pid 5 (init burst) : queued at 9388769, ran at 9887061, ended at 9988209
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[009990108] PID 04 (init short_sleep) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[009993106] PID 04 (init short_sleep) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 7937803, ran at 9988209, ended at 9993105
+=== schedule pid 3 (init interactive)
+[009999194] PID 03 (init interactive) syscall write(...)
+HI
+[010000141] PID 03 (init interactive) syscall sleep(100000)
+[010000857] PID 03 (init interactive) sleeping until 10100857
+$$ timeslice summary for pid 3 (init interactive) : queued at 9990680, ran at 9993105, ended at 10001587
+=== schedule pid 4 (init short_sleep)
+[010003378] PID 04 (init short_sleep) syscall sleep(1)
+[010004089] PID 04 (init short_sleep) sleeping until 10004089
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 9993726, ran at 10001587, ended at 10004620
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[010006003] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[010007601] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 8635036, ran at 10004620, ended at 10007601
+=== schedule pid 4 (init short_sleep)
+[010010900] PID 04 (init short_sleep) syscall sleep(1)
+[010011382] PID 04 (init short_sleep) sleeping until 10011383
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10006394, ran at 10007601, ended at 10011885
+=== schedule pid 2 (init batch)
+*** timer woke pid 4
+[010013308] PID 02 (init batch) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 3
+
+End of Scheduler State
+[010014889] PID 02 (init batch) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init batch) : queued at 10008043, ran at 10011885, ended at 10014889
+=== schedule pid 4 (init short_sleep)
+*** timer woke pid 3
+[010593654] PID 04 (init short_sleep) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+*** timer woke pid 5
+[010761003] PID 04 (init short_sleep) Waking pid 5
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[011220607] PID 04 (init short_sleep) Waking pid 4
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+$$ timeslice summary for pid 4 (init short_sleep) : queued at 10013698, ran at 10014889, ended at 11220604
+=== schedule pid 3 (init interactive)
+[011920536] PID 03 (init interactive) syscall write(...)
+HI
+[011922874] PID 03 (init interactive) syscall sleep(100000)
+[011924930] PID 03 (init interactive) sleeping until 12024929
+$$ timeslice summary for pid 3 (init interactive) : queued at 10595386, ran at 11220604, ended at 12056890
+=== schedule pid 5 (init burst)
+*** timer woke pid 3
+[012190529] PID 05 (init burst) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 3
+
+Task Name: init
+Priority: 4
+
+End of Scheduler State
+[012201289] PID 05 (init burst) Waking pid 5
+Scheduler State:
+T

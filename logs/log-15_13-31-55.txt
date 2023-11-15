@@ -1,0 +1,86 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[021098639] PID 01 (init init) syscall write(...)
+I am init
+[021100251] PID 01 (init init) syscall spawn("init", "long_running")
+[021101292] PID 01 (init init) Waking pid 2
+[021102028] PID 01 (init init) Waking pid 1
+[021102695] PID 01 (init init) syscall spawn("init", "short_running_1")
+[021103742] PID 01 (init init) Waking pid 3
+[021104474] PID 01 (init init) Waking pid 1
+[021105127] PID 01 (init init) syscall spawn("init", "short_running_2")
+[021630079] PID 01 (init init) Waking pid 4
+[021631743] PID 01 (init init) Waking pid 1
+[022136638] PID 01 (init init) syscall spawn("init", "short_running_3")
+[023179404] PID 01 (init init) Waking pid 5
+[023180911] PID 01 (init init) Waking pid 1
+[023182779] PID 01 (init init) syscall exit()
+[024814195] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 21094637, ran at 21094875, ended at 25328592
+=== schedule pid 2 (init long_running)
+Freeing 1 init
+[029336564] PID 02 (init long_running) syscall exit()
+[029337599] PID 02 (init long_running) thread stopped
+$$ timeslice summary for pid 2 (init long_running) : queued at 21101990, ran at 25328592, ended at 29338399
+=== schedule pid 3 (init short_running_1)
+Freeing 2 long_running
+[029999200] PID 03 (init short_running_1) syscall exit()
+[030007630] PID 03 (init short_running_1) thread stopped
+$$ timeslice summary for pid 3 (init short_running_1) : queued at 21104436, ran at 29338399, ended at 30009393
+=== schedule pid 4 (init short_running_2)
+Freeing 3 short_running_1
+[030254902] PID 04 (init short_running_2) syscall exit()
+[030256275] PID 04 (init short_running_2) thread stopped
+$$ timeslice summary for pid 4 (init short_running_2) : queued at 21631599, ran at 30009393, ended at 30257620
+=== schedule pid 5 (init short_running_3)
+Freeing 4 short_running_2
+[030630474] PID 05 (init short_running_3) syscall exit()
+[030638121] PID 05 (init short_running_3) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               5  rcx: 0x              30  rdx: 0xfffffffffc290000
+rsi: 0x               1  rdi: 0x         7f6c150  rbp: 0x         7f62c38  rsp: 0x         7f62c20
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7f6c018  r13: 0x         7f6c098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f62ff8  3c0(%rbp)  3d8(%rsp)     ffffffffffe060b9
+0x0000000007f62ff0  3b8(%rbp)  3d0(%rsp)     0
+0x0000000007f62fe8  3b0(%rbp)  3c8(%rsp)     ffffffffffe04581
+0x0000000007f62fe0  3a8(%rbp)  3c0(%rsp)     7f6c000
+0x0000000007f62fd8  3a0(%rbp)  3b8(%rsp)     ffffffffffe060a5
+0x0000000007f62fd0  398(%rbp)  3b0(%rsp)     7f62ff0
+0x0000000007f62fc8  390(%rbp)  3a8(%rsp)     7f6c000
+0x0000000007f62fc0  388(%rbp)  3a0(%rsp)     7f6c018
+0x0000000007f62fb8  380(%rbp)  398(%rsp)     26b8
+0x0000000007f62fb0  378(%rbp)  390(%rsp)     10cc00
+0x0000000007f62fa8  370(%rbp)  388(%rsp)     7f76c38
+0x0000000007f62fa0  368(%rbp)  380(%rsp)     10
+0x0000000007f62f98  360(%rbp)  378(%rsp)     7f62e00
+0x0000000007f62f90  358(%rbp)  370(%rsp)     200246
+0x0000000007f62f88  350(%rbp)  368(%rsp)     8
+0x0000000007f62f80  348(%rbp)  360(%rsp)     7f81258
+0x0000000007f62f78  340(%rbp)  358(%rsp)     0
+0x0000000007f62f70  338(%rbp)  350(%rsp)     0
+0x0000000007f62f68  330(%rbp)  348(%rsp)     0
+0x0000000007f62f60  328(%rbp)  340(%rsp)     0
+0x0000000007f62f58  320(%rbp)  338(%rsp)     0
+0x0000000007f62f50  318(%rbp)  330(%rsp)     0
+0x0000000007f62f48  310(%rbp)  328(%rsp)     0
+0x0000000007f62f40  308(%rbp)  320(%rsp)     0
+0x0000000007f62f38  300(%rbp)  318(%rsp)     0
+0x0000000007f62f30  2f8(%rbp)  310(%rsp)     0
+0x0000000007f62f28  2f0(%rbp)  308(%rsp)     0
