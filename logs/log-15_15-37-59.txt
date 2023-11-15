@@ -1,0 +1,105 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+Scheduler State:
+End of Scheduler State
+=== schedule pid 1 (init init)
+[003126188] PID 01 (init init) syscall write(...)
+I am init
+[003127792] PID 01 (init init) syscall spawn("init", "long_running")
+[003128900] PID 01 (init init) Waking pid 2
+Scheduler State:
+End of Scheduler State
+[003130520] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 2
+
+End of Scheduler State
+[003271396] PID 01 (init init) syscall spawn("init", "short_running")
+[003273955] PID 01 (init init) Waking pid 3
+Scheduler State:
+Task Name: init
+Priority: 2
+
+End of Scheduler State
+[003280039] PID 01 (init init) Waking pid 1
+Scheduler State:
+Task Name: init
+Priority: 1
+
+Task Name: init
+Priority: 2
+
+End of Scheduler State
+[003658882] PID 01 (init init) syscall exit()
+[003660778] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 3120746, ran at 3122315, ended at 3662827
+=== schedule pid 3 (init short_running)
+Freeing 1 init
+[003669418] PID 03 (init short_running) syscall sleep(300000)
+[003820040] PID 03 (init short_running) sleeping until 4119950
+$$ timeslice summary for pid 3 (init short_running) : queued at 3275471, ran at 3662827, ended at 3822303
+=== schedule pid 2 (init long_running)
+[003898786] PID 02 (init long_running) syscall sleep(100000)
+[003900713] PID 02 (init long_running) sleeping until 4000711
+$$ timeslice summary for pid 2 (init long_running) : queued at 3129593, ran at 3822303, ended at 3902646
+=== schedule pid 0 (idle )
+*** timer woke pid 2
+[004033928] PID 00 (idle ) Waking pid 2
+Scheduler State:
+End of Scheduler State
+=== schedule pid 2 (init long_running)
+*** timer woke pid 3
+[004146236] PID 02 (init long_running) Waking pid 3
+Scheduler State:
+End of Scheduler State
+[004147307] PID 02 (init long_running) Waking pid 2
+Scheduler State:
+Task Name: init
+Priority: 1
+
+End of Scheduler State
+$$ timeslice summary for pid 2 (init long_running) : queued at 4035375, ran at 4037509, ended at 4147307
+=== schedule pid 3 (init short_running)
+[004332270] PID 03 (init short_running) syscall exit()
+[004340617] PID 03 (init short_running) thread stopped
+$$ timeslice summary for pid 3 (init short_running) : queued at 4146706, ran at 4147307, ended at 4342655
+=== schedule pid 2 (init long_running)
+Freeing 3 short_running
+[004658927] PID 02 (init long_running) syscall exit()
+[004659425] PID 02 (init long_running) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               2  rcx: 0x              30  rdx: 0xfffffffffc180000
+rsi: 0x               1  rdi: 0x         7fa8150  rbp: 0x         7f9ec38  rsp: 0x         7f9ec20
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7fa8018  r13: 0x         7fa8098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f9eff8  3c0(%rbp)  3d8(%rsp)     ffffffffffe060c3
+0x0000000007f9eff0  3b8(%rbp)  3d0(%rsp)     0
+0x0000000007f9efe8  3b0(%rbp)  3c8(%rsp)     ffffffffffe04581
+0x0000000007f9efe0  3a8(%rbp)  3c0(%rsp)     7fa8000
+0x0000000007f9efd8  3a0(%rbp)  3b8(%rsp)     ffffffffffe060af
+0x0000000007f9efd0  398(%rbp)  3b0(%rsp)     7f9eff0
+0x0000000007f9efc8  390(%rbp)  3a8(%rsp)     7fa8000
+0x0000000007f9efc0  388(%rbp)  3a0(%rsp)     7fa8018
+0x0000000007f9efb8  380(%rbp)  398(%rsp)     2698
+0x0000000007f9efb0  378(%rbp)  390(%rsp)     10ce00
+0x0000000007f9efa8  370(%rbp)  388(%rsp)     7f8ac08
+0x0000000007f9efa0  368(%rbp)  380(%rsp)     10
+0x0000000007f9ef98  360(%rbp)  378(%rsp)     7f9ee00
+0x0000000007f9ef90  358(%rbp)  370(%rsp)     200246
+0

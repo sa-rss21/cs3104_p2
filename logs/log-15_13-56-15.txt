@@ -1,0 +1,1417 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[003373803] PID 01 (init init) syscall write(...)
+I am init
+[003374150] PID 01 (init init) syscall spawn("init", "high_priority_1")
+[003374420] PID 01 (init init) Waking pid 2
+[003374601] PID 01 (init init) Waking pid 1
+[003374766] PID 01 (init init) syscall spawn("init", "high_priority_2")
+[003375025] PID 01 (init init) Waking pid 3
+[003375203] PID 01 (init init) Waking pid 1
+[003375361] PID 01 (init init) syscall spawn("init", "medium_priority_1")
+[003375584] PID 01 (init init) Waking pid 4
+[003375692] PID 01 (init init) Waking pid 1
+[003375797] PID 01 (init init) syscall spawn("init", "medium_priority_2")
+[003375977] PID 01 (init init) Waking pid 5
+[003376080] PID 01 (init init) Waking pid 1
+[003376188] PID 01 (init init) syscall spawn("init", "medium_priority_3")
+[003376409] PID 01 (init init) Waking pid 6
+[003376514] PID 01 (init init) Waking pid 1
+[003376624] PID 01 (init init) syscall spawn("init", "medium_priority_4")
+[003376791] PID 01 (init init) Waking pid 7
+[003376894] PID 01 (init init) Waking pid 1
+[003377006] PID 01 (init init) syscall spawn("init", "low_priority_1")
+[003377169] PID 01 (init init) Waking pid 8
+[003377275] PID 01 (init init) Waking pid 1
+[003377389] PID 01 (init init) syscall spawn("init", "low_priority_2")
+[003377504] PID 01 (init init) Waking pid 9
+[003377580] PID 01 (init init) Waking pid 1
+[003377656] PID 01 (init init) syscall spawn("init", "background_1")
+[003552160] PID 01 (init init) Waking pid 10
+[003552473] PID 01 (init init) Waking pid 1
+[003552765] PID 01 (init init) syscall spawn("init", "background_2")
+[003553207] PID 01 (init init) Waking pid 11
+[003553507] PID 01 (init init) Waking pid 1
+[003614727] PID 01 (init init) syscall exit()
+[003615068] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 3373078, ran at 3373121, ended at 3615444
+=== schedule pid 2 (init high_priority_1)
+Freeing 1 init
+[004362462] PID 02 (init high_priority_1) syscall exit()
+[004362567] PID 02 (init high_priority_1) thread stopped
+$$ timeslice summary for pid 2 (init high_priority_1) : queued at 3374591, ran at 3615444, ended at 4362663
+=== schedule pid 3 (init high_priority_2)
+Freeing 2 high_priority_1
+[005120847] PID 03 (init high_priority_2) syscall exit()
+[005121042] PID 03 (init high_priority_2) thread stopped
+$$ timeslice summary for pid 3 (init high_priority_2) : queued at 3375193, ran at 4362663, ended at 5121352
+=== schedule pid 4 (init medium_priority_1)
+Freeing 3 high_priority_2
+[005862011] PID 04 (init medium_priority_1) syscall exit()
+[005862111] PID 04 (init medium_priority_1) thread stopped
+$$ timeslice summary for pid 4 (init medium_priority_1) : queued at 3375686, ran at 5121352, ended at 5862203
+=== schedule pid 5 (init medium_priority_2)
+Freeing 4 medium_priority_1
+[006603118] PID 05 (init medium_priority_2) syscall exit()
+[006603221] PID 05 (init medium_priority_2) thread stopped
+$$ timeslice summary for pid 5 (init medium_priority_2) : queued at 3376080, ran at 5862203, ended at 6603319
+=== schedule pid 6 (init medium_priority_3)
+Freeing 5 medium_priority_2
+[007356510] PID 06 (init medium_priority_3) syscall exit()
+[007356621] PID 06 (init medium_priority_3) thread stopped
+$$ timeslice summary for pid 6 (init medium_priority_3) : queued at 3376513, ran at 6603319, ended at 7356711
+=== schedule pid 7 (init medium_priority_4)
+Freeing 6 medium_priority_3
+[008113006] PID 07 (init medium_priority_4) syscall exit()
+[008113120] PID 07 (init medium_priority_4) thread stopped
+$$ timeslice summary for pid 7 (init medium_priority_4) : queued at 3376893, ran at 7356711, ended at 8125088
+=== schedule pid 8 (init low_priority_1)
+Freeing 7 medium_priority_4
+[008949576] PID 08 (init low_priority_1) syscall exit()
+[008949682] PID 08 (init low_priority_1) thread stopped
+$$ timeslice summary for pid 8 (init low_priority_1) : queued at 3377275, ran at 8125088, ended at 8949771
+=== schedule pid 9 (init low_priority_2)
+Freeing 8 low_priority_1
+[009702725] PID 09 (init low_priority_2) syscall exit()
+[009702832] PID 09 (init low_priority_2) thread stopped
+$$ timeslice summary for pid 9 (init low_priority_2) : queued at 3377579, ran at 8949771, ended at 9702937
+=== schedule pid 10 (init background_1)
+Freeing 9 low_priority_2
+[010201989] PID 10 (init background_1) syscall sleep(10000)
+[010202398] PID 10 (init background_1) sleeping until 10212384
+$$ timeslice summary for pid 10 (init background_1) : queued at 3552471, ran at 9702937, ended at 10237169
+=== schedule pid 11 (init background_2)
+*** timer woke pid 10
+[010250178] PID 11 (init background_2) Waking pid 10
+[010250351] PID 11 (init background_2) Waking pid 11
+$$ timeslice summary for pid 11 (init background_2) : queued at 3553506, ran at 10237169, ended at 10250350
+=== schedule pid 10 (init background_1)
+[010250908] PID 10 (init background_1) syscall sleep(10000)
+[010251061] PID 10 (init background_1) sleeping until 10261061
+$$ timeslice summary for pid 10 (init background_1) : queued at 10250333, ran at 10250350, ended at 10251231
+=== schedule pid 11 (init background_2)
+[010251663] PID 11 (init background_2) syscall sleep(10000)
+[010251820] PID 11 (init background_2) sleeping until 10261819
+$$ timeslice summary for pid 11 (init background_2) : queued at 10250524, ran at 10251231, ended at 10252007
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010338416] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010338867] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010339408] PID 10 (init background_1) syscall sleep(10000)
+[010339764] PID 10 (init background_1) sleeping until 10349763
+$$ timeslice summary for pid 10 (init background_1) : queued at 10338681, ran at 10339126, ended at 10340119
+=== schedule pid 11 (init background_2)
+[010340941] PID 11 (init background_2) syscall sleep(10000)
+[010341224] PID 11 (init background_2) sleeping until 10351224
+$$ timeslice summary for pid 11 (init background_2) : queued at 10339124, ran at 10340119, ended at 10341446
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010398868] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010399336] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010399854] PID 10 (init background_1) syscall sleep(10000)
+[010400183] PID 10 (init background_1) sleeping until 10410183
+$$ timeslice summary for pid 10 (init background_1) : queued at 10399142, ran at 10399596, ended at 10400507
+=== schedule pid 11 (init background_2)
+[010401149] PID 11 (init background_2) syscall sleep(10000)
+[010401405] PID 11 (init background_2) sleeping until 10411405
+$$ timeslice summary for pid 11 (init background_2) : queued at 10399593, ran at 10400507, ended at 10401682
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010443741] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010444220] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010444813] PID 10 (init background_1) syscall sleep(10000)
+[010445175] PID 10 (init background_1) sleeping until 10455174
+$$ timeslice summary for pid 10 (init background_1) : queued at 10444006, ran at 10444511, ended at 10445545
+=== schedule pid 11 (init background_2)
+[010446999] PID 11 (init background_2) syscall sleep(10000)
+[010447327] PID 11 (init background_2) sleeping until 10457327
+$$ timeslice summary for pid 11 (init background_2) : queued at 10444509, ran at 10445545, ended at 10447638
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010501254] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010501708] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010502225] PID 10 (init background_1) syscall sleep(10000)
+[010502579] PID 10 (init background_1) sleeping until 10512579
+$$ timeslice summary for pid 10 (init background_1) : queued at 10501520, ran at 10501967, ended at 10502946
+=== schedule pid 11 (init background_2)
+[010503750] PID 11 (init background_2) syscall sleep(10000)
+[010504076] PID 11 (init background_2) sleeping until 10514076
+$$ timeslice summary for pid 11 (init background_2) : queued at 10501964, ran at 10502946, ended at 10504338
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010538568] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010539050] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010539582] PID 10 (init background_1) syscall sleep(10000)
+[010539911] PID 10 (init background_1) sleeping until 10549910
+$$ timeslice summary for pid 10 (init background_1) : queued at 10538858, ran at 10539323, ended at 10540251
+=== schedule pid 11 (init background_2)
+[010540920] PID 11 (init background_2) syscall sleep(10000)
+[010541155] PID 11 (init background_2) sleeping until 10551155
+$$ timeslice summary for pid 11 (init background_2) : queued at 10539321, ran at 10540251, ended at 10541377
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010602182] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010602594] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010603115] PID 10 (init background_1) syscall sleep(10000)
+[010603427] PID 10 (init background_1) sleeping until 10613427
+$$ timeslice summary for pid 10 (init background_1) : queued at 10602424, ran at 10602856, ended at 10603761
+=== schedule pid 11 (init background_2)
+[010604330] PID 11 (init background_2) syscall sleep(10000)
+[010604543] PID 11 (init background_2) sleeping until 10614543
+$$ timeslice summary for pid 11 (init background_2) : queued at 10602853, ran at 10603761, ended at 10604780
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010683406] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010683866] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010684379] PID 10 (init background_1) syscall sleep(10000)
+[010684706] PID 10 (init background_1) sleeping until 10694706
+$$ timeslice summary for pid 10 (init background_1) : queued at 10683680, ran at 10684124, ended at 10685071
+=== schedule pid 11 (init background_2)
+[010685865] PID 11 (init background_2) syscall sleep(10000)
+[010686208] PID 11 (init background_2) sleeping until 10696208
+$$ timeslice summary for pid 11 (init background_2) : queued at 10684122, ran at 10685071, ended at 10686531
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010738211] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010738723] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010739263] PID 10 (init background_1) syscall sleep(10000)
+[010739596] PID 10 (init background_1) sleeping until 10749596
+$$ timeslice summary for pid 10 (init background_1) : queued at 10738508, ran at 10738992, ended at 10739936
+=== schedule pid 11 (init background_2)
+[010740569] PID 11 (init background_2) syscall sleep(10000)
+[010740782] PID 11 (init background_2) sleeping until 10750782
+$$ timeslice summary for pid 11 (init background_2) : queued at 10738990, ran at 10739936, ended at 10741033
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010835819] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010836271] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010836984] PID 10 (init background_1) syscall sleep(10000)
+[010837338] PID 10 (init background_1) sleeping until 10847338
+$$ timeslice summary for pid 10 (init background_1) : queued at 10836084, ran at 10836531, ended at 10837695
+=== schedule pid 11 (init background_2)
+[010838397] PID 11 (init background_2) syscall sleep(10000)
+[010838608] PID 11 (init background_2) sleeping until 10848608
+$$ timeslice summary for pid 11 (init background_2) : queued at 10836529, ran at 10837695, ended at 10838827
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[010936089] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[010936561] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[010937080] PID 10 (init background_1) syscall sleep(10000)
+[010937411] PID 10 (init background_1) sleeping until 10947410
+$$ timeslice summary for pid 10 (init background_1) : queued at 10936366, ran at 10936822, ended at 10937746
+=== schedule pid 11 (init background_2)
+[010938472] PID 11 (init background_2) syscall sleep(10000)
+[010938695] PID 11 (init background_2) sleeping until 10948695
+$$ timeslice summary for pid 11 (init background_2) : queued at 10936819, ran at 10937746, ended at 10938935
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011006619] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011007099] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011007653] PID 10 (init background_1) syscall sleep(10000)
+[011007999] PID 10 (init background_1) sleeping until 11017998
+$$ timeslice summary for pid 10 (init background_1) : queued at 11006886, ran at 11007384, ended at 11008339
+=== schedule pid 11 (init background_2)
+[011009120] PID 11 (init background_2) syscall sleep(10000)
+[011009383] PID 11 (init background_2) sleeping until 11019383
+$$ timeslice summary for pid 11 (init background_2) : queued at 11007382, ran at 11008339, ended at 11009607
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011089866] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011090317] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011090835] PID 10 (init background_1) syscall sleep(10000)
+[011091192] PID 10 (init background_1) sleeping until 11101192
+$$ timeslice summary for pid 10 (init background_1) : queued at 11090130, ran at 11090578, ended at 11091561
+=== schedule pid 11 (init background_2)
+[011092189] PID 11 (init background_2) syscall sleep(10000)
+[011092400] PID 11 (init background_2) sleeping until 11102400
+$$ timeslice summary for pid 11 (init background_2) : queued at 11090576, ran at 11091561, ended at 11092621
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011144068] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011144551] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011145081] PID 10 (init background_1) syscall sleep(10000)
+[011145407] PID 10 (init background_1) sleeping until 11155407
+$$ timeslice summary for pid 10 (init background_1) : queued at 11144360, ran at 11144821, ended at 11145732
+=== schedule pid 11 (init background_2)
+[011146314] PID 11 (init background_2) syscall sleep(10000)
+[011146583] PID 11 (init background_2) sleeping until 11156583
+$$ timeslice summary for pid 11 (init background_2) : queued at 11144818, ran at 11145732, ended at 11146831
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011228003] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011228454] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011229025] PID 10 (init background_1) syscall sleep(10000)
+[011229368] PID 10 (init background_1) sleeping until 11239368
+$$ timeslice summary for pid 10 (init background_1) : queued at 11228267, ran at 11228741, ended at 11229724
+=== schedule pid 11 (init background_2)
+[011230384] PID 11 (init background_2) syscall sleep(10000)
+[011230595] PID 11 (init background_2) sleeping until 11240595
+$$ timeslice summary for pid 11 (init background_2) : queued at 11228738, ran at 11229724, ended at 11230833
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011320667] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011321136] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011321656] PID 10 (init background_1) syscall sleep(10000)
+[011321985] PID 10 (init background_1) sleeping until 11331985
+$$ timeslice summary for pid 10 (init background_1) : queued at 11320946, ran at 11321398, ended at 11322351
+=== schedule pid 11 (init background_2)
+[011322901] PID 11 (init background_2) syscall sleep(10000)
+[011323135] PID 11 (init background_2) sleeping until 11333135
+$$ timeslice summary for pid 11 (init background_2) : queued at 11321396, ran at 11322351, ended at 11323369
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011392585] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011393093] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011393639] PID 10 (init background_1) syscall sleep(10000)
+[011394002] PID 10 (init background_1) sleeping until 11404002
+$$ timeslice summary for pid 10 (init background_1) : queued at 11392880, ran at 11393366, ended at 11394352
+=== schedule pid 11 (init background_2)
+[011395130] PID 11 (init background_2) syscall sleep(10000)
+[011395433] PID 11 (init background_2) sleeping until 11405433
+$$ timeslice summary for pid 11 (init background_2) : queued at 11393363, ran at 11394352, ended at 11395684
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011495455] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011495911] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011496458] PID 10 (init background_1) syscall sleep(10000)
+[011496814] PID 10 (init background_1) sleeping until 11506814
+$$ timeslice summary for pid 10 (init background_1) : queued at 11495723, ran at 11496173, ended at 11497173
+=== schedule pid 11 (init background_2)
+[011497742] PID 11 (init background_2) syscall sleep(10000)
+[011497957] PID 11 (init background_2) sleeping until 11507956
+$$ timeslice summary for pid 11 (init background_2) : queued at 11496170, ran at 11497173, ended at 11498182
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011588191] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011588665] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011589187] PID 10 (init background_1) syscall sleep(10000)
+[011589517] PID 10 (init background_1) sleeping until 11599517
+$$ timeslice summary for pid 10 (init background_1) : queued at 11588469, ran at 11588928, ended at 11589860
+=== schedule pid 11 (init background_2)
+[011590690] PID 11 (init background_2) syscall sleep(10000)
+[011591019] PID 11 (init background_2) sleeping until 11601019
+$$ timeslice summary for pid 11 (init background_2) : queued at 11588925, ran at 11589860, ended at 11591377
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011635000] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011636279] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011636842] PID 10 (init background_1) syscall sleep(10000)
+[011637189] PID 10 (init background_1) sleeping until 11647188
+$$ timeslice summary for pid 10 (init background_1) : queued at 11635266, ran at 11636570, ended at 11637536
+=== schedule pid 11 (init background_2)
+[011638307] PID 11 (init background_2) syscall sleep(10000)
+[011638662] PID 11 (init background_2) sleeping until 11648661
+$$ timeslice summary for pid 11 (init background_2) : queued at 11636567, ran at 11637536, ended at 11639002
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011722028] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011722486] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011723009] PID 10 (init background_1) syscall sleep(10000)
+[011723370] PID 10 (init background_1) sleeping until 11733370
+$$ timeslice summary for pid 10 (init background_1) : queued at 11722297, ran at 11722749, ended at 11723737
+=== schedule pid 11 (init background_2)
+[011724305] PID 11 (init background_2) syscall sleep(10000)
+[011724549] PID 11 (init background_2) sleeping until 11734549
+$$ timeslice summary for pid 11 (init background_2) : queued at 11722746, ran at 11723737, ended at 11724786
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011785491] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011785995] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011786529] PID 10 (init background_1) syscall sleep(10000)
+[011786862] PID 10 (init background_1) sleeping until 11796862
+$$ timeslice summary for pid 10 (init background_1) : queued at 11785800, ran at 11786269, ended at 11787193
+=== schedule pid 11 (init background_2)
+[011787820] PID 11 (init background_2) syscall sleep(10000)
+[011788107] PID 11 (init background_2) sleeping until 11798107
+$$ timeslice summary for pid 11 (init background_2) : queued at 11786266, ran at 11787193, ended at 11788375
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011824463] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011824919] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011825500] PID 10 (init background_1) syscall sleep(10000)
+[011825846] PID 10 (init background_1) sleeping until 11835846
+$$ timeslice summary for pid 10 (init background_1) : queued at 11824730, ran at 11825210, ended at 11826207
+=== schedule pid 11 (init background_2)
+[011826975] PID 11 (init background_2) syscall sleep(10000)
+[011827310] PID 11 (init background_2) sleeping until 11837310
+$$ timeslice summary for pid 11 (init background_2) : queued at 11825207, ran at 11826207, ended at 11827627
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011885577] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011886047] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011886570] PID 10 (init background_1) syscall sleep(10000)
+[011886899] PID 10 (init background_1) sleeping until 11896899
+$$ timeslice summary for pid 10 (init background_1) : queued at 11885858, ran at 11886310, ended at 11887256
+=== schedule pid 11 (init background_2)
+[011888018] PID 11 (init background_2) syscall sleep(10000)
+[011888362] PID 11 (init background_2) sleeping until 11898362
+$$ timeslice summary for pid 11 (init background_2) : queued at 11886307, ran at 11887256, ended at 11888675
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011928408] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011928922] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011929468] PID 10 (init background_1) syscall sleep(10000)
+[011929797] PID 10 (init background_1) sleeping until 11939796
+$$ timeslice summary for pid 10 (init background_1) : queued at 11928700, ran at 11929196, ended at 11930138
+=== schedule pid 11 (init background_2)
+[011930918] PID 11 (init background_2) syscall sleep(10000)
+[011931197] PID 11 (init background_2) sleeping until 11941197
+$$ timeslice summary for pid 11 (init background_2) : queued at 11929192, ran at 11930138, ended at 11931446
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[011981181] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[011982936] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[011983490] PID 10 (init background_1) syscall sleep(10000)
+[011983850] PID 10 (init background_1) sleeping until 11993849
+$$ timeslice summary for pid 10 (init background_1) : queued at 11982741, ran at 11983201, ended at 11984206
+=== schedule pid 11 (init background_2)
+[011985015] PID 11 (init background_2) syscall sleep(10000)
+[011985283] PID 11 (init background_2) sleeping until 11995283
+$$ timeslice summary for pid 11 (init background_2) : queued at 11983199, ran at 11984206, ended at 11985507
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012024765] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012025087] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012025440] PID 10 (init background_1) syscall sleep(10000)
+[012025730] PID 10 (init background_1) sleeping until 12035730
+$$ timeslice summary for pid 10 (init background_1) : queued at 12024953, ran at 12025264, ended at 12026040
+=== schedule pid 11 (init background_2)
+[012026793] PID 11 (init background_2) syscall sleep(10000)
+[012027087] PID 11 (init background_2) sleeping until 12037087
+$$ timeslice summary for pid 11 (init background_2) : queued at 12025261, ran at 12026040, ended at 12027398
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012084075] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012084396] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012084748] PID 10 (init background_1) syscall sleep(10000)
+[012084966] PID 10 (init background_1) sleeping until 12094965
+$$ timeslice summary for pid 10 (init background_1) : queued at 12084255, ran at 12084576, ended at 12085179
+=== schedule pid 11 (init background_2)
+[012085659] PID 11 (init background_2) syscall sleep(10000)
+[012085886] PID 11 (init background_2) sleeping until 12095886
+$$ timeslice summary for pid 11 (init background_2) : queued at 12084572, ran at 12085179, ended at 12086104
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012182335] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012182639] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012182982] PID 10 (init background_1) syscall sleep(10000)
+[012183191] PID 10 (init background_1) sleeping until 12193190
+$$ timeslice summary for pid 10 (init background_1) : queued at 12182514, ran at 12182810, ended at 12183422
+=== schedule pid 11 (init background_2)
+[012183940] PID 11 (init background_2) syscall sleep(10000)
+[012184152] PID 11 (init background_2) sleeping until 12194152
+$$ timeslice summary for pid 11 (init background_2) : queued at 12182806, ran at 12183422, ended at 12184373
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012227662] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012228002] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012228319] PID 10 (init background_1) syscall sleep(10000)
+[012228501] PID 10 (init background_1) sleeping until 12238501
+$$ timeslice summary for pid 10 (init background_1) : queued at 12227866, ran at 12228187, ended at 12228726
+=== schedule pid 11 (init background_2)
+[012229230] PID 11 (init background_2) syscall sleep(10000)
+[012229439] PID 11 (init background_2) sleeping until 12239439
+$$ timeslice summary for pid 11 (init background_2) : queued at 12228184, ran at 12228726, ended at 12230840
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012294223] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012294523] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012294894] PID 10 (init background_1) syscall sleep(10000)
+[012295117] PID 10 (init background_1) sleeping until 12305117
+$$ timeslice summary for pid 10 (init background_1) : queued at 12294397, ran at 12294710, ended at 12295375
+=== schedule pid 11 (init background_2)
+[012295896] PID 11 (init background_2) syscall sleep(10000)
+[012296109] PID 11 (init background_2) sleeping until 12306109
+$$ timeslice summary for pid 11 (init background_2) : queued at 12294707, ran at 12295375, ended at 12296323
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012408170] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012408359] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012408575] PID 10 (init background_1) syscall sleep(10000)
+[012408808] PID 10 (init background_1) sleeping until 12418808
+$$ timeslice summary for pid 10 (init background_1) : queued at 12408290, ran at 12408455, ended at 12409043
+=== schedule pid 11 (init background_2)
+[012409562] PID 11 (init background_2) syscall sleep(10000)
+[012409777] PID 11 (init background_2) sleeping until 12419776
+$$ timeslice summary for pid 11 (init background_2) : queued at 12408454, ran at 12409043, ended at 12409993
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012584603] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012584930] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012585276] PID 10 (init background_1) syscall sleep(10000)
+[012585460] PID 10 (init background_1) sleeping until 12595460
+$$ timeslice summary for pid 10 (init background_1) : queued at 12584792, ran at 12585104, ended at 12585659
+=== schedule pid 11 (init background_2)
+[012586137] PID 11 (init background_2) syscall sleep(10000)
+[012586331] PID 11 (init background_2) sleeping until 12596331
+$$ timeslice summary for pid 11 (init background_2) : queued at 12585101, ran at 12585659, ended at 12586549
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012776122] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012776417] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012776775] PID 10 (init background_1) syscall sleep(10000)
+[012776988] PID 10 (init background_1) sleeping until 12786988
+$$ timeslice summary for pid 10 (init background_1) : queued at 12776294, ran at 12776589, ended at 12777192
+=== schedule pid 11 (init background_2)
+[012777673] PID 11 (init background_2) syscall sleep(10000)
+[012777862] PID 11 (init background_2) sleeping until 12787862
+$$ timeslice summary for pid 11 (init background_2) : queued at 12776586, ran at 12777192, ended at 12778051
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[012973198] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[012973509] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[012973844] PID 10 (init background_1) syscall sleep(10000)
+[012974054] PID 10 (init background_1) sleeping until 12984054
+$$ timeslice summary for pid 10 (init background_1) : queued at 12973381, ran at 12973683, ended at 12974243
+=== schedule pid 11 (init background_2)
+[012974774] PID 11 (init background_2) syscall sleep(10000)
+[012974963] PID 11 (init background_2) sleeping until 12984963
+$$ timeslice summary for pid 11 (init background_2) : queued at 12973680, ran at 12974243, ended at 12975172
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013078199] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013078483] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013078786] PID 10 (init background_1) syscall sleep(10000)
+[013078972] PID 10 (init background_1) sleeping until 13088971
+$$ timeslice summary for pid 10 (init background_1) : queued at 13078362, ran at 13078639, ended at 13079187
+=== schedule pid 11 (init background_2)
+[013079698] PID 11 (init background_2) syscall sleep(10000)
+[013079908] PID 11 (init background_2) sleeping until 13089908
+$$ timeslice summary for pid 11 (init background_2) : queued at 13078636, ran at 13079187, ended at 13080126
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013188383] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013188681] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013189018] PID 10 (init background_1) syscall sleep(10000)
+[013189229] PID 10 (init background_1) sleeping until 13199229
+$$ timeslice summary for pid 10 (init background_1) : queued at 13188556, ran at 13188847, ended at 13189460
+=== schedule pid 11 (init background_2)
+[013190007] PID 11 (init background_2) syscall sleep(10000)
+[013190216] PID 11 (init background_2) sleeping until 13200216
+$$ timeslice summary for pid 11 (init background_2) : queued at 13188844, ran at 13189460, ended at 13190421
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013284590] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013284906] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013285260] PID 10 (init background_1) syscall sleep(10000)
+[013285463] PID 10 (init background_1) sleeping until 13295463
+$$ timeslice summary for pid 10 (init background_1) : queued at 13284781, ran at 13285088, ended at 13285681
+=== schedule pid 11 (init background_2)
+[013286184] PID 11 (init background_2) syscall sleep(10000)
+[013286415] PID 11 (init background_2) sleeping until 13296414
+$$ timeslice summary for pid 11 (init background_2) : queued at 13285085, ran at 13285681, ended at 13286614
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013384208] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013384659] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013385228] PID 10 (init background_1) syscall sleep(10000)
+[013385572] PID 10 (init background_1) sleeping until 13395572
+$$ timeslice summary for pid 10 (init background_1) : queued at 13384473, ran at 13384945, ended at 13385932
+=== schedule pid 11 (init background_2)
+[013386498] PID 11 (init background_2) syscall sleep(10000)
+[013386709] PID 11 (init background_2) sleeping until 13396709
+$$ timeslice summary for pid 11 (init background_2) : queued at 13384943, ran at 13385932, ended at 13386946
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013478631] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013479093] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013479610] PID 10 (init background_1) syscall sleep(10000)
+[013479939] PID 10 (init background_1) sleeping until 13489939
+$$ timeslice summary for pid 10 (init background_1) : queued at 13478905, ran at 13479353, ended at 13480305
+=== schedule pid 11 (init background_2)
+[013480959] PID 11 (init background_2) syscall sleep(10000)
+[013481226] PID 11 (init background_2) sleeping until 13491225
+$$ timeslice summary for pid 11 (init background_2) : queued at 13479351, ran at 13480305, ended at 13481491
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013573218] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013573726] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013574264] PID 10 (init background_1) syscall sleep(10000)
+[013574593] PID 10 (init background_1) sleeping until 13584593
+$$ timeslice summary for pid 10 (init background_1) : queued at 13573512, ran at 13573996, ended at 13574933
+=== schedule pid 11 (init background_2)
+[013575709] PID 11 (init background_2) syscall sleep(10000)
+[013576035] PID 11 (init background_2) sleeping until 13586035
+$$ timeslice summary for pid 11 (init background_2) : queued at 13573993, ran at 13574933, ended at 13576292
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013670448] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013670898] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013671449] PID 10 (init background_1) syscall sleep(10000)
+[013671835] PID 10 (init background_1) sleeping until 13681834
+$$ timeslice summary for pid 10 (init background_1) : queued at 13670712, ran at 13671158, ended at 13672159
+=== schedule pid 11 (init background_2)
+[013672831] PID 11 (init background_2) syscall sleep(10000)
+[013673107] PID 11 (init background_2) sleeping until 13683107
+$$ timeslice summary for pid 11 (init background_2) : queued at 13671156, ran at 13672159, ended at 13673392
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013772693] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013773162] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013773677] PID 10 (init background_1) syscall sleep(10000)
+[013774035] PID 10 (init background_1) sleeping until 13784035
+$$ timeslice summary for pid 10 (init background_1) : queued at 13772968, ran at 13773420, ended at 13774383
+=== schedule pid 11 (init background_2)
+[013775202] PID 11 (init background_2) syscall sleep(10000)
+[013775532] PID 11 (init background_2) sleeping until 13785531
+$$ timeslice summary for pid 11 (init background_2) : queued at 13773418, ran at 13774383, ended at 13775779
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013872599] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013873077] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013873629] PID 10 (init background_1) syscall sleep(10000)
+[013873974] PID 10 (init background_1) sleeping until 13883973
+$$ timeslice summary for pid 10 (init background_1) : queued at 13872863, ran at 13873362, ended at 13874317
+=== schedule pid 11 (init background_2)
+[013875093] PID 11 (init background_2) syscall sleep(10000)
+[013875424] PID 11 (init background_2) sleeping until 13885424
+$$ timeslice summary for pid 11 (init background_2) : queued at 13873360, ran at 13874317, ended at 13875644
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[013974179] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[013974630] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[013975154] PID 10 (init background_1) syscall sleep(10000)
+[013975511] PID 10 (init background_1) sleeping until 13985510
+$$ timeslice summary for pid 10 (init background_1) : queued at 13974444, ran at 13974890, ended at 13975879
+=== schedule pid 11 (init background_2)
+[013976692] PID 11 (init background_2) syscall sleep(10000)
+[013977020] PID 11 (init background_2) sleeping until 13987020
+$$ timeslice summary for pid 11 (init background_2) : queued at 13974888, ran at 13975879, ended at 13977267
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014054368] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014054854] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014055383] PID 10 (init background_1) syscall sleep(10000)
+[014055709] PID 10 (init background_1) sleeping until 14065709
+$$ timeslice summary for pid 10 (init background_1) : queued at 14054662, ran at 14055124, ended at 14056050
+=== schedule pid 11 (init background_2)
+[014056850] PID 11 (init background_2) syscall sleep(10000)
+[014057221] PID 11 (init background_2) sleeping until 14067221
+$$ timeslice summary for pid 11 (init background_2) : queued at 14055122, ran at 14056050, ended at 14057564
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014100755] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014101204] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014103001] PID 10 (init background_1) syscall sleep(10000)
+[014103345] PID 10 (init background_1) sleeping until 14113345
+$$ timeslice summary for pid 10 (init background_1) : queued at 14101018, ran at 14102715, ended at 14103703
+=== schedule pid 11 (init background_2)
+[014104480] PID 11 (init background_2) syscall sleep(10000)
+[014104808] PID 11 (init background_2) sleeping until 14114807
+$$ timeslice summary for pid 11 (init background_2) : queued at 14102712, ran at 14103703, ended at 14105176
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014172421] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014172883] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014173401] PID 10 (init background_1) syscall sleep(10000)
+[014173730] PID 10 (init background_1) sleeping until 14183729
+$$ timeslice summary for pid 10 (init background_1) : queued at 14172696, ran at 14173144, ended at 14174098
+=== schedule pid 11 (init background_2)
+[014174748] PID 11 (init background_2) syscall sleep(10000)
+[014174982] PID 11 (init background_2) sleeping until 14184982
+$$ timeslice summary for pid 11 (init background_2) : queued at 14173142, ran at 14174098, ended at 14175217
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014266827] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014267329] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014267871] PID 10 (init background_1) syscall sleep(10000)
+[014268200] PID 10 (init background_1) sleeping until 14278200
+$$ timeslice summary for pid 10 (init background_1) : queued at 14267117, ran at 14267601, ended at 14268537
+=== schedule pid 11 (init background_2)
+[014269101] PID 11 (init background_2) syscall sleep(10000)
+[014269339] PID 11 (init background_2) sleeping until 14279338
+$$ timeslice summary for pid 11 (init background_2) : queued at 14267598, ran at 14268537, ended at 14269614
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014335548] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014335999] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014336541] PID 10 (init background_1) syscall sleep(10000)
+[014336895] PID 10 (init background_1) sleeping until 14346895
+$$ timeslice summary for pid 10 (init background_1) : queued at 14335813, ran at 14336258, ended at 14337253
+=== schedule pid 11 (init background_2)
+[014337925] PID 11 (init background_2) syscall sleep(10000)
+[014338149] PID 11 (init background_2) sleeping until 14348149
+$$ timeslice summary for pid 11 (init background_2) : queued at 14336256, ran at 14337253, ended at 14338384
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014446139] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014446607] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014447125] PID 10 (init background_1) syscall sleep(10000)
+[014447453] PID 10 (init background_1) sleeping until 14457453
+$$ timeslice summary for pid 10 (init background_1) : queued at 14446413, ran at 14446867, ended at 14447794
+=== schedule pid 11 (init background_2)
+[014448621] PID 11 (init background_2) syscall sleep(10000)
+[014448936] PID 11 (init background_2) sleeping until 14458936
+$$ timeslice summary for pid 11 (init background_2) : queued at 14446865, ran at 14447794, ended at 14449166
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014520084] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014520561] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014521115] PID 10 (init background_1) syscall sleep(10000)
+[014521460] PID 10 (init background_1) sleeping until 14531460
+$$ timeslice summary for pid 10 (init background_1) : queued at 14520347, ran at 14520848, ended at 14521786
+=== schedule pid 11 (init background_2)
+[014522434] PID 11 (init background_2) syscall sleep(10000)
+[014522731] PID 11 (init background_2) sleeping until 14532731
+$$ timeslice summary for pid 11 (init background_2) : queued at 14520847, ran at 14521786, ended at 14523016
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014574504] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014574951] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014575467] PID 10 (init background_1) syscall sleep(10000)
+[014575825] PID 10 (init background_1) sleeping until 14585825
+$$ timeslice summary for pid 10 (init background_1) : queued at 14574766, ran at 14575211, ended at 14576187
+=== schedule pid 11 (init background_2)
+[014576992] PID 11 (init background_2) syscall sleep(10000)
+[014577277] PID 11 (init background_2) sleeping until 14587277
+$$ timeslice summary for pid 11 (init background_2) : queued at 14575209, ran at 14576187, ended at 14577500
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014692219] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014692703] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014693229] PID 10 (init background_1) syscall sleep(10000)
+[014693557] PID 10 (init background_1) sleeping until 14703557
+$$ timeslice summary for pid 10 (init background_1) : queued at 14692511, ran at 14692973, ended at 14693897
+=== schedule pid 11 (init background_2)
+[014694456] PID 11 (init background_2) syscall sleep(10000)
+[014694705] PID 11 (init background_2) sleeping until 14704705
+$$ timeslice summary for pid 11 (init background_2) : queued at 14692971, ran at 14693897, ended at 14694938
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014774739] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014775197] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014775772] PID 10 (init background_1) syscall sleep(10000)
+[014776114] PID 10 (init background_1) sleeping until 14786114
+$$ timeslice summary for pid 10 (init background_1) : queued at 14775010, ran at 14775486, ended at 14776445
+=== schedule pid 11 (init background_2)
+[014777058] PID 11 (init background_2) syscall sleep(10000)
+[014777315] PID 11 (init background_2) sleeping until 14787315
+$$ timeslice summary for pid 11 (init background_2) : queued at 14775484, ran at 14776445, ended at 14777598
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014862407] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014862870] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014863385] PID 10 (init background_1) syscall sleep(10000)
+[014863715] PID 10 (init background_1) sleeping until 14873714
+$$ timeslice summary for pid 10 (init background_1) : queued at 14862684, ran at 14863129, ended at 14864085
+=== schedule pid 11 (init background_2)
+[014864838] PID 11 (init background_2) syscall sleep(10000)
+[014865061] PID 11 (init background_2) sleeping until 14875061
+$$ timeslice summary for pid 11 (init background_2) : queued at 14863127, ran at 14864085, ended at 14865281
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[014961154] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[014961653] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[014962191] PID 10 (init background_1) syscall sleep(10000)
+[014962519] PID 10 (init background_1) sleeping until 14972519
+$$ timeslice summary for pid 10 (init background_1) : queued at 14961442, ran at 14961924, ended at 14962859
+=== schedule pid 11 (init background_2)
+[014963628] PID 11 (init background_2) syscall sleep(10000)
+[014963954] PID 11 (init background_2) sleeping until 14973954
+$$ timeslice summary for pid 11 (init background_2) : queued at 14961922, ran at 14962859, ended at 14964282
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015042606] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015043053] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015043594] PID 10 (init background_1) syscall sleep(10000)
+[015043949] PID 10 (init background_1) sleeping until 15053949
+$$ timeslice summary for pid 10 (init background_1) : queued at 15042868, ran at 15043312, ended at 15044303
+=== schedule pid 11 (init background_2)
+[015044902] PID 11 (init background_2) syscall sleep(10000)
+[015045114] PID 11 (init background_2) sleeping until 15055114
+$$ timeslice summary for pid 11 (init background_2) : queued at 15043311, ran at 15044303, ended at 15045334
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015168828] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015169295] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015169812] PID 10 (init background_1) syscall sleep(10000)
+[015170141] PID 10 (init background_1) sleeping until 15180141
+$$ timeslice summary for pid 10 (init background_1) : queued at 15169101, ran at 15169555, ended at 15170481
+=== schedule pid 11 (init background_2)
+[015171308] PID 11 (init background_2) syscall sleep(10000)
+[015171544] PID 11 (init background_2) sleeping until 15181544
+$$ timeslice summary for pid 11 (init background_2) : queued at 15169553, ran at 15170481, ended at 15171774
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015267750] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015268228] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015268778] PID 10 (init background_1) syscall sleep(10000)
+[015269124] PID 10 (init background_1) sleeping until 15279124
+$$ timeslice summary for pid 10 (init background_1) : queued at 15268013, ran at 15268510, ended at 15269444
+=== schedule pid 11 (init background_2)
+[015270100] PID 11 (init background_2) syscall sleep(10000)
+[015270397] PID 11 (init background_2) sleeping until 15280397
+$$ timeslice summary for pid 11 (init background_2) : queued at 15268508, ran at 15269444, ended at 15270682
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015363942] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015364391] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015364906] PID 10 (init background_1) syscall sleep(10000)
+[015365259] PID 10 (init background_1) sleeping until 15375259
+$$ timeslice summary for pid 10 (init background_1) : queued at 15364205, ran at 15364649, ended at 15365625
+=== schedule pid 11 (init background_2)
+[015366434] PID 11 (init background_2) syscall sleep(10000)
+[015366763] PID 11 (init background_2) sleeping until 15376763
+$$ timeslice summary for pid 11 (init background_2) : queued at 15364648, ran at 15365625, ended at 15367091
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015447221] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015447698] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015448223] PID 10 (init background_1) syscall sleep(10000)
+[015448554] PID 10 (init background_1) sleeping until 15458554
+$$ timeslice summary for pid 10 (init background_1) : queued at 15447506, ran at 15447968, ended at 15448892
+=== schedule pid 11 (init background_2)
+[015449693] PID 11 (init background_2) syscall sleep(10000)
+[015449980] PID 11 (init background_2) sleeping until 15459980
+$$ timeslice summary for pid 11 (init background_2) : queued at 15447965, ran at 15448892, ended at 15450200
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015552350] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015552798] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015553367] PID 10 (init background_1) syscall sleep(10000)
+[015553709] PID 10 (init background_1) sleeping until 15563709
+$$ timeslice summary for pid 10 (init background_1) : queued at 15552613, ran at 15553087, ended at 15554067
+=== schedule pid 11 (init background_2)
+[015554843] PID 11 (init background_2) syscall sleep(10000)
+[015555172] PID 11 (init background_2) sleeping until 15565172
+$$ timeslice summary for pid 11 (init background_2) : queued at 15553085, ran at 15554067, ended at 15555454
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015649179] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015649607] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015650125] PID 10 (init background_1) syscall sleep(10000)
+[015650452] PID 10 (init background_1) sleeping until 15660452
+$$ timeslice summary for pid 10 (init background_1) : queued at 15649418, ran at 15649867, ended at 15650817
+=== schedule pid 11 (init background_2)
+[015651521] PID 11 (init background_2) syscall sleep(10000)
+[015651744] PID 11 (init background_2) sleeping until 15661744
+$$ timeslice summary for pid 11 (init background_2) : queued at 15649865, ran at 15650817, ended at 15651963
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015727848] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015728355] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015728894] PID 10 (init background_1) syscall sleep(10000)
+[015729232] PID 10 (init background_1) sleeping until 15739232
+$$ timeslice summary for pid 10 (init background_1) : queued at 15728142, ran at 15728626, ended at 15729582
+=== schedule pid 11 (init background_2)
+[015730192] PID 11 (init background_2) syscall sleep(10000)
+[015730417] PID 11 (init background_2) sleeping until 15740416
+$$ timeslice summary for pid 11 (init background_2) : queued at 15728623, ran at 15729582, ended at 15730679
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015827186] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015827635] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015828179] PID 10 (init background_1) syscall sleep(10000)
+[015828539] PID 10 (init background_1) sleeping until 15838539
+$$ timeslice summary for pid 10 (init background_1) : queued at 15827449, ran at 15827895, ended at 15828904
+=== schedule pid 11 (init background_2)
+[015829707] PID 11 (init background_2) syscall sleep(10000)
+[015829940] PID 11 (init background_2) sleeping until 15839940
+$$ timeslice summary for pid 11 (init background_2) : queued at 15827893, ran at 15828904, ended at 15830164
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[015941772] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[015942242] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[015942763] PID 10 (init background_1) syscall sleep(10000)
+[015943088] PID 10 (init background_1) sleeping until 15953088
+$$ timeslice summary for pid 10 (init background_1) : queued at 15942047, ran at 15942505, ended at 15943399
+=== schedule pid 11 (init background_2)
+[015944162] PID 11 (init background_2) syscall sleep(10000)
+[015944461] PID 11 (init background_2) sleeping until 15954461
+$$ timeslice summary for pid 11 (init background_2) : queued at 15942503, ran at 15943399, ended at 15944788
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016048607] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016049083] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016049633] PID 10 (init background_1) syscall sleep(10000)
+[016049979] PID 10 (init background_1) sleeping until 16059979
+$$ timeslice summary for pid 10 (init background_1) : queued at 16048869, ran at 16049367, ended at 16050320
+=== schedule pid 11 (init background_2)
+[016050928] PID 11 (init background_2) syscall sleep(10000)
+[016051172] PID 11 (init background_2) sleeping until 16061172
+$$ timeslice summary for pid 11 (init background_2) : queued at 16049365, ran at 16050320, ended at 16051402
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016164481] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016164931] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016165451] PID 10 (init background_1) syscall sleep(10000)
+[016165806] PID 10 (init background_1) sleeping until 16175806
+$$ timeslice summary for pid 10 (init background_1) : queued at 16164745, ran at 16165192, ended at 16166173
+=== schedule pid 11 (init background_2)
+[016166985] PID 11 (init background_2) syscall sleep(10000)
+[016167313] PID 11 (init background_2) sleeping until 16177313
+$$ timeslice summary for pid 11 (init background_2) : queued at 16165190, ran at 16166173, ended at 16167617
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016295790] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016296270] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016296803] PID 10 (init background_1) syscall sleep(10000)
+[016297193] PID 10 (init background_1) sleeping until 16307193
+$$ timeslice summary for pid 10 (init background_1) : queued at 16296078, ran at 16296544, ended at 16297535
+=== schedule pid 11 (init background_2)
+[016298196] PID 11 (init background_2) syscall sleep(10000)
+[016298432] PID 11 (init background_2) sleeping until 16308432
+$$ timeslice summary for pid 11 (init background_2) : queued at 16296540, ran at 16297535, ended at 16298676
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016419943] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016420394] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016420963] PID 10 (init background_1) syscall sleep(10000)
+[016421306] PID 10 (init background_1) sleeping until 16431306
+$$ timeslice summary for pid 10 (init background_1) : queued at 16420208, ran at 16420679, ended at 16421665
+=== schedule pid 11 (init background_2)
+[016422441] PID 11 (init background_2) syscall sleep(10000)
+[016422740] PID 11 (init background_2) sleeping until 16432740
+$$ timeslice summary for pid 11 (init background_2) : queued at 16420677, ran at 16421665, ended at 16422978
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016500996] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016501457] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016501972] PID 10 (init background_1) syscall sleep(10000)
+[016502301] PID 10 (init background_1) sleeping until 16512301
+$$ timeslice summary for pid 10 (init background_1) : queued at 16501270, ran at 16501715, ended at 16502667
+=== schedule pid 11 (init background_2)
+[016503378] PID 11 (init background_2) syscall sleep(10000)
+[016503600] PID 11 (init background_2) sleeping until 16513600
+$$ timeslice summary for pid 11 (init background_2) : queued at 16501713, ran at 16502667, ended at 16503829
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016647948] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016648463] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016649008] PID 10 (init background_1) syscall sleep(10000)
+[016649340] PID 10 (init background_1) sleeping until 16659340
+$$ timeslice summary for pid 10 (init background_1) : queued at 16648246, ran at 16648735, ended at 16649688
+=== schedule pid 11 (init background_2)
+[016650477] PID 11 (init background_2) syscall sleep(10000)
+[016650810] PID 11 (init background_2) sleeping until 16660810
+$$ timeslice summary for pid 11 (init background_2) : queued at 16648732, ran at 16649688, ended at 16651087
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016766428] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016766887] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016767441] PID 10 (init background_1) syscall sleep(10000)
+[016767799] PID 10 (init background_1) sleeping until 16777799
+$$ timeslice summary for pid 10 (init background_1) : queued at 16766698, ran at 16767150, ended at 16768128
+=== schedule pid 11 (init background_2)
+[016768837] PID 11 (init background_2) syscall sleep(10000)
+[016769114] PID 11 (init background_2) sleeping until 16779114
+$$ timeslice summary for pid 11 (init background_2) : queued at 16767148, ran at 16768128, ended at 16769399
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016857930] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016858398] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016858923] PID 10 (init background_1) syscall sleep(10000)
+[016859259] PID 10 (init background_1) sleeping until 16869259
+$$ timeslice summary for pid 10 (init background_1) : queued at 16858205, ran at 16858662, ended at 16859601
+=== schedule pid 11 (init background_2)
+[016860260] PID 11 (init background_2) syscall sleep(10000)
+[016860479] PID 11 (init background_2) sleeping until 16870479
+$$ timeslice summary for pid 11 (init background_2) : queued at 16858660, ran at 16859601, ended at 16860721
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[016948367] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[016948851] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[016949405] PID 10 (init background_1) syscall sleep(10000)
+[016949755] PID 10 (init background_1) sleeping until 16959754
+$$ timeslice summary for pid 10 (init background_1) : queued at 16948634, ran at 16949136, ended at 16950083
+=== schedule pid 11 (init background_2)
+[016950680] PID 11 (init background_2) syscall sleep(10000)
+[016950950] PID 11 (init background_2) sleeping until 16960950
+$$ timeslice summary for pid 11 (init background_2) : queued at 16949133, ran at 16950083, ended at 16951211
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017035359] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017035809] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017036336] PID 10 (init background_1) syscall sleep(10000)
+[017036696] PID 10 (init background_1) sleeping until 17046696
+$$ timeslice summary for pid 10 (init background_1) : queued at 17035623, ran at 17036072, ended at 17037065
+=== schedule pid 11 (init background_2)
+[017037901] PID 11 (init background_2) syscall sleep(10000)
+[017038234] PID 11 (init background_2) sleeping until 17048234
+$$ timeslice summary for pid 11 (init background_2) : queued at 17036070, ran at 17037065, ended at 17038484
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017114929] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017115417] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017115954] PID 10 (init background_1) syscall sleep(10000)
+[017116285] PID 10 (init background_1) sleeping until 17126285
+$$ timeslice summary for pid 10 (init background_1) : queued at 17115222, ran at 17115694, ended at 17116631
+=== schedule pid 11 (init background_2)
+[017117248] PID 11 (init background_2) syscall sleep(10000)
+[017117499] PID 11 (init background_2) sleeping until 17127499
+$$ timeslice summary for pid 11 (init background_2) : queued at 17115692, ran at 17116631, ended at 17117729
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017174481] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017174934] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017175508] PID 10 (init background_1) syscall sleep(10000)
+[017175855] PID 10 (init background_1) sleeping until 17185855
+$$ timeslice summary for pid 10 (init background_1) : queued at 17174746, ran at 17175221, ended at 17176217
+=== schedule pid 11 (init background_2)
+[017176766] PID 11 (init background_2) syscall sleep(10000)
+[017176976] PID 11 (init background_2) sleeping until 17186976
+$$ timeslice summary for pid 11 (init background_2) : queued at 17175219, ran at 17176217, ended at 17177210
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017346196] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017346662] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017347189] PID 10 (init background_1) syscall sleep(10000)
+[017347530] PID 10 (init background_1) sleeping until 17357530
+$$ timeslice summary for pid 10 (init background_1) : queued at 17346473, ran at 17346928, ended at 17347904
+=== schedule pid 11 (init background_2)
+[017348724] PID 11 (init background_2) syscall sleep(10000)
+[017348995] PID 11 (init background_2) sleeping until 17358995
+$$ timeslice summary for pid 11 (init background_2) : queued at 17346926, ran at 17347904, ended at 17349213
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017448224] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017448727] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017449266] PID 10 (init background_1) syscall sleep(10000)
+[017449595] PID 10 (init background_1) sleeping until 17459595
+$$ timeslice summary for pid 10 (init background_1) : queued at 17448517, ran at 17448998, ended at 17449936
+=== schedule pid 11 (init background_2)
+[017450704] PID 11 (init background_2) syscall sleep(10000)
+[017450919] PID 11 (init background_2) sleeping until 17460919
+$$ timeslice summary for pid 11 (init background_2) : queued at 17448996, ran at 17449936, ended at 17451164
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017553952] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017554400] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017554942] PID 10 (init background_1) syscall sleep(10000)
+[017555295] PID 10 (init background_1) sleeping until 17565295
+$$ timeslice summary for pid 10 (init background_1) : queued at 17554214, ran at 17554658, ended at 17555651
+=== schedule pid 11 (init background_2)
+[017556405] PID 11 (init background_2) syscall sleep(10000)
+[017556621] PID 11 (init background_2) sleeping until 17566621
+$$ timeslice summary for pid 11 (init background_2) : queued at 17554656, ran at 17555651, ended at 17556842
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017644776] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017645243] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017645759] PID 10 (init background_1) syscall sleep(10000)
+[017646087] PID 10 (init background_1) sleeping until 17656087
+$$ timeslice summary for pid 10 (init background_1) : queued at 17645050, ran at 17645501, ended at 17646428
+=== schedule pid 11 (init background_2)
+[017647032] PID 11 (init background_2) syscall sleep(10000)
+[017647258] PID 11 (init background_2) sleeping until 17657258
+$$ timeslice summary for pid 11 (init background_2) : queued at 17645499, ran at 17646428, ended at 17647500
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017746210] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017746686] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017747238] PID 10 (init background_1) syscall sleep(10000)
+[017747582] PID 10 (init background_1) sleeping until 17757582
+$$ timeslice summary for pid 10 (init background_1) : queued at 17746472, ran at 17746972, ended at 17747923
+=== schedule pid 11 (init background_2)
+[017748473] PID 11 (init background_2) syscall sleep(10000)
+[017748715] PID 11 (init background_2) sleeping until 17758715
+$$ timeslice summary for pid 11 (init background_2) : queued at 17746970, ran at 17747923, ended at 17748947
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017831929] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017832381] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017832898] PID 10 (init background_1) syscall sleep(10000)
+[017833255] PID 10 (init background_1) sleeping until 17843255
+$$ timeslice summary for pid 10 (init background_1) : queued at 17832194, ran at 17832641, ended at 17833620
+=== schedule pid 11 (init background_2)
+[017834367] PID 11 (init background_2) syscall sleep(10000)
+[017834578] PID 11 (init background_2) sleeping until 17844578
+$$ timeslice summary for pid 11 (init background_2) : queued at 17832639, ran at 17833620, ended at 17834798
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017875930] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017876413] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017876941] PID 10 (init background_1) syscall sleep(10000)
+[017877267] PID 10 (init background_1) sleeping until 17887267
+$$ timeslice summary for pid 10 (init background_1) : queued at 17876221, ran at 17876684, ended at 17877607
+=== schedule pid 11 (init background_2)
+[017878385] PID 11 (init background_2) syscall sleep(10000)
+[017878619] PID 11 (init background_2) sleeping until 17888619
+$$ timeslice summary for pid 11 (init background_2) : queued at 17876682, ran at 17877607, ended at 17878840
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[017949853] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[017950302] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[017950873] PID 10 (init background_1) syscall sleep(10000)
+[017951214] PID 10 (init background_1) sleeping until 17961214
+$$ timeslice summary for pid 10 (init background_1) : queued at 17950115, ran at 17950589, ended at 17951571
+=== schedule pid 11 (init background_2)
+[017952340] PID 11 (init background_2) syscall sleep(10000)
+[017952667] PID 11 (init background_2) sleeping until 17962667
+$$ timeslice summary for pid 11 (init background_2) : queued at 17950587, ran at 17951571, ended at 17953031
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018048678] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018049139] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018049655] PID 10 (init background_1) syscall sleep(10000)
+[018049982] PID 10 (init background_1) sleeping until 18059982
+$$ timeslice summary for pid 10 (init background_1) : queued at 18048953, ran at 18049400, ended at 18050351
+=== schedule pid 11 (init background_2)
+[018051038] PID 11 (init background_2) syscall sleep(10000)
+[018051264] PID 11 (init background_2) sleeping until 18061264
+$$ timeslice summary for pid 11 (init background_2) : queued at 18049398, ran at 18050351, ended at 18051483
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018150076] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018150574] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018151112] PID 10 (init background_1) syscall sleep(10000)
+[018151439] PID 10 (init background_1) sleeping until 18161439
+$$ timeslice summary for pid 10 (init background_1) : queued at 18150363, ran at 18150845, ended at 18151779
+=== schedule pid 11 (init background_2)
+[018152549] PID 11 (init background_2) syscall sleep(10000)
+[018152786] PID 11 (init background_2) sleeping until 18162786
+$$ timeslice summary for pid 11 (init background_2) : queued at 18150843, ran at 18151779, ended at 18153032
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018335516] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018335964] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018336505] PID 10 (init background_1) syscall sleep(10000)
+[018336859] PID 10 (init background_1) sleeping until 18346859
+$$ timeslice summary for pid 10 (init background_1) : queued at 18335779, ran at 18336222, ended at 18337189
+=== schedule pid 11 (init background_2)
+[018337916] PID 11 (init background_2) syscall sleep(10000)
+[018338213] PID 11 (init background_2) sleeping until 18348213
+$$ timeslice summary for pid 11 (init background_2) : queued at 18336220, ran at 18337189, ended at 18338522
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018439511] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018439978] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018440495] PID 10 (init background_1) syscall sleep(10000)
+[018440823] PID 10 (init background_1) sleeping until 18450823
+$$ timeslice summary for pid 10 (init background_1) : queued at 18439784, ran at 18440239, ended at 18441162
+=== schedule pid 11 (init background_2)
+[018441986] PID 11 (init background_2) syscall sleep(10000)
+[018442314] PID 11 (init background_2) sleeping until 18452314
+$$ timeslice summary for pid 11 (init background_2) : queued at 18440236, ran at 18441162, ended at 18442660
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018539927] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018540409] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018540959] PID 10 (init background_1) syscall sleep(10000)
+[018541304] PID 10 (init background_1) sleeping until 18551303
+$$ timeslice summary for pid 10 (init background_1) : queued at 18540193, ran at 18540691, ended at 18541645
+=== schedule pid 11 (init background_2)
+[018542415] PID 11 (init background_2) syscall sleep(10000)
+[018542697] PID 11 (init background_2) sleeping until 18552697
+$$ timeslice summary for pid 11 (init background_2) : queued at 18540688, ran at 18541645, ended at 18542920
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018640282] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018640733] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018641249] PID 10 (init background_1) syscall sleep(10000)
+[018641602] PID 10 (init background_1) sleeping until 18651602
+$$ timeslice summary for pid 10 (init background_1) : queued at 18640547, ran at 18640991, ended at 18641968
+=== schedule pid 11 (init background_2)
+[018642733] PID 11 (init background_2) syscall sleep(10000)
+[018642945] PID 11 (init background_2) sleeping until 18652945
+$$ timeslice summary for pid 11 (init background_2) : queued at 18640989, ran at 18641968, ended at 18643164
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018738734] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018739215] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018739744] PID 10 (init background_1) syscall sleep(10000)
+[018740071] PID 10 (init background_1) sleeping until 18750071
+$$ timeslice summary for pid 10 (init background_1) : queued at 18739023, ran at 18739485, ended at 18740411
+=== schedule pid 11 (init background_2)
+[018741035] PID 11 (init background_2) syscall sleep(10000)
+[018741283] PID 11 (init background_2) sleeping until 18751282
+$$ timeslice summary for pid 11 (init background_2) : queued at 18739483, ran at 18740411, ended at 18741519
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018847791] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018848239] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018848808] PID 10 (init background_1) syscall sleep(10000)
+[018849150] PID 10 (init background_1) sleeping until 18859150
+$$ timeslice summary for pid 10 (init background_1) : queued at 18848053, ran at 18848527, ended at 18849507
+=== schedule pid 11 (init background_2)
+[018850222] PID 11 (init background_2) syscall sleep(10000)
+[018850436] PID 11 (init background_2) sleeping until 18860436
+$$ timeslice summary for pid 11 (init background_2) : queued at 18848524, ran at 18849507, ended at 18850672
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[018936231] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[018936693] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[018937207] PID 10 (init background_1) syscall sleep(10000)
+[018937535] PID 10 (init background_1) sleeping until 18947535
+$$ timeslice summary for pid 10 (init background_1) : queued at 18936506, ran at 18936952, ended at 18937901
+=== schedule pid 11 (init background_2)
+[018938602] PID 11 (init background_2) syscall sleep(10000)
+[018938835] PID 11 (init background_2) sleeping until 18948835
+$$ timeslice summary for pid 11 (init background_2) : queued at 18936950, ran at 18937901, ended at 18939067
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[019050762] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[019051264] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[019051800] PID 10 (init background_1) syscall sleep(10000)
+[019052185] PID 10 (init background_1) sleeping until 19062184
+$$ timeslice summary for pid 10 (init background_1) : queued at 19051051, ran at 19051534, ended at 19052535
+=== schedule pid 11 (init background_2)
+[019053325] PID 11 (init background_2) syscall sleep(10000)
+[019053568] PID 11 (init background_2) sleeping until 19063568
+$$ timeslice summary for pid 11 (init background_2) : queued at 19051532, ran at 19052535, ended at 19053811
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[019201747] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[019202197] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[019202739] PID 10 (init background_1) syscall sleep(10000)
+[019203096] PID 10 (init background_1) sleeping until 19213096
+$$ timeslice summary for pid 10 (init background_1) : queued at 19202010, ran at 19202454, ended at 19203451
+=== schedule pid 11 (init background_2)
+[019204253] PID 11 (init background_2) syscall sleep(10000)
+[019204579] PID 11 (init background_2) sleeping until 19214579
+$$ timeslice summary for pid 11 (init background_2) : queued at 19202452, ran at 19203451, ended at 19204919
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[019266944] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[019267410] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[019267926] PID 10 (init background_1) syscall sleep(10000)
+[019268254] PID 10 (init background_1) sleeping until 19278254
+$$ timeslice summary for pid 10 (init background_1) : queued at 19267218, ran at 19267670, ended at 19268595
+=== schedule pid 11 (init background_2)
+[019269419] PID 11 (init background_2) syscall sleep(10000)
+[019269747] PID 11 (init background_2) sleeping until 19279747
+$$ timeslice summary for pid 11 (init background_2) : queued at 19267668, ran at 19268595, ended at 19270104
+=== schedule pid 0 (idle )
+*** timer woke pid 10
+[019333253] PID 00 (idle ) Waking pid 10
+*** timer woke pid 11
+[019333726] PID 00 (idle ) Waking pid 11
+=== schedule pid 10 (init background_1)
+[019334293] PID 10 (init background_1) syscall exit()
+[019334613] PID 10 (init background_1) thread stopped
+$$ timeslice summary for pid 10 (init background_1) : queued at 19333516, ran at 19334009, ended at 19334920
+=== schedule pid 11 (init background_2)
+Freeing 10 background_1
+[019335719] PID 11 (init background_2) syscall sleep(10000)
+[019335930] PID 11 (init background_2) sleeping until 19345930
+$$ timeslice summary for pid 11 (init background_2) : queued at 19334007, ran at 19334920, ended at 19336174
+=== schedule pid 0 (idle )
+*** timer woke pid 11
+[019432750] PID 00 (idle ) Waking pid 11
+=== schedule pid 11 (init background_2)
+[019433288] PID 11 (init background_2) syscall exit()
+[019433618] PID 11 (init background_2) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               b  rcx: 0x              30  rdx: 0xfffffffffc300000
+rsi: 0x               1  rdi: 0x         7ef4150  rbp: 0x         7eeac18  rsp: 0x         7eeac00
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7ef4018  r13: 0x         7ef4098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007eeaff8  3e0(%rbp)  3f8(%rsp)     ffffffffffe060b9
+0x0000000007eeaff0  3d8(%rbp)  3f0(%rsp)     0
+0x0000000007eeafe8  3d0(%rbp)  3e8(%rsp)     ffffffffffe04581
+0x0000000007eeafe0  3c8(%rbp)  3e0(%rsp)     7ef4000
+0x0000000007eeafd8  3c0(%rbp)  3d8(%rsp)     ffffffffffe060a5
+0x0000000007eeafd0  3b8(%rbp)  3d0(%rsp)     7eeaff0
+0x0000000007eeafc8  3b0(%rbp)  3c8(

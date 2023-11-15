@@ -1,0 +1,848 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[020640337] PID 01 (init init) syscall write(...)
+I am init
+[020642263] PID 01 (init init) syscall spawn("init", "long_run_batch")
+[020643573] PID 01 (init init) Waking pid 2
+[020644311] PID 01 (init init) Waking pid 1
+[020644983] PID 01 (init init) syscall spawn("init", "user_process")
+[020646004] PID 01 (init init) Waking pid 3
+[021130920] PID 01 (init init) Waking pid 1
+[021132491] PID 01 (init init) syscall spawn("init", "user_process")
+[021134906] PID 01 (init init) Waking pid 4
+[021136566] PID 01 (init init) Waking pid 1
+[021699600] PID 01 (init init) syscall spawn("init", "user_process")
+[021702072] PID 01 (init init) Waking pid 5
+[021703617] PID 01 (init init) Waking pid 1
+[021705144] PID 01 (init init) syscall spawn("init", "user_process")
+[021707623] PID 01 (init init) Waking pid 6
+[021708830] PID 01 (init init) Waking pid 1
+[022224833] PID 01 (init init) syscall spawn("init", "user_process")
+[022227141] PID 01 (init init) Waking pid 7
+[022228622] PID 01 (init init) Waking pid 1
+[022753065] PID 01 (init init) syscall spawn("init", "user_process")
+[022755391] PID 01 (init init) Waking pid 8
+[022756902] PID 01 (init init) Waking pid 1
+[023002818] PID 01 (init init) syscall spawn("init", "user_process")
+[023106183] PID 01 (init init) Waking pid 9
+[023107714] PID 01 (init init) Waking pid 1
+[023109180] PID 01 (init init) syscall spawn("init", "user_process")
+[023111439] PID 01 (init init) Waking pid 10
+[023113043] PID 01 (init init) Waking pid 1
+[023114487] PID 01 (init init) syscall spawn("init", "user_process")
+[023116849] PID 01 (init init) Waking pid 11
+[023118461] PID 01 (init init) Waking pid 1
+[023119912] PID 01 (init init) syscall spawn("init", "user_process")
+[023121419] PID 01 (init init) Waking pid 12
+[023122355] PID 01 (init init) Waking pid 1
+[023123274] PID 01 (init init) syscall spawn("init", "user_process")
+[023124812] PID 01 (init init) Waking pid 13
+[023125755] PID 01 (init init) Waking pid 1
+[023126722] PID 01 (init init) syscall spawn("init", "user_process")
+[023128262] PID 01 (init init) Waking pid 14
+[023129202] PID 01 (init init) Waking pid 1
+[023130115] PID 01 (init init) syscall spawn("init", "user_process")
+[023131080] PID 01 (init init) Waking pid 15
+[023131706] PID 01 (init init) Waking pid 1
+[023132372] PID 01 (init init) syscall spawn("init", "user_process")
+[023133323] PID 01 (init init) Waking pid 16
+[023133991] PID 01 (init init) Waking pid 1
+[024326788] PID 01 (init init) syscall spawn("init", "user_process")
+[024329091] PID 01 (init init) Waking pid 17
+[024330660] PID 01 (init init) Waking pid 1
+[024858394] PID 01 (init init) syscall spawn("init", "user_process")
+[024860721] PID 01 (init init) Waking pid 18
+[024862343] PID 01 (init init) Waking pid 1
+[025358713] PID 01 (init init) syscall spawn("init", "user_process")
+[025361112] PID 01 (init init) Waking pid 19
+[025362753] PID 01 (init init) Waking pid 1
+[025364210] PID 01 (init init) syscall spawn("init", "user_process")
+[025366563] PID 01 (init init) Waking pid 20
+[025368035] PID 01 (init init) Waking pid 1
+[025900152] PID 01 (init init) syscall spawn("init", "user_process")
+[025902613] PID 01 (init init) Waking pid 21
+[025904101] PID 01 (init init) Waking pid 1
+[026219431] PID 01 (init init) syscall spawn("init", "user_process")
+[026298901] PID 01 (init init) Waking pid 22
+[026300396] PID 01 (init init) Waking pid 1
+[026301925] PID 01 (init init) syscall spawn("init", "user_process")
+[026304193] PID 01 (init init) Waking pid 23
+[026305666] PID 01 (init init) Waking pid 1
+[026307002] PID 01 (init init) syscall spawn("init", "user_process")
+[026308892] PID 01 (init init) Waking pid 24
+[026310188] PID 01 (init init) Waking pid 1
+[026311512] PID 01 (init init) syscall spawn("init", "user_process")
+[026313408] PID 01 (init init) Waking pid 25
+[026314690] PID 01 (init init) Waking pid 1
+[026315901] PID 01 (init init) syscall spawn("init", "user_process")
+[026317109] PID 01 (init init) Waking pid 26
+[026317957] PID 01 (init init) Waking pid 1
+[026318741] PID 01 (init init) syscall spawn("init", "user_process")
+[026320057] PID 01 (init init) Waking pid 27
+[026320916] PID 01 (init init) Waking pid 1
+[026321680] PID 01 (init init) syscall spawn("init", "user_process")
+[026322978] PID 01 (init init) Waking pid 28
+[026323763] PID 01 (init init) Waking pid 1
+[026324530] PID 01 (init init) syscall spawn("init", "user_process")
+[026325803] PID 01 (init init) Waking pid 29
+[026326581] PID 01 (init init) Waking pid 1
+[026981448] PID 01 (init init) syscall spawn("init", "user_process")
+[026983929] PID 01 (init init) Waking pid 30
+[026985420] PID 01 (init init) Waking pid 1
+[027520470] PID 01 (init init) syscall spawn("init", "user_process")
+[027522027] PID 01 (init init) Waking pid 31
+[027523023] PID 01 (init init) Waking pid 1
+[028039125] PID 01 (init init) syscall spawn("init", "user_process")
+[028041454] PID 01 (init init) Waking pid 32
+[028043025] PID 01 (init init) Waking pid 1
+[028044651] PID 01 (init init) syscall spawn("init", "user_process")
+[028576712] PID 01 (init init) Waking pid 33
+[028578297] PID 01 (init init) Waking pid 1
+[028579773] PID 01 (init init) syscall spawn("init", "user_process")
+[029091225] PID 01 (init init) Waking pid 34
+[029531867] PID 01 (init init) Waking pid 1
+[029617045] PID 01 (init init) syscall spawn("init", "user_process")
+[029619432] PID 01 (init init) Waking pid 35
+[029621104] PID 01 (init init) Waking pid 1
+[030169464] PID 01 (init init) syscall spawn("init", "user_process")
+[030171871] PID 01 (init init) Waking pid 36
+[031745268] PID 01 (init init) Waking pid 1
+[031746849] PID 01 (init init) syscall spawn("init", "user_process")
+[031749330] PID 01 (init init) Waking pid 37
+[032271696] PID 01 (init init) Waking pid 1
+[032444633] PID 01 (init init) syscall spawn("init", "user_process")
+[032525229] PID 01 (init init) Waking pid 38
+[032526752] PID 01 (init init) Waking pid 1
+[032528274] PID 01 (init init) syscall spawn("init", "user_process")
+[032530546] PID 01 (init init) Waking pid 39
+[032532027] PID 01 (init init) Waking pid 1
+[032533619] PID 01 (init init) syscall spawn("init", "user_process")
+[032535249] PID 01 (init init) Waking pid 40
+[032536264] PID 01 (init init) Waking pid 1
+[032537289] PID 01 (init init) syscall spawn("init", "user_process")
+[032538778] PID 01 (init init) Waking pid 41
+[032539782] PID 01 (init init) Waking pid 1
+[032540712] PID 01 (init init) syscall spawn("init", "user_process")
+[032542169] PID 01 (init init) Waking pid 42
+[032543209] PID 01 (init init) Waking pid 1
+[032544148] PID 01 (init init) syscall spawn("init", "user_process")
+[032545116] PID 01 (init init) Waking pid 43
+[032545777] PID 01 (init init) Waking pid 1
+[032546371] PID 01 (init init) syscall spawn("init", "user_process")
+[032547327] PID 01 (init init) Waking pid 44
+[032547932] PID 01 (init init) Waking pid 1
+[032548523] PID 01 (init init) syscall spawn("init", "user_process")
+[032549496] PID 01 (init init) Waking pid 45
+[032550098] PID 01 (init init) Waking pid 1
+[032550735] PID 01 (init init) syscall spawn("init", "user_process")
+[032551749] PID 01 (init init) Waking pid 46
+[032552368] PID 01 (init init) Waking pid 1
+[033339586] PID 01 (init init) syscall spawn("init", "user_process")
+[033362237] PID 01 (init init) Waking pid 47
+[033363803] PID 01 (init init) Waking pid 1
+[033365421] PID 01 (init init) syscall spawn("init", "user_process")
+[033367782] PID 01 (init init) Waking pid 48
+[033369430] PID 01 (init init) Waking pid 1
+[038129089] PID 01 (init init) syscall spawn("init", "user_process")
+[038451252] PID 01 (init init) Waking pid 49
+[038452848] PID 01 (init init) Waking pid 1
+[038454350] PID 01 (init init) syscall spawn("init", "user_process")
+[038456622] PID 01 (init init) Waking pid 50
+[038458273] PID 01 (init init) Waking pid 1
+[038459742] PID 01 (init init) syscall spawn("init", "user_process")
+[038462121] PID 01 (init init) Waking pid 51
+[038463169] PID 01 (init init) Waking pid 1
+[038464123] PID 01 (init init) syscall spawn("init", "user_process")
+[038465700] PID 01 (init init) Waking pid 52
+[038466664] PID 01 (init init) Waking pid 1
+[038467598] PID 01 (init init) syscall spawn("init", "user_process")
+[038469142] PID 01 (init init) Waking pid 53
+[038470109] PID 01 (init init) Waking pid 1
+[038471074] PID 01 (init init) syscall spawn("init", "user_process")
+[038472589] PID 01 (init init) Waking pid 54
+[042871700] PID 01 (init init) Waking pid 1
+[043419658] PID 01 (init init) syscall spawn("init", "user_process")
+[043422022] PID 01 (init init) Waking pid 55
+[043855926] PID 01 (init init) Waking pid 1
+[043857602] PID 01 (init init) syscall spawn("init", "user_process")
+[043859888] PID 01 (init init) Waking pid 56
+[043861447] PID 01 (init init) Waking pid 1
+[043863099] PID 01 (init init) syscall spawn("init", "user_process")
+[043865357] PID 01 (init init) Waking pid 57
+[043866780] PID 01 (init init) Waking pid 1
+[043868108] PID 01 (init init) syscall spawn("init", "user_process")
+[043870173] PID 01 (init init) Waking pid 58
+[043871678] PID 01 (init init) Waking pid 1
+[043873002] PID 01 (init init) syscall spawn("init", "user_process")
+[043874501] PID 01 (init init) Waking pid 59
+[043875509] PID 01 (init init) Waking pid 1
+[043876397] PID 01 (init init) syscall spawn("init", "user_process")
+[043877843] PID 01 (init init) Waking pid 60
+[044482199] PID 01 (init init) Waking pid 1
+[044483813] PID 01 (init init) syscall spawn("init", "user_process")
+[044486210] PID 01 (init init) Waking pid 61
+[044487718] PID 01 (init init) Waking pid 1
+[044489226] PID 01 (init init) syscall spawn("init", "user_process")
+[044491251] PID 01 (init init) Waking pid 62
+[044492534] PID 01 (init init) Waking pid 1
+[044493829] PID 01 (init init) syscall spawn("init", "user_process")
+[044495732] PID 01 (init init) Waking pid 63
+[044496991] PID 01 (init init) Waking pid 1
+[044498325] PID 01 (init init) syscall spawn("init", "user_process")
+[044500218] PID 01 (init init) Waking pid 64
+[044501101] PID 01 (init init) Waking pid 1
+[044501956] PID 01 (init init) syscall spawn("init", "user_process")
+[044503478] PID 01 (init init) Waking pid 65
+[044504362] PID 01 (init init) Waking pid 1
+[046033565] PID 01 (init init) syscall spawn("init", "user_process")
+[046035578] PID 01 (init init) Waking pid 66
+[046037098] PID 01 (init init) Waking pid 1
+[046038516] PID 01 (init init) syscall spawn("init", "user_process")
+[046040737] PID 01 (init init) Waking pid 67
+[046616167] PID 01 (init init) Waking pid 1
+[046617686] PID 01 (init init) syscall spawn("init", "user_process")
+[048611449] PID 01 (init init) Waking pid 68
+[053475130] PID 01 (init init) Waking pid 1
+[053476646] PID 01 (init init) syscall spawn("init", "user_process")
+[053479072] PID 01 (init init) Waking pid 69
+[053480625] PID 01 (init init) Waking pid 1
+[053482153] PID 01 (init init) syscall spawn("init", "user_process")
+[053484594] PID 01 (init init) Waking pid 70
+[053973375] PID 01 (init init) Waking pid 1
+[053974925] PID 01 (init init) syscall spawn("init", "user_process")
+[053977216] PID 01 (init init) Waking pid 71
+[053978807] PID 01 (init init) Waking pid 1
+[054179301] PID 01 (init init) syscall spawn("init", "user_process")
+[054181632] PID 01 (init init) Waking pid 72
+[054183232] PID 01 (init init) Waking pid 1
+[054184825] PID 01 (init init) syscall spawn("init", "user_process")
+[054187093] PID 01 (init init) Waking pid 73
+[054188668] PID 01 (init init) Waking pid 1
+[054190120] PID 01 (init init) syscall spawn("init", "user_process")
+[054192395] PID 01 (init init) Waking pid 74
+[054193577] PID 01 (init init) Waking pid 1
+[054194521] PID 01 (init init) syscall spawn("init", "user_process")
+[054196039] PID 01 (init init) Waking pid 75
+[054197097] PID 01 (init init) Waking pid 1
+[054198023] PID 01 (init init) syscall spawn("init", "user_process")
+[054199524] PID 01 (init init) Waking pid 76
+[054200500] PID 01 (init init) Waking pid 1
+[054729247] PID 01 (init init) syscall spawn("init", "user_process")
+[054836911] PID 01 (init init) Waking pid 77
+[054838468] PID 01 (init init) Waking pid 1
+[054840074] PID 01 (init init) syscall spawn("init", "user_process")
+[054842503] PID 01 (init init) Waking pid 78
+[054844019] PID 01 (init init) Waking pid 1
+[054845536] PID 01 (init init) syscall spawn("init", "user_process")
+[054847808] PID 01 (init init) Waking pid 79
+[054849299] PID 01 (init init) Waking pid 1
+[054850325] PID 01 (init init) syscall spawn("init", "user_process")
+[054851768] PID 01 (init init) Waking pid 80
+[054852810] PID 01 (init init) Waking pid 1
+[054853847] PID 01 (init init) syscall spawn("init", "user_process")
+[054855321] PID 01 (init init) Waking pid 81
+[054856331] PID 01 (init init) Waking pid 1
+[054857274] PID 01 (init init) syscall spawn("init", "user_process")
+[054858732] PID 01 (init init) Waking pid 82
+[054859621] PID 01 (init init) Waking pid 1
+[054860240] PID 01 (init init) syscall spawn("init", "user_process")
+[054861247] PID 01 (init init) Waking pid 83
+[054861939] PID 01 (init init) Waking pid 1
+[054862556] PID 01 (init init) syscall spawn("init", "user_process")
+[054863547] PID 01 (init init) Waking pid 84
+[054864187] PID 01 (init init) Waking pid 1
+[054864803] PID 01 (init init) syscall spawn("init", "user_process")
+[055615836] PID 01 (init init) Waking pid 85
+[056096485] PID 01 (init init) Waking pid 1
+[056659382] PID 01 (init init) syscall spawn("init", "user_process")
+[056661880] PID 01 (init init) Waking pid 86
+[059325608] PID 01 (init init) Waking pid 1
+[059327172] PID 01 (init init) syscall spawn("init", "user_process")
+[059329471] PID 01 (init init) Waking pid 87
+[059331025] PID 01 (init init) Waking pid 1
+[059834293] PID 01 (init init) syscall spawn("init", "user_process")
+[059836605] PID 01 (init init) Waking pid 88
+[061960874] PID 01 (init init) Waking pid 1
+[062262461] PID 01 (init init) syscall spawn("init", "user_process")
+[062380939] PID 01 (init init) Waking pid 89
+[062382559] PID 01 (init init) Waking pid 1
+[062384034] PID 01 (init init) syscall spawn("init", "user_process")
+[062386305] PID 01 (init init) Waking pid 90
+[062387965] PID 01 (init init) Waking pid 1
+[062389413] PID 01 (init init) syscall spawn("init", "user_process")
+[062391776] PID 01 (init init) Waking pid 91
+[062393374] PID 01 (init init) Waking pid 1
+[062394308] PID 01 (init init) syscall spawn("init", "user_process")
+[062395849] PID 01 (init init) Waking pid 92
+[062396826] PID 01 (init init) Waking pid 1
+[062397755] PID 01 (init init) syscall spawn("init", "user_process")
+[062399302] PID 01 (init init) Waking pid 93
+[062400278] PID 01 (init init) Waking pid 1
+[062401256] PID 01 (init init) syscall spawn("init", "user_process")
+[062402804] PID 01 (init init) Waking pid 94
+[062403729] PID 01 (init init) Waking pid 1
+[062404383] PID 01 (init init) syscall spawn("init", "user_process")
+[062405343] PID 01 (init init) Waking pid 95
+[062405985] PID 01 (init init) Waking pid 1
+[062406665] PID 01 (init init) syscall spawn("init", "user_process")
+[062407634] PID 01 (init init) Waking pid 96
+[062408332] PID 01 (init init) Waking pid 1
+[063357633] PID 01 (init init) syscall spawn("init", "user_process")
+[063480842] PID 01 (init init) Waking pid 97
+[063482494] PID 01 (init init) Waking pid 1
+[063483968] PID 01 (init init) syscall spawn("init", "user_process")
+[063486247] PID 01 (init init) Waking pid 98
+[063487914] PID 01 (init init) Waking pid 1
+[063489373] PID 01 (init init) syscall spawn("init", "user_process")
+[063491293] PID 01 (init init) Waking pid 99
+[063492363] PID 01 (init init) Waking pid 1
+[063493295] PID 01 (init init) syscall spawn("init", "user_process")
+[063494805] PID 01 (init init) Waking pid 100
+[063495800] PID 01 (init init) Waking pid 1
+[063496740] PID 01 (init init) syscall spawn("init", "user_process")
+[063498291] PID 01 (init init) Waking pid 101
+[063499295] PID 01 (init init) Waking pid 1
+[063500284] PID 01 (init init) syscall spawn("init", "user_process")
+[063501493] PID 01 (init init) Waking pid 102
+[063502149] PID 01 (init init) Waking pid 1
+[063502990] PID 01 (init init) syscall exit()
+[063503703] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 20636296, ran at 20636538, ended at 63504575
+=== schedule pid 3 (init user_process)
+Freeing 1 init
+[064558948] PID 03 (init user_process) syscall exit()
+[064568267] PID 03 (init user_process) thread stopped
+$$ timeslice summary for pid 3 (init user_process) : queued at 21130912, ran at 63504575, ended at 64570141
+=== schedule pid 4 (init user_process)
+Freeing 3 user_process
+[064946793] PID 04 (init user_process) syscall exit()
+[064955117] PID 04 (init user_process) thread stopped
+$$ timeslice summary for pid 4 (init user_process) : queued at 21136402, ran at 64570141, ended at 64956956
+=== schedule pid 5 (init user_process)
+Freeing 4 user_process
+[065133828] PID 05 (init user_process) syscall exit()
+[065135616] PID 05 (init user_process) thread stopped
+$$ timeslice summary for pid 5 (init user_process) : queued at 21703520, ran at 64956956, ended at 65137511
+=== schedule pid 6 (init user_process)
+Freeing 5 user_process
+[065451044] PID 06 (init user_process) syscall exit()
+[065459117] PID 06 (init user_process) thread stopped
+$$ timeslice summary for pid 6 (init user_process) : queued at 21708825, ran at 65137511, ended at 65460497
+=== schedule pid 7 (init user_process)
+Freeing 6 user_process
+[065777770] PID 07 (init user_process) syscall exit()
+[065785989] PID 07 (init user_process) thread stopped
+$$ timeslice summary for pid 7 (init user_process) : queued at 22228614, ran at 65460497, ended at 65787859
+=== schedule pid 8 (init user_process)
+Freeing 7 user_process
+[066214919] PID 08 (init user_process) syscall exit()
+[066223492] PID 08 (init user_process) thread stopped
+$$ timeslice summary for pid 8 (init user_process) : queued at 22756893, ran at 65787859, ended at 66225231
+=== schedule pid 9 (init user_process)
+Freeing 8 user_process
+[066725198] PID 09 (init user_process) syscall exit()
+[066733527] PID 09 (init user_process) thread stopped
+$$ timeslice summary for pid 9 (init user_process) : queued at 23107704, ran at 66225231, ended at 66735354
+=== schedule pid 10 (init user_process)
+Freeing 9 user_process
+[066949522] PID 10 (init user_process) syscall exit()
+[066951318] PID 10 (init user_process) thread stopped
+$$ timeslice summary for pid 10 (init user_process) : queued at 23113035, ran at 66735354, ended at 66953206
+=== schedule pid 11 (init user_process)
+Freeing 10 user_process
+[067244636] PID 11 (init user_process) syscall exit()
+[067246451] PID 11 (init user_process) thread stopped
+$$ timeslice summary for pid 11 (init user_process) : queued at 23118455, ran at 66953206, ended at 67248197
+=== schedule pid 12 (init user_process)
+Freeing 11 user_process
+[067660903] PID 12 (init user_process) syscall exit()
+[067669219] PID 12 (init user_process) thread stopped
+$$ timeslice summary for pid 12 (init user_process) : queued at 23122350, ran at 67248197, ended at 67670974
+=== schedule pid 13 (init user_process)
+Freeing 12 user_process
+[067982969] PID 13 (init user_process) syscall exit()
+[067991102] PID 13 (init user_process) thread stopped
+$$ timeslice summary for pid 13 (init user_process) : queued at 23125750, ran at 67670974, ended at 67992906
+=== schedule pid 14 (init user_process)
+Freeing 13 user_process
+[068280476] PID 14 (init user_process) syscall exit()
+[068288854] PID 14 (init user_process) thread stopped
+$$ timeslice summary for pid 14 (init user_process) : queued at 23129196, ran at 67992906, ended at 68290612
+=== schedule pid 15 (init user_process)
+Freeing 14 user_process
+[068488430] PID 15 (init user_process) syscall exit()
+[068490231] PID 15 (init user_process) thread stopped
+$$ timeslice summary for pid 15 (init user_process) : queued at 23131702, ran at 68290612, ended at 68492090
+=== schedule pid 16 (init user_process)
+Freeing 15 user_process
+[068774916] PID 16 (init user_process) syscall exit()
+[068776715] PID 16 (init user_process) thread stopped
+$$ timeslice summary for pid 16 (init user_process) : queued at 23133986, ran at 68492090, ended at 68778434
+=== schedule pid 17 (init user_process)
+Freeing 16 user_process
+[069003189] PID 17 (init user_process) syscall exit()
+[069005017] PID 17 (init user_process) thread stopped
+$$ timeslice summary for pid 17 (init user_process) : queued at 24330646, ran at 68778434, ended at 69006838
+=== schedule pid 18 (init user_process)
+Freeing 17 user_process
+[069350257] PID 18 (init user_process) syscall exit()
+[069358380] PID 18 (init user_process) thread stopped
+$$ timeslice summary for pid 18 (init user_process) : queued at 24862329, ran at 69006838, ended at 69360161
+=== schedule pid 19 (init user_process)
+Freeing 18 user_process
+[069611097] PID 19 (init user_process) syscall exit()
+[069619244] PID 19 (init user_process) thread stopped
+$$ timeslice summary for pid 19 (init user_process) : queued at 25362739, ran at 69360161, ended at 69621122
+=== schedule pid 20 (init user_process)
+Freeing 19 user_process
+[069908250] PID 20 (init user_process) syscall exit()
+[069916542] PID 20 (init user_process) thread stopped
+$$ timeslice summary for pid 20 (init user_process) : queued at 25368023, ran at 69621122, ended at 69918265
+=== schedule pid 21 (init user_process)
+Freeing 20 user_process
+[070282710] PID 21 (init user_process) syscall exit()
+[070290888] PID 21 (init user_process) thread stopped
+$$ timeslice summary for pid 21 (init user_process) : queued at 25904087, ran at 69918265, ended at 70292615
+=== schedule pid 22 (init user_process)
+Freeing 21 user_process
+[070582616] PID 22 (init user_process) syscall exit()
+[070590881] PID 22 (init user_process) thread stopped
+$$ timeslice summary for pid 22 (init user_process) : queued at 26300380, ran at 70292615, ended at 70592607
+=== schedule pid 23 (init user_process)
+Freeing 22 user_process
+[070923569] PID 23 (init user_process) syscall exit()
+[070931828] PID 23 (init user_process) thread stopped
+$$ timeslice summary for pid 23 (init user_process) : queued at 26305656, ran at 70592607, ended at 70933687
+=== schedule pid 24 (init user_process)
+Freeing 23 user_process
+[071055999] PID 24 (init user_process) syscall exit()
+[071057313] PID 24 (init user_process) thread stopped
+$$ timeslice summary for pid 24 (init user_process) : queued at 26310176, ran at 70933687, ended at 71058499
+=== schedule pid 25 (init user_process)
+Freeing 24 user_process
+[071453074] PID 25 (init user_process) syscall exit()
+[071461265] PID 25 (init user_process) thread stopped
+$$ timeslice summary for pid 25 (init user_process) : queued at 26314679, ran at 71058499, ended at 71463101
+=== schedule pid 26 (init user_process)
+Freeing 25 user_process
+[071611353] PID 26 (init user_process) syscall exit()
+[071612621] PID 26 (init user_process) thread stopped
+$$ timeslice summary for pid 26 (init user_process) : queued at 26317950, ran at 71463101, ended at 71613824
+=== schedule pid 27 (init user_process)
+Freeing 26 user_process
+[071904717] PID 27 (init user_process) syscall exit()
+[071912495] PID 27 (init user_process) thread stopped
+$$ timeslice summary for pid 27 (init user_process) : queued at 26320909, ran at 71613824, ended at 71914240
+=== schedule pid 28 (init user_process)
+Freeing 27 user_process
+[072038499] PID 28 (init user_process) syscall exit()
+[072039819] PID 28 (init user_process) thread stopped
+$$ timeslice summary for pid 28 (init user_process) : queued at 26323755, ran at 71914240, ended at 72041080
+=== schedule pid 29 (init user_process)
+Freeing 28 user_process
+[072470538] PID 29 (init user_process) syscall exit()
+[072478885] PID 29 (init user_process) thread stopped
+$$ timeslice summary for pid 29 (init user_process) : queued at 26326574, ran at 72041080, ended at 72480611
+=== schedule pid 30 (init user_process)
+Freeing 29 user_process
+[072663014] PID 30 (init user_process) syscall exit()
+[072663803] PID 30 (init user_process) thread stopped
+$$ timeslice summary for pid 30 (init user_process) : queued at 26985398, ran at 72480611, ended at 72664455
+=== schedule pid 31 (init user_process)
+Freeing 30 user_process
+[073063643] PID 31 (init user_process) syscall exit()
+[073071986] PID 31 (init user_process) thread stopped
+$$ timeslice summary for pid 31 (init user_process) : queued at 27523008, ran at 72664455, ended at 73073929
+=== schedule pid 32 (init user_process)
+Freeing 31 user_process
+[073566196] PID 32 (init user_process) syscall exit()
+[073574580] PID 32 (init user_process) thread stopped
+$$ timeslice summary for pid 32 (init user_process) : queued at 28043002, ran at 73073929, ended at 73576338
+=== schedule pid 33 (init user_process)
+Freeing 32 user_process
+[073677118] PID 33 (init user_process) syscall exit()
+[073677903] PID 33 (init user_process) thread stopped
+$$ timeslice summary for pid 33 (init user_process) : queued at 28578267, ran at 73576338, ended at 73678600
+=== schedule pid 34 (init user_process)
+Freeing 33 user_process
+[074124828] PID 34 (init user_process) syscall exit()
+[074133100] PID 34 (init user_process) thread stopped
+$$ timeslice summary for pid 34 (init user_process) : queued at 29531839, ran at 73678600, ended at 74134809
+=== schedule pid 35 (init user_process)
+Freeing 34 user_process
+[074375781] PID 35 (init user_process) syscall exit()
+[074377032] PID 35 (init user_process) thread stopped
+$$ timeslice summary for pid 35 (init user_process) : queued at 29621082, ran at 74134809, ended at 74378203
+=== schedule pid 36 (init user_process)
+Freeing 35 user_process
+[074918942] PID 36 (init user_process) syscall exit()
+[074927318] PID 36 (init user_process) thread stopped
+$$ timeslice summary for pid 36 (init user_process) : queued at 31745238, ran at 74378203, ended at 74929112
+=== schedule pid 37 (init user_process)
+Freeing 36 user_process
+[075208549] PID 37 (init user_process) syscall exit()
+[075216834] PID 37 (init user_process) thread stopped
+$$ timeslice summary for pid 37 (init user_process) : queued at 32271665, ran at 74929112, ended at 75218730
+=== schedule pid 38 (init user_process)
+Freeing 37 user_process
+[075720207] PID 38 (init user_process) syscall exit()
+[075728765] PID 38 (init user_process) thread stopped
+$$ timeslice summary for pid 38 (init user_process) : queued at 32526724, ran at 75218730, ended at 75730486
+=== schedule pid 39 (init user_process)
+Freeing 38 user_process
+[076269283] PID 39 (init user_process) syscall exit()
+[076277506] PID 39 (init user_process) thread stopped
+$$ timeslice summary for pid 39 (init user_process) : queued at 32532003, ran at 75730486, ended at 76279353
+=== schedule pid 40 (init user_process)
+Freeing 39 user_process
+[076769112] PID 40 (init user_process) syscall exit()
+[076777334] PID 40 (init user_process) thread stopped
+$$ timeslice summary for pid 40 (init user_process) : queued at 32536248, ran at 76279353, ended at 76779050
+=== schedule pid 41 (init user_process)
+Freeing 40 user_process
+[077145460] PID 41 (init user_process) syscall exit()
+[077153734] PID 41 (init user_process) thread stopped
+$$ timeslice summary for pid 41 (init user_process) : queued at 32539767, ran at 76779050, ended at 77155526
+=== schedule pid 42 (init user_process)
+Freeing 41 user_process
+[077420695] PID 42 (init user_process) syscall exit()
+[077429010] PID 42 (init user_process) thread stopped
+$$ timeslice summary for pid 42 (init user_process) : queued at 32543192, ran at 77155526, ended at 77430866
+=== schedule pid 43 (init user_process)
+Freeing 42 user_process
+[077820895] PID 43 (init user_process) syscall exit()
+[077829284] PID 43 (init user_process) thread stopped
+$$ timeslice summary for pid 43 (init user_process) : queued at 32545767, ran at 77430866, ended at 77831002
+=== schedule pid 44 (init user_process)
+Freeing 43 user_process
+[078109496] PID 44 (init user_process) syscall exit()
+[078117994] PID 44 (init user_process) thread stopped
+$$ timeslice summary for pid 44 (init user_process) : queued at 32547921, ran at 77831002, ended at 78119710
+=== schedule pid 45 (init user_process)
+Freeing 44 user_process
+[078326042] PID 45 (init user_process) syscall exit()
+[078327834] PID 45 (init user_process) thread stopped
+$$ timeslice summary for pid 45 (init user_process) : queued at 32550087, ran at 78119710, ended at 78329602
+=== schedule pid 46 (init user_process)
+Freeing 45 user_process
+[078670279] PID 46 (init user_process) syscall exit()
+[078672319] PID 46 (init user_process) thread stopped
+$$ timeslice summary for pid 46 (init user_process) : queued at 32552355, ran at 78329602, ended at 78674038
+=== schedule pid 47 (init user_process)
+Freeing 46 user_process
+[079104002] PID 47 (init user_process) syscall exit()
+[079112125] PID 47 (init user_process) thread stopped
+$$ timeslice summary for pid 47 (init user_process) : queued at 33363765, ran at 78674038, ended at 79113965
+=== schedule pid 48 (init user_process)
+Freeing 47 user_process
+[079421484] PID 48 (init user_process) syscall exit()
+[079429625] PID 48 (init user_process) thread stopped
+$$ timeslice summary for pid 48 (init user_process) : queued at 33369394, ran at 79113965, ended at 79431356
+=== schedule pid 49 (init user_process)
+Freeing 48 user_process
+[079884421] PID 49 (init user_process) syscall exit()
+[079892670] PID 49 (init user_process) thread stopped
+$$ timeslice summary for pid 49 (init user_process) : queued at 38452809, ran at 79431356, ended at 79894453
+=== schedule pid 50 (init user_process)
+Freeing 49 user_process
+[080309397] PID 50 (init user_process) syscall exit()
+[080317533] PID 50 (init user_process) thread stopped
+$$ timeslice summary for pid 50 (init user_process) : queued at 38458237, ran at 79894453, ended at 80319316
+=== schedule pid 51 (init user_process)
+Freeing 50 user_process
+[080677256] PID 51 (init user_process) syscall exit()
+[080685366] PID 51 (init user_process) thread stopped
+$$ timeslice summary for pid 51 (init user_process) : queued at 38463148, ran at 80319316, ended at 80687212
+=== schedule pid 52 (init user_process)
+Freeing 51 user_process
+[080975125] PID 52 (init user_process) syscall exit()
+[080983368] PID 52 (init user_process) thread stopped
+$$ timeslice summary for pid 52 (init user_process) : queued at 38466642, ran at 80687212, ended at 80985066
+=== schedule pid 53 (init user_process)
+Freeing 52 user_process
+[081188227] PID 53 (init user_process) syscall exit()
+[081189848] PID 53 (init user_process) thread stopped
+$$ timeslice summary for pid 53 (init user_process) : queued at 38470086, ran at 80985066, ended at 81191390
+=== schedule pid 54 (init user_process)
+Freeing 53 user_process
+[081535979] PID 54 (init user_process) syscall exit()
+[081537910] PID 54 (init user_process) thread stopped
+$$ timeslice summary for pid 54 (init user_process) : queued at 42871652, ran at 81191390, ended at 81539612
+=== schedule pid 55 (init user_process)
+Freeing 54 user_process
+[081741059] PID 55 (init user_process) syscall exit()
+[081742830] PID 55 (init user_process) thread stopped
+$$ timeslice summary for pid 55 (init user_process) : queued at 43855880, ran at 81539612, ended at 81744641
+=== schedule pid 56 (init user_process)
+Freeing 55 user_process
+[082084783] PID 56 (init user_process) syscall exit()
+[082086572] PID 56 (init user_process) thread stopped
+$$ timeslice summary for pid 56 (init user_process) : queued at 43861408, ran at 81744641, ended at 82088266
+=== schedule pid 57 (init user_process)
+Freeing 56 user_process
+[082279200] PID 57 (init user_process) syscall exit()
+[082281005] PID 57 (init user_process) thread stopped
+$$ timeslice summary for pid 57 (init user_process) : queued at 43866744, ran at 82088266, ended at 82282781
+=== schedule pid 58 (init user_process)
+Freeing 57 user_process
+[082817421] PID 58 (init user_process) syscall exit()
+[082819238] PID 58 (init user_process) thread stopped
+$$ timeslice summary for pid 58 (init user_process) : queued at 43871642, ran at 82282781, ended at 82820950
+=== schedule pid 59 (init user_process)
+Freeing 58 user_process
+[083125606] PID 59 (init user_process) syscall exit()
+[083133733] PID 59 (init user_process) thread stopped
+$$ timeslice summary for pid 59 (init user_process) : queued at 43875485, ran at 82820950, ended at 83135497
+=== schedule pid 60 (init user_process)
+Freeing 59 user_process
+[083335815] PID 60 (init user_process) syscall exit()
+[083337742] PID 60 (init user_process) thread stopped
+$$ timeslice summary for pid 60 (init user_process) : queued at 44482148, ran at 83135497, ended at 83339576
+=== schedule pid 61 (init user_process)
+Freeing 60 user_process
+[083634499] PID 61 (init user_process) syscall exit()
+[083636289] PID 61 (init user_process) thread stopped
+$$ timeslice summary for pid 61 (init user_process) : queued at 44487674, ran at 83339576, ended at 83637979
+=== schedule pid 62 (init user_process)
+Freeing 61 user_process
+[083854314] PID 62 (init user_process) syscall exit()
+[083856164] PID 62 (init user_process) thread stopped
+$$ timeslice summary for pid 62 (init user_process) : queued at 44492497, ran at 83637979, ended at 83857851
+=== schedule pid 63 (init user_process)
+Freeing 62 user_process
+[084146984] PID 63 (init user_process) syscall exit()
+[084148898] PID 63 (init user_process) thread stopped
+$$ timeslice summary for pid 63 (init user_process) : queued at 44496955, ran at 83857851, ended at 84150809
+=== schedule pid 64 (init user_process)
+Freeing 63 user_process
+[084349542] PID 64 (init user_process) syscall exit()
+[084351478] PID 64 (init user_process) thread stopped
+$$ timeslice summary for pid 64 (init user_process) : queued at 44501078, ran at 84150809, ended at 84353160
+=== schedule pid 65 (init user_process)
+Freeing 64 user_process
+[084538745] PID 65 (init user_process) syscall exit()
+[084539583] PID 65 (init user_process) thread stopped
+$$ timeslice summary for pid 65 (init user_process) : queued at 44504330, ran at 84353160, ended at 84540495
+=== schedule pid 66 (init user_process)
+Freeing 65 user_process
+[084744677] PID 66 (init user_process) syscall exit()
+[084746477] PID 66 (init user_process) thread stopped
+$$ timeslice summary for pid 66 (init user_process) : queued at 46037046, ran at 84540495, ended at 84748171
+=== schedule pid 67 (init user_process)
+Freeing 66 user_process
+[084946207] PID 67 (init user_process) syscall exit()
+[084946969] PID 67 (init user_process) thread stopped
+$$ timeslice summary for pid 67 (init user_process) : queued at 46616107, ran at 84748171, ended at 84947623
+=== schedule pid 68 (init user_process)
+Freeing 67 user_process
+[085242490] PID 68 (init user_process) syscall exit()
+[085250773] PID 68 (init user_process) thread stopped
+$$ timeslice summary for pid 68 (init user_process) : queued at 53475070, ran at 84947623, ended at 85252158
+=== schedule pid 69 (init user_process)
+Freeing 68 user_process
+[085490589] PID 69 (init user_process) syscall exit()
+[085492355] PID 69 (init user_process) thread stopped
+$$ timeslice summary for pid 69 (init user_process) : queued at 53480574, ran at 85252158, ended at 85494189
+=== schedule pid 70 (init user_process)
+Freeing 69 user_process
+[085760687] PID 70 (init user_process) syscall exit()
+[085768647] PID 70 (init user_process) thread stopped
+$$ timeslice summary for pid 70 (init user_process) : queued at 53973318, ran at 85494189, ended at 85769864
+=== schedule pid 71 (init user_process)
+Freeing 70 user_process
+[085914167] PID 71 (init user_process) syscall exit()
+[085915100] PID 71 (init user_process) thread stopped
+$$ timeslice summary for pid 71 (init user_process) : queued at 53978719, ran at 85769864, ended at 85916027
+=== schedule pid 72 (init user_process)
+Freeing 71 user_process
+[086256609] PID 72 (init user_process) syscall exit()
+[086265244] PID 72 (init user_process) thread stopped
+$$ timeslice summary for pid 72 (init user_process) : queued at 54183172, ran at 85916027, ended at 86266936
+=== schedule pid 73 (init user_process)
+Freeing 72 user_process
+[086501289] PID 73 (init user_process) syscall exit()
+[086503208] PID 73 (init user_process) thread stopped
+$$ timeslice summary for pid 73 (init user_process) : queued at 54188617, ran at 86266936, ended at 86504979
+=== schedule pid 74 (init user_process)
+Freeing 73 user_process
+[086861046] PID 74 (init user_process) syscall exit()
+[086869310] PID 74 (init user_process) thread stopped
+$$ timeslice summary for pid 74 (init user_process) : queued at 54193543, ran at 86504979, ended at 86871136
+=== schedule pid 75 (init user_process)
+Freeing 74 user_process
+[087213543] PID 75 (init user_process) syscall exit()
+[087221757] PID 75 (init user_process) thread stopped
+$$ timeslice summary for pid 75 (init user_process) : queued at 54197064, ran at 86871136, ended at 87223440
+=== schedule pid 76 (init user_process)
+Freeing 75 user_process
+[087381714] PID 76 (init user_process) syscall exit()
+[087383707] PID 76 (init user_process) thread stopped
+$$ timeslice summary for pid 76 (init user_process) : queued at 54200467, ran at 87223440, ended at 87385419
+=== schedule pid 77 (init user_process)
+Freeing 76 user_process
+[087558579] PID 77 (init user_process) syscall exit()
+[087567036] PID 77 (init user_process) thread stopped
+$$ timeslice summary for pid 77 (init user_process) : queued at 54838407, ran at 87385419, ended at 87568799
+=== schedule pid 78 (init user_process)
+Freeing 77 user_process
+[087809667] PID 78 (init user_process) syscall exit()
+[087810486] PID 78 (init user_process) thread stopped
+$$ timeslice summary for pid 78 (init user_process) : queued at 54843962, ran at 87568799, ended at 87811133
+=== schedule pid 79 (init user_process)
+Freeing 78 user_process
+[088067907] PID 79 (init user_process) syscall exit()
+[088069155] PID 79 (init user_process) thread stopped
+$$ timeslice summary for pid 79 (init user_process) : queued at 54849265, ran at 87811133, ended at 88070400
+=== schedule pid 80 (init user_process)
+Freeing 79 user_process
+[088274593] PID 80 (init user_process) syscall exit()
+[088275541] PID 80 (init user_process) thread stopped
+$$ timeslice summary for pid 80 (init user_process) : queued at 54852774, ran at 88070400, ended at 88276434
+=== schedule pid 81 (init user_process)
+Freeing 80 user_process
+[088447003] PID 81 (init user_process) syscall exit()
+[088447960] PID 81 (init user_process) thread stopped
+$$ timeslice summary for pid 81 (init user_process) : queued at 54856296, ran at 88276434, ended at 88448857
+=== schedule pid 82 (init user_process)
+Freeing 81 user_process
+[088915554] PID 82 (init user_process) syscall exit()
+[088924917] PID 82 (init user_process) thread stopped
+$$ timeslice summary for pid 82 (init user_process) : queued at 54859597, ran at 88448857, ended at 88926621
+=== schedule pid 83 (init user_process)
+Freeing 82 user_process
+[089087806] PID 83 (init user_process) syscall exit()
+[089089574] PID 83 (init user_process) thread stopped
+$$ timeslice summary for pid 83 (init user_process) : queued at 54861914, ran at 88926621, ended at 89091395
+=== schedule pid 84 (init user_process)
+Freeing 83 user_process
+[089465542] PID 84 (init user_process) syscall exit()
+[089473964] PID 84 (init user_process) thread stopped
+$$ timeslice summary for pid 84 (init user_process) : queued at 54864162, ran at 89091395, ended at 89475660
+=== schedule pid 85 (init user_process)
+Freeing 84 user_process
+[089716509] PID 85 (init user_process) syscall exit()
+[089718133] PID 85 (init user_process) thread stopped
+$$ timeslice summary for pid 85 (init user_process) : queued at 56096413, ran at 89475660, ended at 89719686
+=== schedule pid 86 (init user_process)
+Freeing 85 user_process
+[090117862] PID 86 (init user_process) syscall exit()
+[090126261] PID 86 (init user_process) thread stopped
+$$ timeslice summary for pid 86 (init user_process) : queued at 59325533, ran at 89719686, ended at 90127950
+=== schedule pid 87 (init user_process)
+Freeing 86 user_process
+[090463918] PID 87 (init user_process) syscall exit()
+[090472493] PID 87 (init user_process) thread stopped
+$$ timeslice summary for pid 87 (init user_process) : queued at 59330958, ran at 90127950, ended at 90474316
+=== schedule pid 88 (init user_process)
+Freeing 87 user_process
+[090563478] PID 88 (init user_process) syscall exit()
+[090564147] PID 88 (init user_process) thread stopped
+$$ timeslice summary for pid 88 (init user_process) : queued at 61960798, ran at 90474316, ended at 90564743
+=== schedule pid 89 (init user_process)
+Freeing 88 user_process
+[090998173] PID 89 (init user_process) syscall exit()
+[091006355] PID 89 (init user_process) thread stopped
+$$ timeslice summary for pid 89 (init user_process) : queued at 62382487, ran at 90564743, ended at 91008111
+=== schedule pid 90 (init user_process)
+Freeing 89 user_process
+[091214380] PID 90 (init user_process) syscall exit()
+[091216110] PID 90 (init user_process) thread stopped
+$$ timeslice summary for pid 90 (init user_process) : queued at 62387898, ran at 91008111, ended at 91217775
+=== schedule pid 91 (init user_process)
+Freeing 90 user_process
+[091643674] PID 91 (init user_process) syscall exit()
+[091645482] PID 91 (init user_process) thread stopped
+$$ timeslice summary for pid 91 (init user_process) : queued at 62393333, ran at 91217775, ended at 91647221
+=== schedule pid 92 (init user_process)
+Freeing 91 user_process
+[092286337] PID 92 (init user_process) syscall exit()
+[092295270] PID 92 (init user_process) thread stopped
+$$ timeslice summary for pid 92 (init user_process) : queued at 62396786, ran at 91647221, ended at 92297109
+=== schedule pid 93 (init user_process)
+Freeing 92 user_process
+[092785812] PID 93 (init user_process) syscall exit()
+[092794224] PID 93 (init user_process) thread stopped
+$$ timeslice summary for pid 93 (init user_process) : queued at 62400238, ran at 92297109, ended at 92795898
+=== schedule pid 94 (init user_process)
+Freeing 93 user_process
+[093317556] PID 94 (init user_process) syscall exit()
+[093323417] PID 94 (init user_process) thread stopped
+$$ timeslice summary for pid 94 (init user_process) : queued at 62403701, ran at 92795898, ended at 93324205
+=== schedule pid 95 (init user_process)
+Freeing 94 user_process
+[093742478] PID 95 (init user_process) syscall exit()
+[093751442] PID 95 (init user_process) thread stopped
+$$ timeslice summary for pid 95 (init user_process) : queued at 62405955, ran at 93324205, ended at 93753670
+=== schedule pid 96 (init user_process)
+Freeing 95 user_process
+[094244866] PID 96 (init user_process) syscall exit()
+[094253295] PID 96 (init user_process) thread stopped
+$$ timeslice summary for pid 96 (init user_process) : queued at 62408304, ran at 93753670, ended at 94254970
+=== schedule pid 97 (init user_process)
+Freeing 96 user_process
+[094780099] PID 97 (init user_process) syscall exit()
+[094788315] PID 97 (init user_process) thread stopped
+$$ timeslice summary for pid 97 (init user_process) : queued at 63482398, ran at 94254970, ended at 94790078
+=== schedule pid 98 (init user_process)
+Freeing 97 user_process
+[095234484] PID 98 (init user_process) syscall exit()
+[095242873] PID 98 (init user_process) thread stopped
+$$ timeslice summary for pid 98 (init user_process) : queued at 63487842, ran at 94790078, ended at 95244553
+=== schedule pid 99 (init user_process)
+Freeing 98 user_process
+[095672405] PID 99 (init user_process) syscall exit()
+[095680629] PID 99 (init user_process) thread stopped
+$$ timeslice summary for pid 99 (init user_process) : queued at 63492318, ran at 95244553, ended at 95682303
+=== schedule pid 100 (init user_process)
+Freeing 99 user_process
+[095887269] PID 100 (init user_process) syscall exit()
+[095889218] PID 100 (init user_process) thread stopped
+$$ timeslice summary for pid 100 (init user_process) : queued at 63495755, ran at 95682303, ended at 95890972
+=== schedule pid 101 (init user_process)
+Freeing 100 user_process
+[096749076] PID 101 (init user_process) syscall exit()
+[096750898] PID 101 (init user_process) thread stopped
+$$ timeslice summary for pid 101 (init user_process) : queued at 63499246, ran at 95890972, ended at 96752867
+=== schedule pid 102 (init user_process)
+Freeing 101 user_process
+[096906781] PID 102 (init user_process) syscall exit()
+[096908087] PID 102 (init user_process) thread stopped
+$$ timeslice summary for pid 102 (init user_process) : queued at 63502119, ran at 96752867, ended at 96909323
+=== schedule pid 2 (init long_run_batch)
+Freeing 102 user_process
+[100800154] PID 02 (init long_run_batch) syscall exit()
+[100800692] PID 02 (init long_run_batch) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               2  rcx: 0x              30  rdx: 0xfffffffffc010000
+rsi: 0x               1  rdi: 0x         7fa8150  rbp: 0x         7f9ec38  rsp: 0x         7f9ec20
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7fa8018  r13: 0x         7fa8098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f9eff8  3c0(%rbp)  3d8(%rsp)     ffffffffffe060b9
+0x0000000007f9eff0  3b8(%rbp)  3d0(%rsp)     0
+0x0000000007f9efe8  3b0(%rbp)  3c8(%rsp)     ffffffffffe04581
+0x0000000007f9efe0  3a8(%rbp)  3c0(%rsp)     7fa8000
+0x0000000007f9efd8  3a0(%rbp)  3b8(%rsp)     ffffffffffe060a5
+0x0000000007f9efd0  398(%rbp)  3b0(%rsp)     7f9eff0
+0x0000000007f9efc8  390(%rbp)  3a8(%rsp)     7fa8000
+0x0000000007f9efc0  388(%rbp)  3a0(%rsp)     7fa8018
+0x0000000007f9efb8  380(%rbp)  398(%rsp)     26b8
+0x0000000007f9efb0  378(%rbp)  390(%rsp)     10cc00
+0x0000000007f9efa8  370(%rbp)  388(%rsp)     77cec38
+0x0000000007f9efa0  368(%rbp)  380(%rsp)     10
+0x0000000007f9ef98  360(%rbp)  

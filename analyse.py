@@ -1,35 +1,26 @@
 import sys
 import re
-
-# setup the plot
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('GTK3Cairo')
-COLOURS = ['tab:blue',
-          'tab:orange',
-          'tab:green',
-          'tab:red',
-          'tab:purple',
-          'tab:brown',
-          'tab:pink',
-          'tab:gray',
-          'tab:olive',
-          'tab:cyan']
+import matplotlib.patches as mpatches
+
+COLOURS = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray', 'tab:olive', 'tab:cyan']
 
 plt_y = []
 plt_w = []
 plt_x = []
 plt_c = []
 
-
 # parse the data
-
 pids = dict()
 run_info = dict()
 start_time = None
 
 wait_time_samples = []
 run_time_samples = []
+
 for line in open(sys.argv[1], 'rb'):
     if line.startswith(b'$$'):
         # parse the line
@@ -51,20 +42,32 @@ for line in open(sys.argv[1], 'rb'):
         waiting_time = run - wake
         running_time = end - run
 
+        # Calculate CPU starvation time
+
         # do something interesting with these figures
         wait_time_samples.append(waiting_time / 1000)
-
         run_time_samples.append(running_time / 1000)
-        # add to plot
         plt_x.append(run / 1000)
         plt_w.append(running_time / 1000)
         plt_y.append(1)
-        plt_c.append(COLOURS[pid - 1])
+        try:
+            plt_c.append(COLOURS[pid - 1])
+        except IndexError:
+            random_color = np.random.choice(COLOURS)
+            plt_c.append(random_color)
 
 
-# Suggestion: maybe do this per-process instead?
-print(f'Mean wait time: {(sum(wait_time_samples) / len(wait_time_samples)):.02f}ms')
+# Calculate the total waiting time
+total_running_time = sum(run_time_samples)
 
+# Calculate the total duration of the timeline
+total_duration = plt_x[-1] + plt_w[-1]
+
+t_times = []
+r_times = []
+for pid, info in run_info.items():
+    t_times.append(info[-1][2] - info[0][0])
+    r_times.append(info[0][1] - info[0][0])
 
 # Calculate the total waiting time
 total_running_time = sum(run_time_samples)
@@ -77,22 +80,18 @@ cpu_downtime = total_duration - (total_running_time)
 
 cpu_utilization = (100 - (cpu_downtime/total_duration) * 100)
 
-print(f'CPU utilization: {cpu_utilization:.02f}%')
-
 throughput = (len(pids) / total_duration) * 60000
 
-print(f"Throughput {throughput:.02f} proccess/min")
+# Mean data
+print(f'Mean wait time: {(sum(wait_time_samples) / len(wait_time_samples)):.02f}ms')
 
-t_times = []
-r_times = []
-for pid, info in run_info.items():
-    t_times.append(info[-1][2] - info[0][0])
-    r_times.append(info[0][1] - info[0][0])
+print(f'CPU utilization: {cpu_utilization:.02f}%')
+
+print(f"Throughput {throughput:.02f} proccess/min")
 
 mean_t_time = (sum(t_times) / len(pids)) / 10000
 
 print(f"Mean Turnaround Time: {mean_t_time:.02f}s")
-
 
 mean_r_time = sum(r_times) / len(pids)
 
@@ -102,7 +101,6 @@ print(f"Mean Response Time: {mean_r_time:.02f}ms")
 
 # complete the plot
 # Legend
-import matplotlib.patches as mpatches
 patches = []
 for i, c in enumerate(COLOURS):
     if i + 1 in pids:
@@ -114,4 +112,27 @@ plt.legend(handles=patches)
 plt.barh(y=plt_y, width=plt_w, left=plt_x, color=plt_c)
 plt.yticks([])
 plt.tight_layout()
+plt.xlabel("Time (ms)")
+plt.title("Proccess Execution Timeline")
 plt.show()
+
+# Plot showing response time for each process
+plt.figure(figsize=(10, 5))
+plt.bar(list(run_info.keys()), r_times, color=plt_c)
+plt.xlabel('Process ID')
+plt.ylabel('Response Time(ms)')
+plt.title('Response Times for Each Process')
+plt.ylim(0, total_duration)
+plt.legend(handles=patches)
+plt.show()
+
+# Plot showing CPU turnaround time for each process
+plt.figure(figsize=(10, 5))
+plt.bar(list(run_info.keys()), t_times, color=plt_c)
+plt.xlabel('Process ID')
+plt.ylabel('Turnaround Time(ms)')
+plt.title('Turnaround Times for Each Process')
+plt.ylim(0, total_duration)
+plt.legend(handles=patches)
+plt.show()
+

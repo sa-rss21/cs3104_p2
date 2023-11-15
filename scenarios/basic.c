@@ -40,7 +40,6 @@ int parse_number(const char *buf, u64 *ret, int base)
         val = val * base + digit_val;
     }
 
-
     *ret = val;
     return read;
 }
@@ -90,6 +89,11 @@ u64 wait(u64 pid)
     return systemcall(5, pid, 0, 0);
 }
 
+u64 spawn_with_prio(char *prog, char *arg, u64 prio)
+{
+    return systemcall(3, (u64)prog, (u64)arg, prio);
+}
+
 /* === */
 
 #define MSEC 1000UL
@@ -103,8 +107,8 @@ void _start(char *argument)
         write("I am init\n");
 
         /* binary = NULL means run the same binary */
-        spawn(NULL, "long_running");
-        spawn(NULL, "short_running");
+        spawn_with_prio(NULL, "long_running", 2);
+        spawn_with_prio(NULL, "short_running", 1);
 
     }
     if (strcmp(argument, "long_running") == 0)

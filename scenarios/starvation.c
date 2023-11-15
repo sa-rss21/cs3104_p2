@@ -44,7 +44,6 @@ int parse_number(const char *buf, u64 *ret, int base)
     return read;
 }
 
-
 /* === system calls === */
 
 u64 systemcall(u64 number, u64 arg1, u64 arg2, u64 arg3)
@@ -70,7 +69,7 @@ void exit()
 
 /* spawn a new processes running the given binary with the given argument
     if prog is NULL the current binary is used.
-
+    
     the pid of the new process is returned and can be wait()-ed on.
     */
 u64 spawn(char *prog, char *arg)
@@ -103,40 +102,37 @@ void _start(char *argument)
 {
     if (strcmp(argument, "init") == 0)
     {
-        write("I am init\n");
+        write("I am init\n"); 
+        
+        spawn_with_prio(NULL, "interactive_task_1", 1);
+        spawn_with_prio(NULL, "interactive_task_2", 1);
+        spawn_with_prio(NULL, "interactive_task_3", 1);
+        spawn_with_prio(NULL, "interactive_task_4", 1);
+        spawn_with_prio(NULL, "interactive_task_5", 1);
+        spawn_with_prio(NULL, "batch_task", 3);
+        
+    }
+    if (strcmp(argument, "interactive_task_1") == 0 || 
+            strcmp(argument, "interactive_task_2") == 0 || 
+            strcmp(argument, "interactive_task_3") == 0 ||
+            strcmp(argument, "interactive_task_4") == 0 ||
+            strcmp(argument, "interactive_task_5") == 0)
 
-        /* binary = NULL means same binary */
-        spawn_with_prio(NULL, "batch", 1);       
-        spawn_with_prio(NULL, "interactive", 4); 
-        spawn_with_prio(NULL, "short_sleep", 2); 
-        spawn_with_prio(NULL, "burst", 3);      
-    }
-    if (strcmp(argument, "batch") == 0)
     {
-        for (int i = 0; i < 10; i++) {
-            work();
-        }
-    }
-    if (strcmp(argument, "interactive") == 0)
-    {
+        // Simulate quick interactive/user tasks
         for (int i = 0; i < 10; i++) {
             sleep(100 * MSEC);
             write("HI\n");
         }
+
     }
-    if (strcmp(argument, "short_sleep") == 0)
+    if (strcmp(argument, "batch_task") == 0)
     {
-        for (int k = 0; k < 50; k++)
-            sleep(1);
-    }
-    if (strcmp(argument, "burst") == 0)
-    {
-        for (int i = 0; i < 10; i++) {
+        // Simulate a longer batch task that needs CPU time
+        for (int i = 0; i < 100; i++) {
             work();
-            sleep(500 * MSEC);
         }
     }
-
 
     exit();
 }
