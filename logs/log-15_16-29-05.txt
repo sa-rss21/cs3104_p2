@@ -1,0 +1,612 @@
+Booting OS...
+ * Detecting CPU
+ * Enabling A20
+ * E820 Memory Map
+ * System tables
+ * System time
+ * Reading GPT
+ * Initrd loaded
+ * Gzip compressed initrd
+ * Environment
+ * Parsing ELF64
+ * Screen VESA VBE
+========== Oink OS v1.3 ==========
+Waking pid 1
+=== schedule pid 1 (init init)
+[002930326] PID 01 (init init) syscall write(...)
+I am init
+[003059614] PID 01 (init init) syscall spawn("init", "interactive_task_1")
+[003062710] PID 01 (init init) Waking pid 2
+[003229866] PID 01 (init init) Waking pid 1
+[003231617] PID 01 (init init) syscall spawn("init", "interactive_task_2")
+[003234659] PID 01 (init init) Waking pid 3
+[003236485] PID 01 (init init) Waking pid 1
+[003238143] PID 01 (init init) syscall spawn("init", "interactive_task_3")
+[003240729] PID 01 (init init) Waking pid 4
+[003336901] PID 01 (init init) Waking pid 1
+[003338625] PID 01 (init init) syscall spawn("init", "interactive_task_4")
+[003341595] PID 01 (init init) Waking pid 5
+[003343313] PID 01 (init init) Waking pid 1
+[003412110] PID 01 (init init) syscall spawn("init", "interactive_task_5")
+[003432919] PID 01 (init init) Waking pid 6
+[003434396] PID 01 (init init) Waking pid 1
+[003435984] PID 01 (init init) syscall spawn("init", "batch_task")
+[003505196] PID 01 (init init) Waking pid 7
+[003506691] PID 01 (init init) Waking pid 1
+[003508646] PID 01 (init init) syscall exit()
+[003510304] PID 01 (init init) thread stopped
+$$ timeslice summary for pid 1 (init init) : queued at 2926943, ran at 2927153, ended at 3512357
+=== schedule pid 2 (init interactive_task_1)
+Freeing 1 init
+[003595747] PID 02 (init interactive_task_1) syscall sleep(100000)
+[003597876] PID 02 (init interactive_task_1) sleeping until 3697805
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 3229748, ran at 3512357, ended at 3668976
+=== schedule pid 3 (init interactive_task_2)
+[003676849] PID 03 (init interactive_task_2) syscall sleep(100000)
+[003678793] PID 03 (init interactive_task_2) sleeping until 3778792
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 3236382, ran at 3668976, ended at 3680093
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 2
+[003767483] PID 04 (init interactive_task_3) Waking pid 2
+[003770249] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 3336783, ran at 3680093, ended at 3770248
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 3
+[003855361] PID 05 (init interactive_task_4) Waking pid 3
+[003857894] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 3343308, ran at 3770248, ended at 3857893
+=== schedule pid 6 (init interactive_task_5)
+[003942130] PID 06 (init interactive_task_5) syscall sleep(100000)
+[003945242] PID 06 (init interactive_task_5) sleeping until 4045241
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 3434388, ran at 3857893, ended at 3948088
+=== schedule pid 2 (init interactive_task_1)
+[003954769] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[003957397] PID 02 (init interactive_task_1) syscall sleep(100000)
+[003959129] PID 02 (init interactive_task_1) sleeping until 4059128
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 3770069, ran at 3948088, ended at 3960874
+=== schedule pid 4 (init interactive_task_3)
+[003965342] PID 04 (init interactive_task_3) syscall sleep(100000)
+[003966737] PID 04 (init interactive_task_3) sleeping until 4066735
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 3772610, ran at 3960874, ended at 3967911
+=== schedule pid 3 (init interactive_task_2)
+[003970611] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[003972036] PID 03 (init interactive_task_2) syscall sleep(100000)
+[004144536] PID 03 (init interactive_task_2) sleeping until 4244535
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 3857807, ran at 3967911, ended at 4146893
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 6
+[004153120] PID 05 (init interactive_task_4) Waking pid 6
+*** timer woke pid 2
+[004155640] PID 05 (init interactive_task_4) Waking pid 2
+*** timer woke pid 4
+[004260882] PID 05 (init interactive_task_4) Waking pid 4
+*** timer woke pid 3
+[004307892] PID 05 (init interactive_task_4) Waking pid 3
+[004310380] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 3860343, ran at 4146893, ended at 4310379
+=== schedule pid 6 (init interactive_task_5)
+[004318205] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[004320428] PID 06 (init interactive_task_5) syscall sleep(100000)
+[004322157] PID 06 (init interactive_task_5) sleeping until 4422156
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 4154607, ran at 4310379, ended at 4323956
+=== schedule pid 2 (init interactive_task_1)
+*** timer woke pid 6
+[004474260] PID 02 (init interactive_task_1) Waking pid 6
+[004476323] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 4259372, ran at 4323956, ended at 4476322
+=== schedule pid 4 (init interactive_task_3)
+[004657407] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[004660310] PID 04 (init interactive_task_3) syscall sleep(100000)
+[004662245] PID 04 (init interactive_task_3) sleeping until 4762244
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 4306559, ran at 4476322, ended at 4664203
+=== schedule pid 3 (init interactive_task_2)
+*** timer woke pid 4
+[004811893] PID 03 (init interactive_task_2) Waking pid 4
+[004813770] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 4310360, ran at 4664203, ended at 4813768
+=== schedule pid 5 (init interactive_task_4)
+[004889376] PID 05 (init interactive_task_4) syscall sleep(100000)
+[004891526] PID 05 (init interactive_task_4) sleeping until 4991525
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 4312826, ran at 4813768, ended at 4893651
+=== schedule pid 6 (init interactive_task_5)
+[004898289] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[004900884] PID 06 (init interactive_task_5) syscall sleep(100000)
+[004902889] PID 06 (init interactive_task_5) sleeping until 5002888
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 4476305, ran at 4893651, ended at 4904760
+=== schedule pid 2 (init interactive_task_1)
+[004907687] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[004909435] PID 02 (init interactive_task_1) syscall sleep(100000)
+[004910770] PID 02 (init interactive_task_1) sleeping until 5010770
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 4598698, ran at 4904760, ended at 4912130
+=== schedule pid 4 (init interactive_task_3)
+[004914807] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[004915858] PID 04 (init interactive_task_3) syscall sleep(100000)
+[004916755] PID 04 (init interactive_task_3) sleeping until 5016755
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 4813750, ran at 4912130, ended at 4917656
+=== schedule pid 3 (init interactive_task_2)
+[004919689] PID 03 (init interactive_task_2) syscall write(...)
+HI
+*** timer woke pid 5
+[005191521] PID 03 (init interactive_task_2) Waking pid 5
+*** timer woke pid 6
+[005194295] PID 03 (init interactive_task_2) Waking pid 6
+*** timer woke pid 2
+[005197408] PID 03 (init interactive_task_2) Waking pid 2
+*** timer woke pid 4
+[005200394] PID 03 (init interactive_task_2) Waking pid 4
+[005272492] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 4815762, ran at 4917656, ended at 5272491
+=== schedule pid 5 (init interactive_task_4)
+[005295618] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[005298505] PID 05 (init interactive_task_4) syscall sleep(100000)
+[005300549] PID 05 (init interactive_task_4) sleeping until 5400548
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 5193299, ran at 5272491, ended at 5302637
+=== schedule pid 6 (init interactive_task_5)
+[005390367] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[005392979] PID 06 (init interactive_task_5) syscall sleep(100000)
+[005395166] PID 06 (init interactive_task_5) sleeping until 5495166
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 5196421, ran at 5302637, ended at 5397141
+=== schedule pid 2 (init interactive_task_1)
+[005400599] PID 02 (init interactive_task_1) syscall write(...)
+HI
+*** timer woke pid 5
+[005403002] PID 02 (init interactive_task_1) Waking pid 5
+[005404204] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 5199340, ran at 5397141, ended at 5404204
+=== schedule pid 4 (init interactive_task_3)
+[005408732] PID 04 (init interactive_task_3) syscall write(...)
+HI
+*** timer woke pid 6
+[005540489] PID 04 (init interactive_task_3) Waking pid 6
+[005542337] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 5202167, ran at 5404204, ended at 5542336
+=== schedule pid 3 (init interactive_task_2)
+[005629516] PID 03 (init interactive_task_2) syscall sleep(100000)
+[005631883] PID 03 (init interactive_task_2) sleeping until 5731881
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 5291056, ran at 5542336, ended at 5633846
+=== schedule pid 5 (init interactive_task_4)
+[005637325] PID 05 (init interactive_task_4) syscall write(...)
+HI
+*** timer woke pid 3
+[005736740] PID 05 (init interactive_task_4) Waking pid 3
+[005738583] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 5404194, ran at 5633846, ended at 5738582
+=== schedule pid 2 (init interactive_task_1)
+[005829106] PID 02 (init interactive_task_1) syscall sleep(100000)
+[005831174] PID 02 (init interactive_task_1) sleeping until 5931174
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 5405519, ran at 5738582, ended at 5833121
+=== schedule pid 6 (init interactive_task_5)
+[005837721] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[005840280] PID 06 (init interactive_task_5) syscall sleep(100000)
+[006036190] PID 06 (init interactive_task_5) sleeping until 6136189
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 5542324, ran at 5833121, ended at 6038370
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 2
+[006044174] PID 04 (init interactive_task_3) Waking pid 2
+[006115755] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 5544253, ran at 6038370, ended at 6115748
+=== schedule pid 3 (init interactive_task_2)
+[006133821] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[006136479] PID 03 (init interactive_task_2) syscall sleep(100000)
+[006138489] PID 03 (init interactive_task_2) sleeping until 6238488
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 5738569, ran at 6115748, ended at 6140229
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 6
+[006144297] PID 05 (init interactive_task_4) Waking pid 6
+[006145542] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 5740434, ran at 6140229, ended at 6145541
+=== schedule pid 2 (init interactive_task_1)
+*** timer woke pid 3
+[006246352] PID 02 (init interactive_task_1) Waking pid 3
+[006248277] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 6046108, ran at 6145541, ended at 6248277
+=== schedule pid 4 (init interactive_task_3)
+[006254148] PID 04 (init interactive_task_3) syscall sleep(100000)
+[006255407] PID 04 (init interactive_task_3) sleeping until 6355407
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 6129140, ran at 6248277, ended at 6256670
+=== schedule pid 6 (init interactive_task_5)
+[006259637] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[006261377] PID 06 (init interactive_task_5) syscall sleep(100000)
+[006262680] PID 06 (init interactive_task_5) sleeping until 6362679
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 6145503, ran at 6256670, ended at 6263599
+=== schedule pid 5 (init interactive_task_4)
+[006265535] PID 05 (init interactive_task_4) syscall sleep(100000)
+[006266414] PID 05 (init interactive_task_4) sleeping until 6366414
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 6240637, ran at 6263599, ended at 6267255
+=== schedule pid 3 (init interactive_task_2)
+*** timer woke pid 4
+[006499905] PID 03 (init interactive_task_2) Waking pid 4
+*** timer woke pid 6
+[006502673] PID 03 (init interactive_task_2) Waking pid 6
+*** timer woke pid 5
+[006505398] PID 03 (init interactive_task_2) Waking pid 5
+[006507216] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 6248267, ran at 6267255, ended at 6507215
+=== schedule pid 2 (init interactive_task_1)
+[006693164] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[006695797] PID 02 (init interactive_task_1) syscall sleep(100000)
+[006780772] PID 02 (init interactive_task_1) sleeping until 6880772
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 6250247, ran at 6507215, ended at 6782745
+=== schedule pid 4 (init interactive_task_3)
+[006868632] PID 04 (init interactive_task_3) syscall write(...)
+HI
+*** timer woke pid 2
+[006980279] PID 04 (init interactive_task_3) Waking pid 2
+[006982131] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 6501683, ran at 6782745, ended at 6982130
+=== schedule pid 6 (init interactive_task_5)
+[006988454] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[006991207] PID 06 (init interactive_task_5) syscall sleep(100000)
+[006992948] PID 06 (init interactive_task_5) sleeping until 7092947
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 6504409, ran at 6982130, ended at 6994272
+=== schedule pid 5 (init interactive_task_4)
+[006997231] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[006998905] PID 05 (init interactive_task_4) syscall sleep(100000)
+[007171806] PID 05 (init interactive_task_4) sleeping until 7271803
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 6507174, ran at 6994272, ended at 7173860
+=== schedule pid 3 (init interactive_task_2)
+*** timer woke pid 6
+[007249556] PID 03 (init interactive_task_2) Waking pid 6
+[007251420] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 6621233, ran at 7173860, ended at 7251419
+=== schedule pid 2 (init interactive_task_1)
+[007257969] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[007260570] PID 02 (init interactive_task_1) syscall sleep(100000)
+[007261865] PID 02 (init interactive_task_1) sleeping until 7361864
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 6982116, ran at 7251419, ended at 7344399
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 5
+[007350064] PID 04 (init interactive_task_3) Waking pid 5
+[007352055] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 6983892, ran at 7344399, ended at 7352053
+=== schedule pid 6 (init interactive_task_5)
+[007357620] PID 06 (init interactive_task_5) syscall write(...)
+HI
+*** timer woke pid 2
+[007466344] PID 06 (init interactive_task_5) Waking pid 2
+[007468205] PID 06 (init interactive_task_5) Waking pid 6
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 7251402, ran at 7352053, ended at 7468204
+=== schedule pid 3 (init interactive_task_2)
+[007531657] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[007548082] PID 03 (init interactive_task_2) syscall sleep(100000)
+[007550035] PID 03 (init interactive_task_2) sleeping until 7650035
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 7253249, ran at 7468204, ended at 7551987
+=== schedule pid 5 (init interactive_task_4)
+[007556629] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[007559132] PID 05 (init interactive_task_4) syscall sleep(100000)
+[007560392] PID 05 (init interactive_task_4) sleeping until 7660392
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 7352037, ran at 7551987, ended at 7561659
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 3
+[007691419] PID 04 (init interactive_task_3) Waking pid 3
+*** timer woke pid 5
+[007770314] PID 04 (init interactive_task_3) Waking pid 5
+[007772183] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 7353771, ran at 7561659, ended at 7772181
+=== schedule pid 2 (init interactive_task_1)
+[007843693] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[007846299] PID 02 (init interactive_task_1) syscall sleep(100000)
+[007848369] PID 02 (init interactive_task_1) sleeping until 7948368
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 7468194, ran at 7772181, ended at 7850463
+=== schedule pid 6 (init interactive_task_5)
+[007855025] PID 06 (init interactive_task_5) syscall sleep(100000)
+[007857103] PID 06 (init interactive_task_5) sleeping until 7957103
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 7470111, ran at 7850463, ended at 7981408
+=== schedule pid 3 (init interactive_task_2)
+*** timer woke pid 2
+[007989809] PID 03 (init interactive_task_2) Waking pid 2
+*** timer woke pid 6
+[008069686] PID 03 (init interactive_task_2) Waking pid 6
+[008192703] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 7693365, ran at 7981408, ended at 8192701
+=== schedule pid 5 (init interactive_task_4)
+[008278934] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[008281801] PID 05 (init interactive_task_4) syscall sleep(100000)
+[008283829] PID 05 (init interactive_task_4) sleeping until 8383829
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 7772170, ran at 8192701, ended at 8286052
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 5
+[008714395] PID 04 (init interactive_task_3) Waking pid 5
+[008716224] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 7774041, ran at 8286052, ended at 8716223
+=== schedule pid 2 (init interactive_task_1)
+[008824803] PID 02 (init interactive_task_1) syscall write(...)
+HI
+[008827436] PID 02 (init interactive_task_1) syscall sleep(100000)
+[008829463] PID 02 (init interactive_task_1) sleeping until 8929461
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 7991559, ran at 8716223, ended at 8831428
+=== schedule pid 6 (init interactive_task_5)
+*** timer woke pid 2
+[009064782] PID 06 (init interactive_task_5) Waking pid 2
+[009066591] PID 06 (init interactive_task_5) Waking pid 6
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 8192681, ran at 8831428, ended at 9066590
+=== schedule pid 3 (init interactive_task_2)
+[009073256] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[009075654] PID 03 (init interactive_task_2) syscall sleep(100000)
+[009077487] PID 03 (init interactive_task_2) sleeping until 9177486
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 8194592, ran at 9066590, ended at 9079510
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 3
+[009235786] PID 05 (init interactive_task_4) Waking pid 3
+[009319467] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 8716205, ran at 9079510, ended at 9319466
+=== schedule pid 4 (init interactive_task_3)
+[009412635] PID 04 (init interactive_task_3) syscall sleep(100000)
+[009414763] PID 04 (init interactive_task_3) sleeping until 9514762
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 8718175, ran at 9319466, ended at 9416844
+=== schedule pid 2 (init interactive_task_1)
+*** timer woke pid 4
+[009535535] PID 02 (init interactive_task_1) Waking pid 4
+[009537339] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 9066573, ran at 9416844, ended at 9537338
+=== schedule pid 6 (init interactive_task_5)
+[009543723] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[009619768] PID 06 (init interactive_task_5) syscall sleep(100000)
+[009621717] PID 06 (init interactive_task_5) sleeping until 9721716
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 9068430, ran at 9537338, ended at 9623904
+=== schedule pid 3 (init interactive_task_2)
+[009628447] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[009630479] PID 03 (init interactive_task_2) syscall sleep(100000)
+[009631802] PID 03 (init interactive_task_2) sleeping until 9731801
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 9319451, ran at 9623904, ended at 9633240
+=== schedule pid 5 (init interactive_task_4)
+[009636248] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[009638039] PID 05 (init interactive_task_4) syscall sleep(100000)
+[009639267] PID 05 (init interactive_task_4) sleeping until 9739267
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 9321261, ran at 9633240, ended at 9640284
+=== schedule pid 4 (init interactive_task_3)
+[009642343] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[009643503] PID 04 (init interactive_task_3) syscall sleep(100000)
+[009644410] PID 04 (init interactive_task_3) sleeping until 9744410
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 9537326, ran at 9640284, ended at 9645313
+=== schedule pid 2 (init interactive_task_1)
+[010018206] PID 02 (init interactive_task_1) syscall write(...)
+HI
+*** timer woke pid 6
+[010043291] PID 02 (init interactive_task_1) Waking pid 6
+*** timer woke pid 3
+[010046132] PID 02 (init interactive_task_1) Waking pid 3
+*** timer woke pid 5
+[010049009] PID 02 (init interactive_task_1) Waking pid 5
+*** timer woke pid 4
+[010145200] PID 02 (init interactive_task_1) Waking pid 4
+[010147160] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 9539181, ran at 9645313, ended at 10147158
+=== schedule pid 6 (init interactive_task_5)
+[010153048] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[010216699] PID 06 (init interactive_task_5) syscall sleep(100000)
+[010218792] PID 06 (init interactive_task_5) sleeping until 10318791
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 10045127, ran at 10147158, ended at 10220866
+=== schedule pid 3 (init interactive_task_2)
+[010225983] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[010227722] PID 03 (init interactive_task_2) syscall sleep(100000)
+[010229089] PID 03 (init interactive_task_2) sleeping until 10329088
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 10047911, ran at 10220866, ended at 10230650
+=== schedule pid 5 (init interactive_task_4)
+[010234166] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[010235481] PID 05 (init interactive_task_4) syscall sleep(100000)
+[010236401] PID 05 (init interactive_task_4) sleeping until 10336401
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 10144044, ran at 10230650, ended at 10237296
+=== schedule pid 4 (init interactive_task_3)
+*** timer woke pid 6
+[010602137] PID 04 (init interactive_task_3) Waking pid 6
+*** timer woke pid 3
+[010705233] PID 04 (init interactive_task_3) Waking pid 3
+*** timer woke pid 5
+[010708486] PID 04 (init interactive_task_3) Waking pid 5
+[010710466] PID 04 (init interactive_task_3) Waking pid 4
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 10147147, ran at 10237296, ended at 10710465
+=== schedule pid 2 (init interactive_task_1)
+[010798973] PID 02 (init interactive_task_1) syscall sleep(100000)
+[010800916] PID 02 (init interactive_task_1) sleeping until 10900915
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 10148980, ran at 10710465, ended at 10802976
+=== schedule pid 6 (init interactive_task_5)
+[010808371] PID 06 (init interactive_task_5) syscall write(...)
+HI
+[010905960] PID 06 (init interactive_task_5) syscall exit()
+[010908067] PID 06 (init interactive_task_5) thread stopped
+$$ timeslice summary for pid 6 (init interactive_task_5) : queued at 10704227, ran at 10802976, ended at 10909971
+=== schedule pid 3 (init interactive_task_2)
+Freeing 6 interactive_task_5
+*** timer woke pid 2
+[010917691] PID 03 (init interactive_task_2) Waking pid 2
+[010919451] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 10707073, ran at 10909971, ended at 10919449
+=== schedule pid 5 (init interactive_task_4)
+[010925629] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[010927417] PID 05 (init interactive_task_4) syscall sleep(100000)
+[010928724] PID 05 (init interactive_task_4) sleeping until 11028723
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 10710454, ran at 10919449, ended at 10929995
+=== schedule pid 4 (init interactive_task_3)
+[010933324] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[010934940] PID 04 (init interactive_task_3) syscall sleep(100000)
+[010935804] PID 04 (init interactive_task_3) sleeping until 11035804
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 10712303, ran at 10929995, ended at 11172944
+=== schedule pid 2 (init interactive_task_1)
+*** timer woke pid 5
+[011179250] PID 02 (init interactive_task_1) Waking pid 5
+*** timer woke pid 4
+[011182253] PID 02 (init interactive_task_1) Waking pid 4
+[011183580] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 10919439, ran at 11172944, ended at 11183580
+=== schedule pid 3 (init interactive_task_2)
+[011564143] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[011566749] PID 03 (init interactive_task_2) syscall sleep(100000)
+[011644149] PID 03 (init interactive_task_2) sleeping until 11744148
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 10921224, ran at 11183580, ended at 11646310
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 3
+[011758103] PID 05 (init interactive_task_4) Waking pid 3
+[011798127] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 11181064, ran at 11646310, ended at 11798126
+=== schedule pid 4 (init interactive_task_3)
+[011825053] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[011827649] PID 04 (init interactive_task_3) syscall sleep(100000)
+[011910928] PID 04 (init interactive_task_3) sleeping until 12010927
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 11183574, ran at 11798126, ended at 11913401
+=== schedule pid 2 (init interactive_task_1)
+[011989493] PID 02 (init interactive_task_1) syscall write(...)
+HI
+*** timer woke pid 4
+[012019629] PID 02 (init interactive_task_1) Waking pid 4
+[012094990] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 11184803, ran at 11913401, ended at 12094989
+=== schedule pid 3 (init interactive_task_2)
+[012099881] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[012102327] PID 03 (init interactive_task_2) syscall sleep(100000)
+[012103921] PID 03 (init interactive_task_2) sleeping until 12203920
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 11760161, ran at 12094989, ended at 12310289
+=== schedule pid 5 (init interactive_task_4)
+*** timer woke pid 3
+[012316685] PID 05 (init interactive_task_4) Waking pid 3
+[012318518] PID 05 (init interactive_task_4) Waking pid 5
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 11819551, ran at 12310289, ended at 12318516
+=== schedule pid 4 (init interactive_task_3)
+[012412918] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[012415693] PID 04 (init interactive_task_3) syscall sleep(100000)
+[012417637] PID 04 (init interactive_task_3) sleeping until 12517637
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 12094978, ran at 12318516, ended at 12501961
+=== schedule pid 2 (init interactive_task_1)
+[012506911] PID 02 (init interactive_task_1) syscall sleep(100000)
+[012508829] PID 02 (init interactive_task_1) sleeping until 12608828
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 12096095, ran at 12501961, ended at 12510654
+=== schedule pid 3 (init interactive_task_2)
+*** timer woke pid 4
+[012628228] PID 03 (init interactive_task_2) Waking pid 4
+*** timer woke pid 2
+[012630954] PID 03 (init interactive_task_2) Waking pid 2
+[012632700] PID 03 (init interactive_task_2) Waking pid 3
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 12318504, ran at 12510654, ended at 12632700
+=== schedule pid 5 (init interactive_task_4)
+[012712210] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[012714689] PID 05 (init interactive_task_4) syscall sleep(100000)
+[012716363] PID 05 (init interactive_task_4) sleeping until 12816362
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 12407807, ran at 12632700, ended at 12798439
+=== schedule pid 4 (init interactive_task_3)
+[012803537] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[012806121] PID 04 (init interactive_task_3) syscall sleep(100000)
+[012808033] PID 04 (init interactive_task_3) sleeping until 12908033
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 12629969, ran at 12798439, ended at 12809472
+=== schedule pid 2 (init interactive_task_1)
+[012894599] PID 02 (init interactive_task_1) syscall write(...)
+HI
+*** timer woke pid 5
+[012912591] PID 02 (init interactive_task_1) Waking pid 5
+*** timer woke pid 4
+[012915311] PID 02 (init interactive_task_1) Waking pid 4
+[012917052] PID 02 (init interactive_task_1) Waking pid 2
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 12632690, ran at 12809472, ended at 12917051
+=== schedule pid 3 (init interactive_task_2)
+[012923210] PID 03 (init interactive_task_2) syscall write(...)
+HI
+[013009011] PID 03 (init interactive_task_2) syscall exit()
+[013024150] PID 03 (init interactive_task_2) thread stopped
+$$ timeslice summary for pid 3 (init interactive_task_2) : queued at 12706864, ran at 12917051, ended at 13025960
+=== schedule pid 5 (init interactive_task_4)
+Freeing 3 interactive_task_2
+[013032354] PID 05 (init interactive_task_4) syscall write(...)
+HI
+[013034829] PID 05 (init interactive_task_4) syscall exit()
+[013035994] PID 05 (init interactive_task_4) thread stopped
+$$ timeslice summary for pid 5 (init interactive_task_4) : queued at 12914329, ran at 13025960, ended at 13037240
+=== schedule pid 4 (init interactive_task_3)
+Freeing 5 interactive_task_4
+[013168764] PID 04 (init interactive_task_3) syscall write(...)
+HI
+[013218217] PID 04 (init interactive_task_3) syscall exit()
+[013220033] PID 04 (init interactive_task_3) thread stopped
+$$ timeslice summary for pid 4 (init interactive_task_3) : queued at 12917042, ran at 13037240, ended at 13221811
+=== schedule pid 2 (init interactive_task_1)
+Freeing 4 interactive_task_3
+[013228359] PID 02 (init interactive_task_1) syscall exit()
+[013230067] PID 02 (init interactive_task_1) thread stopped
+$$ timeslice summary for pid 2 (init interactive_task_1) : queued at 12918786, ran at 13221811, ended at 13231245
+=== schedule pid 7 (init batch_task)
+Freeing 2 interactive_task_1
+[017374807] PID 07 (init batch_task) syscall exit()
+[017375348] PID 07 (init batch_task) thread stopped
+ ===== [ General Protection Fault ] ===== 
+rax: 0xf000ff53f000ff53  rbx: 0x               7  rcx: 0x              30  rdx: 0xfffffffffc030000
+rsi: 0x               1  rdi: 0x         7f44150  rbp: 0x         7f3ac48  rsp: 0x         7f3ac30
+ r8: 0x              20   r9: 0x               1  r10: 0x               0  r11: 0x               0
+r12: 0x         7f44018  r13: 0x         7f44098  r14: 0x               0  r15: 0x               0
+RIP: 0xffffffffffe0529a  ERR: 0x               0  CR2: 0xf000ff53f000ff6b
+    cs: 0x8     ss: 0x10
+ ===== [ STACK ] ===== 
+0x0000000007f3aff8  3b0(%rbp)  3c8(%rsp)     ffffffffffe060b9
+0x0000000007f3aff0  3a8(%rbp)  3c0(%rsp)     0
+0x0000000007f3afe8  3a0(%rbp)  3b8(%rsp)     ffffffffffe04581
+0x0000000007f3afe0  398(%rbp)  3b0(%rsp)     7f44000
+0x0000000007f3afd8  390(%rbp)  3a8(%rsp)     ffffffffffe060a5
+0x0000000007f3afd0  388(%rbp)  3a0(%rsp)     7f3aff0
+0x0000000007f3afc8  380(%rbp)  398(%rsp)     7f44000
+0x0000000007f3afc0  378(%rbp)  390(%rsp)     7f44018
+0x0000000007f3afb8  370(%rbp)  388(%rsp)     26e8
+0x0000000007f3afb0  368(%rbp)  380(%rsp)     10cc00
+0x0000000007f3afa8  360(%rbp)  378(%rsp)     7f9ec48
+0x0000000007f3afa0  358(%rbp)  370(%rsp)     10
+0x0000000007f3af98  350(%rbp)  368(%rsp)     7f3ae00
+0x0000000007f3af90  348(%rbp)  360(%rsp)     200246
+0x0000000007f3af88  340(%rbp)  358(%rsp)     8
+0x0000000007f3af80  338(%rbp)  350(%rsp)     7fa9258
+0x0000000007f3af78  330(%rbp)  348(%rsp)     0
+0x0000000007f3af70  328(%rbp)  340(%rsp)     0
+0x0000000007f3af68  320(%rbp)  338(%rsp)     0
+0x0000000007f3af60  318(%rbp)  330(%rsp)     0
+0x0000000007f3af58  310(%rbp)  328(%rsp)     0
+0x0000000007f3af50  308(%rbp)  320(%rsp)     0
+0x0000000007f3af48  300(%rbp)  318(%rsp)     0
+0x0000000007f3af40  2f8(%rbp)  310(%rsp)     0
+0x0000000007f3af38  2f0(%rbp)  308(%rsp)     0
+0x0000000007f3af30  2e8(%rbp)  300(%rsp)     0
+0x0000000007f3af28  2e0(%rbp)  2f8(%rsp)     0
+0x0000000007f3af20  2d8(%rbp)  2f0(%rsp)     0
+0x0000000007f3af18  2d0(%rbp)  2e8(%rsp)     0
+0x0000000007f3af10  2c8(%rbp)  2e0(%rsp)     0
+0x0000000007f3af08  2c0(%rbp)  2d8(%rsp)     7f44098
+0x0000000007f3af00  2b8(%rbp)  2d0(%rsp)     0
+0x0000000007f3aef8  2b0(%rbp)  2c8(%rsp)     7f44000
+0x0000000007f3aef0  2a8(%rbp)  2c0(%rsp)     1
+0x0000000007f3aee8  2a0(%rbp)  2b8(%rsp)     ffffffffffe04649
+0x0000000007f3aee0  298(%rbp)  2b0(%rsp)     7f3afd0
+0x0000000007f3aed8  290(%rbp)  2a8(%rsp)     7f3af00
+0x0000000007f3aed0  288(%rbp)  2a0(%rsp)     500000008
+0x0000000007f3aec8  280(%rbp)  298(%rsp)     ffffffffffe04ba1
+0x0000000007f3aec0  278(%rbp)  290(%rsp)     7f3aee0
+0x0000000007f3aeb8  270(%rbp)  288(%rsp)     0

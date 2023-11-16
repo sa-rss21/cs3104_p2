@@ -106,10 +106,20 @@ void _start(char *argument)
         write("I am init\n");
 
         /* binary = NULL means same binary */
-        spawn_with_prio(NULL, "batch", 1);       
-        spawn_with_prio(NULL, "interactive", 4); 
-        spawn_with_prio(NULL, "short_sleep", 2); 
-        spawn_with_prio(NULL, "burst", 3);      
+        //best case in report
+        spawn_with_prio(NULL, "batch", 4);       
+        spawn_with_prio(NULL, "interactive", 1); 
+        spawn_with_prio(NULL, "short_sleep", 3); 
+        spawn_with_prio(NULL, "burst", 2); 
+
+        //case 2 in report
+        /*
+        spawn_with_prio(NULL, "batch", 4);       
+        spawn_with_prio(NULL, "interactive", 1); 
+        spawn_with_prio(NULL, "short_sleep", 3); 
+        spawn_with_prio(NULL, "burst", 2);
+        */
+
     }
     if (strcmp(argument, "batch") == 0)
     {

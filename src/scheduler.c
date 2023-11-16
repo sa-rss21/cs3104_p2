@@ -5,11 +5,15 @@
 
 struct sched_task *head = NULL; // Linked list head
 
-
-
-
 void print_state()
 {
+    /*
+     *
+     * Print the entire state of the scheduler by
+     * traversing the linked list and printing each task
+     *
+     */
+
     printf("Scheduler State:\n");
 
     // Traverse the linked list of tasks and print information about each task
@@ -38,7 +42,6 @@ void task_started(struct sched_task *task, u64 pid, char *name)
 {
     task->name = name;
 
-
     task->next = NULL; // Initialize the next pointer
 
     task->priority = get_task_prio(task);
@@ -48,7 +51,9 @@ void task_started(struct sched_task *task, u64 pid, char *name)
    The OS will not end a task that is on a runqueue */
 void task_ended(struct sched_task *task)
 {
-    // Remove the task from the linked list
+    // Ensure the task is removed from the queue by
+    // removing the task from the linked list
+
     if (head == task)
     {
         head = head->next;
@@ -74,6 +79,13 @@ void task_ended(struct sched_task *task)
     DONT_PREEMPT - The currently running task can continue */
 int enqueue_task(struct sched_task *task)
 {
+    /*
+     *
+     *  When a new task is enqueued, place the new task in the queue and sort
+     *  based on priority
+     *
+     */
+
     // If the linked list is empty or the new task has the highest priority, make it the new head.
     if (head == NULL || task->priority < head->priority)
     {
@@ -90,7 +102,9 @@ int enqueue_task(struct sched_task *task)
         task->next = current->next;
         current->next = task;
     }
+    //debugging print_state
     //print_state();
+
     return DO_PREEMPT;
 }
 
@@ -116,5 +130,5 @@ struct sched_task *dequeue_next_task()
    return how long this task should run for in microseconds */
 long get_timeslice_length(struct sched_task *task)
 {
-    return 0;
+    return 0;//priority scheduler does not use quantum
 }

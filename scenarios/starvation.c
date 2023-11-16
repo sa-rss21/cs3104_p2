@@ -103,13 +103,15 @@ void _start(char *argument)
     if (strcmp(argument, "init") == 0)
     {
         write("I am init\n"); 
+    
         
+        spawn_with_prio(NULL, "batch_task", 3);
         spawn_with_prio(NULL, "interactive_task_1", 1);
         spawn_with_prio(NULL, "interactive_task_2", 1);
         spawn_with_prio(NULL, "interactive_task_3", 1);
         spawn_with_prio(NULL, "interactive_task_4", 1);
+    
         spawn_with_prio(NULL, "interactive_task_5", 1);
-        spawn_with_prio(NULL, "batch_task", 3);
         
     }
     if (strcmp(argument, "interactive_task_1") == 0 || 
@@ -131,6 +133,7 @@ void _start(char *argument)
         // Simulate a longer batch task that needs CPU time
         for (int i = 0; i < 100; i++) {
             work();
+            
         }
     }
 
