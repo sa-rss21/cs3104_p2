@@ -82,6 +82,8 @@ cpu_utilization = (100 - (cpu_downtime/total_duration) * 100)
 
 throughput = (len(pids) / total_duration) * 60000
 
+bar_colors = [COLOURS[pid - 1] for pid in pids.keys()]
+
 # Mean data
 print(f'Mean wait time: {(sum(wait_time_samples) / len(wait_time_samples)):.02f}ms')
 
@@ -118,7 +120,7 @@ plt.show()
 
 # Plot showing response time for each process
 plt.figure(figsize=(10, 5))
-plt.bar(list(run_info.keys()), r_times, color=plt_c)
+plt.bar(list(run_info.keys()), r_times, color=bar_colors )
 plt.xlabel('Process ID')
 plt.ylabel('Response Time(ms)')
 plt.title('Response Times for Each Process')
@@ -128,7 +130,7 @@ plt.show()
 
 # Plot showing CPU turnaround time for each process
 plt.figure(figsize=(10, 5))
-plt.bar(list(run_info.keys()), t_times, color=plt_c)
+plt.bar(list(run_info.keys()), t_times, color=bar_colors)
 plt.xlabel('Process ID')
 plt.ylabel('Turnaround Time(ms)')
 plt.title('Turnaround Times for Each Process')
